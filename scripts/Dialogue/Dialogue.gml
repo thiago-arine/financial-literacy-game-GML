@@ -9,7 +9,7 @@ function create_dialog(_messages){
 char_colors = {
     "Teste NPC": c_fuchsia,
     "Mentor": c_teal,
-	"Pergunta": c_red
+	options: c_red
 };
 
 dialog_npc = [
