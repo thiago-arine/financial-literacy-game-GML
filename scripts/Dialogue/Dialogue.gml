@@ -9,7 +9,6 @@ function create_dialog(_messages){
 char_colors = {
     "Teste NPC": c_fuchsia,
     "Mentor": c_teal,
-	options: c_red
 };
 
 dialog_npc = [
@@ -27,7 +26,7 @@ dialog_mentor = [
     },
     {
         name: "Mentor",
-        msg: "Nossa meta: Construir liberdade finaceira. Você aprenderá a investir e a diferença entre necessidade e desejo. A partir de agora cada escolha é sua.",
+        msg: "Nossa meta: Construir liberdade financeira. Você aprenderá a investir e a diferença entre necessidade e desejo. A partir de agora cada escolha é sua.",
 		is_question: false
     },
     {
@@ -45,6 +44,6 @@ dialog_mentor = [
     },
 	{
 		name: "Mentor",
-		msg: "Ótimo! Agora que já deifniu a sua meta, vamos ao que interessa: como cumpri-la.",
+		msg: "Ótimo! Agora que já definiu a sua meta, vamos ao que interessa: como cumpri-la.",
 		is_question: false
 	}];

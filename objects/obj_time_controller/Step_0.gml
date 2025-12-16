@@ -1,3 +1,7 @@
+if (global.time_is_paused) {
+    exit; 
+}
+
 //delta_time é em nanosegundos
 real_time_accumulator += delta_time / 1000000;
 

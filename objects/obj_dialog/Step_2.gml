@@ -16,6 +16,7 @@ else if (messages[current_message].is_question = false and keyboard_check_presse
 	current_message++;
 	if (current_message >= array_length(messages)){
 	   show_debug_message("Destruindo dialogo")
+	   global.time_is_paused = false;
 	   instance_destroy();
 	}
 	else {
