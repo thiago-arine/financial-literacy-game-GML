@@ -31,6 +31,13 @@ dialog_npc = [
         msg: "Boa, sabia que iria comprar.",
 		is_question: false,
 		number: 1,
+		is_end: false
+	},
+	{
+		name: "Amigo",
+        msg: "Amanhã nós jogamos juntos, tchauu.",
+		is_question: false,
+		number: 1,
 		is_end: true
 	},
 	{

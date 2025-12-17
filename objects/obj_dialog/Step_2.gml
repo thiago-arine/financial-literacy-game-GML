@@ -13,16 +13,18 @@ if (current_char < string_length(_str)){
 	}
 } 
 else if (messages[current_message].is_question = false and keyboard_check_pressed(input_key) or response = true){
+	response = false
 	if (messages[current_message].is_end == true){
 		instance_destroy();
 		global.time_is_paused = false;
 	} 
-	response = false
 	if (messages[current_message].number != -1 and messages[current_message].is_end == false){
-		while (messages[current_message].number != number_option){
-			current_message++;
-		}
+		if (messages[current_message].number != number_option){
+			while (messages[current_message].number != number_option){
+				current_message++;
+			}
 		current_message--
+		}	
 	}
 	current_message++;
 	if (current_message >= array_length(messages)){
