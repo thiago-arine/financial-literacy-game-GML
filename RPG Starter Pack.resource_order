@@ -1,6 +1,8 @@
 {
   "FolderOrderSettings":[],
   "ResourceOrderSettings":[
+    {"name":"obj_balance","order":3,"path":"objects/obj_balance/obj_balance.yy",},
+    {"name":"obj_meta_display","order":2,"path":"objects/obj_meta_display/obj_meta_display.yy",},
     {"name":"obj_time_controller","order":1,"path":"objects/obj_time_controller/obj_time_controller.yy",},
   ],
 }

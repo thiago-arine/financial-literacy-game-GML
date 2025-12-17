@@ -34,12 +34,19 @@ if (messages[current_message].is_question == true) {
         if (point_in_rectangle(mx, my, x_position, _y, x_position + 200, _y + 20)) {
 
             if (mouse_check_button_pressed(mb_left)) {
+				response = true
 				switch(messages[current_message].choice){
 					case "meta": 
 						global.meta = messages[current_message].option_results[i]; // 1 = celular, 2 = viagem, 3 = intercâmbio
+						global.meta_display = instance_create_depth(0, 0, -1000, obj_meta_display)
 						show_debug_message("Definição da meta")
-						response = true
+						//response = true
 						break;
+					case "game_promotion":
+						if (messages[current_message].option_results[i] == 1){
+						 global.balance -= 60.00
+						}
+						number_option = messages[current_message].option_results[i]
 				}
 				
             }
