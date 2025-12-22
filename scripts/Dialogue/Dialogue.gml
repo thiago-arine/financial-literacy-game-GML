@@ -16,9 +16,16 @@ char_colors = {
 };
 
 dialog_npc = [
+	{
+        name: "Amigo",
+        msg: "Cara, você não sabe o que aconteceu! Baldur's Gate 3 está com 70% de desconto!",
+		is_question: false,
+		number: 0,
+		is_end: false
+    },
     {
         name: "Amigo",
-        msg: "Cara, você não sabe o que aconteceu! Baldur's Gate 3 está com 70% de desconto, você vai comprar né?",
+        msg: "Você vai comprar né?",
 		is_question: true,
 		options: ["Óbvio", "Queria muito, mas não vai dar..."],
 		option_results: [1, 2],
@@ -72,9 +79,9 @@ dialog_mentor = [
     },
     {
         name: "Mentor",
-        msg: "Vamos começar. Qual é o seu objetivo finaceiro?",
+        msg: "Vamos começar. Qual é o seu objetivo financeiro?",
 		is_question: true,
-		options: ["Comprar um celular", "Pagar minha viagem de formatura", "Bancar meu intercâmbio"],
+		options: ["Celular: R$700,00 em 3 meses", "Formatura: R$1500,00 em 6 meses", "Intercâmbio: R$4000,00 em 12 meses"],
 		option_results: [1, 2, 3],
 		choice: "meta",
 		number: -1,

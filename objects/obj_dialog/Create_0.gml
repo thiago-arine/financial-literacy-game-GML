@@ -17,4 +17,3 @@ dialog_height = 200;
 
 response = false
 
-

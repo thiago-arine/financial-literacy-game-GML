@@ -1,57 +1,103 @@
-var _dx = 0;
-var _dy = gui_h * 0.7;
-var _boxw = gui_w;
-var _boxh = gui_h - _dy;
+var _boxw = gui_w * 0.9;
+var _boxh = gui_h * 0.3; 
+var _margin_bottom = 50;
+
+if (messages[current_message].is_question == true) {
+    _boxh *= 1.1; 
+}
+
+var _dx = (display_get_gui_width() - _boxw) / 2;
+var _dy = display_get_gui_height() - _boxh - _margin_bottom;
 
 draw_sprite_stretched(spr_box, 0, _dx, _dy, _boxw, _boxh);
 
 _dx += 16;
 _dy += 16;
+var _padding = 10; 
 
 draw_set_font(Font1);
 var _name = messages[current_message].name;
 
 draw_set_colour(global.char_colors[$ _name]);
 
-draw_text(_dx, _dy, _name);
+draw_text(_dx + _padding, _dy + _padding, _name);
 
 draw_set_colour(c_white);
 
 _dy += 40;
 
-draw_text_ext(_dx, _dy, draw_message, -1, _boxw - _dx * 2);
+draw_text_ext(_dx + _padding, _dy + 10, draw_message, -1, _boxw - (_padding * 2));
+var _y_options = _dy + _padding + 10
 
 if (messages[current_message].is_question == true) {
-    var _y = y_position;
+
+    var _option_start_y = _y_options + 40;
+    var _selected_option = -1; 
+    
     for (var i = 0; i < array_length(messages[current_message].options); i++) {
-		draw_set_colour(c_black)
-        draw_text(x_position, _y, "> " + messages[current_message].options[i]);
-   
-        // Verificar clique (exemplo simplificado)
+        var _current_y = _option_start_y + (i * 30);
+        var _option_text = "> " + messages[current_message].options[i];
+        
+        var _text_width = string_width(_option_text);
+        var _text_height = string_height(_option_text);
+        
         var mx = device_mouse_x_to_gui(0);
         var my = device_mouse_y_to_gui(0);
         
-        if (point_in_rectangle(mx, my, x_position, _y, x_position + 200, _y + 20)) {
-
-            if (mouse_check_button_pressed(mb_left)) {
-				response = true
-				switch(messages[current_message].choice){
-					case "meta": 
-						global.meta = messages[current_message].option_results[i]; // 1 = celular, 2 = viagem, 3 = intercâmbio
-						global.meta_display = instance_create_depth(0, 0, -1000, obj_meta_display)
-						show_debug_message("Definição da meta")
-						//response = true
-						break;
-					case "game_promotion":
-						if (messages[current_message].option_results[i] == 1){
-						 global.balance -= 60.00
-						}
-						number_option = messages[current_message].option_results[i]
-				}
-				
-            }
+        var _hover = point_in_rectangle(mx, my, 
+            _dx + _padding, _current_y,
+            _dx + _padding + _text_width, _current_y + _text_height
+        );
+        
+        if (_hover && mouse_check_button_pressed(mb_left)) {
+            _selected_option = i;
+            response = true;
+            
+            handle_question_choice(messages[current_message].choice, i);
+        }
+    }
+    
+    for (var i = 0; i < array_length(messages[current_message].options); i++) {
+        var _current_y = _option_start_y + (i * 30);
+        var _option_text = "> " + messages[current_message].options[i];
+        
+        var _text_width = string_width(_option_text);
+        var _text_height = string_height(_option_text);
+        
+        var mx = device_mouse_x_to_gui(0);
+        var my = device_mouse_y_to_gui(0);
+        
+        var _hover = point_in_rectangle(mx, my, 
+            _dx + _padding, _current_y,
+            _dx + _padding + _text_width, _current_y + _text_height
+        );
+        
+        if (_selected_option == i) {
+            draw_set_colour(c_green); 
+        } else if (_hover) {
+            draw_set_colour(c_orange); 
+        } else {
+            draw_set_colour(c_white); 
         }
         
-        _y += 25;
+        draw_text(_dx + _padding, _current_y, _option_text);
+    }
+}
+
+function handle_question_choice(choice_type, option_index) {
+    switch(choice_type) {
+        case "meta": 
+            global.meta = messages[current_message].option_results[option_index];
+            global.meta_display = instance_create_depth(0, 0, -1000, obj_meta_display);
+            show_debug_message("Meta definida: " + string(global.meta));
+            break;
+            
+        case "game_promotion":
+            if (messages[current_message].option_results[option_index] == 1) {
+                global.balance -= 60.00;
+                show_debug_message("Promoção adquirida! Saldo: " + string(global.balance));
+            }
+            number_option = messages[current_message].option_results[option_index];
+            break;
     }
 }
