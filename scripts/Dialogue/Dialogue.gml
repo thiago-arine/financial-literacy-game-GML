@@ -12,7 +12,7 @@ function advance_dialog(){
 
 char_colors = {
     "Amigo": c_fuchsia,
-    "Mentor": c_teal,
+    "Mentor": c_black,
 };
 
 dialog_npc = [
