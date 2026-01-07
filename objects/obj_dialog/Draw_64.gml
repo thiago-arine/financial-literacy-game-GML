@@ -1,8 +1,10 @@
+//_str = messages[current_dialog];
+
 var _boxw = gui_w * 0.9;
 var _boxh = gui_h * 0.3; 
 var _margin_bottom = 50;
 
-if (messages[current_message].is_question == true) {
+if ( _str.dialog[current_message].is_question == true) {
     _boxh *= 1.1; 
 }
 
@@ -16,7 +18,7 @@ _dy += 16;
 var _padding = 10; 
 
 draw_set_font(Font1);
-var _name = messages[current_message].name;
+var _name = _str.dialog[current_message].name;
 
 draw_set_colour(global.char_colors[$ _name]);
 
@@ -29,14 +31,14 @@ _dy += 40;
 draw_text_ext(_dx + _padding, _dy + 10, draw_message, -1, _boxw - (_padding * 2));
 var _y_options = _dy + _padding + 10
 
-if (messages[current_message].is_question == true) {
+if ( _str.dialog[current_message].is_question == true) {
 
     var _option_start_y = _y_options + 40;
     var _selected_option = -1; 
     
-    for (var i = 0; i < array_length(messages[current_message].options); i++) {
+    for (var i = 0; i < array_length( _str.dialog[current_message].options); i++) {
         var _current_y = _option_start_y + (i * 30);
-        var _option_text = "> " + messages[current_message].options[i];
+        var _option_text = "> " +  _str.dialog[current_message].options[i];
         
         var _text_width = string_width(_option_text);
         var _text_height = string_height(_option_text);
@@ -53,13 +55,13 @@ if (messages[current_message].is_question == true) {
             _selected_option = i;
             response = true;
             
-            handle_question_choice(messages[current_message].choice, i);
+            handle_question_choice( _str.dialog[current_message].choice, i);
         }
     }
     
-    for (var i = 0; i < array_length(messages[current_message].options); i++) {
+    for (var i = 0; i < array_length( _str.dialog[current_message].options); i++) {
         var _current_y = _option_start_y + (i * 30);
-        var _option_text = "> " + messages[current_message].options[i];
+        var _option_text = "> " +  _str.dialog[current_message].options[i];
         
         var _text_width = string_width(_option_text);
         var _text_height = string_height(_option_text);
@@ -87,17 +89,17 @@ if (messages[current_message].is_question == true) {
 function handle_question_choice(choice_type, option_index) {
     switch(choice_type) {
         case "meta": 
-            global.meta = messages[current_message].option_results[option_index];
+            global.meta = _str.dialog[current_message].option_results[option_index];
             global.meta_display = instance_create_depth(0, 0, -1000, obj_meta_display);
             show_debug_message("Meta definida: " + string(global.meta));
             break;
             
-        case "game_promotion":
-            if (messages[current_message].option_results[option_index] == 1) {
+        case "game_promotion": //mudar para "reputation_quest" e aplicar ama função que recebe o nome da quest e altera a reputação e o saldo do jogador
+            if ( _str.dialog[current_message].option_results[option_index] == 1) {
                 global.balance -= 60.00;
                 show_debug_message("Promoção adquirida! Saldo: " + string(global.balance));
             }
-            number_option = messages[current_message].option_results[option_index];
+            number_option = _str.dialog[current_message].option_results[option_index];
             break;
     }
 }

@@ -1,4 +1,6 @@
+_str = noone
 messages = [];
+current_dialog = 0
 current_message = -1;
 current_char = 0;
 draw_message  = "";
