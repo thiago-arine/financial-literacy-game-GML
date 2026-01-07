@@ -12,7 +12,7 @@ char_colors = {
     "Mentor": c_white,
 };
 
-dialog_npc = [
+dialog_npc = [ //Em opções de gastos, a resposta 1 SEMPRE será para gastar, enquanto a 2 não gasta
 	{	kind: "unique",
 		happened: false,
 		required_event : "",
@@ -31,6 +31,7 @@ dialog_npc = [
 			options: ["Óbvio", "Queria muito, mas não vai dar..."],
 			option_results: [1, 2],
 			choice: "game_promotion",
+			kind: "loss",
 			number: 0,
 			is_end: false
 	    },
@@ -102,6 +103,7 @@ dialog_mentor = [{
 			options: ["Celular: R$700,00 em 3 meses", "Formatura: R$1500,00 em 6 meses", "Intercâmbio: R$4000,00 em 12 meses"],
 			option_results: [1, 2, 3],
 			choice: "meta",
+			kind: "special",
 			number: -1,
 			is_end: false
 	    },

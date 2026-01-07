@@ -3,10 +3,12 @@
   "ResourceOrderSettings":[
     {"name":"obj_balance","order":3,"path":"objects/obj_balance/obj_balance.yy",},
     {"name":"obj_meta_display","order":2,"path":"objects/obj_meta_display/obj_meta_display.yy",},
+    {"name":"obj_reputation","order":4,"path":"objects/obj_reputation/obj_reputation.yy",},
     {"name":"obj_time_controller","order":1,"path":"objects/obj_time_controller/obj_time_controller.yy",},
-    {"name":"Choices","order":1,"path":"scripts/Choices/Choices.yy",},
+    {"name":"Events","order":2,"path":"scripts/Events/Events.yy",},
     {"name":"spr_button_close","order":3,"path":"sprites/spr_button_close/spr_button_close.yy",},
     {"name":"spr_mission_background","order":2,"path":"sprites/spr_mission_background/spr_mission_background.yy",},
     {"name":"spr_mission","order":1,"path":"sprites/spr_mission/spr_mission.yy",},
+    {"name":"spr_reputation_bar","order":4,"path":"sprites/spr_reputation_bar/spr_reputation_bar.yy",},
   ],
 }

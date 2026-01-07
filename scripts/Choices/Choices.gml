@@ -1,3 +1,0 @@
-function complete_choice(){
-
-}
