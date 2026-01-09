@@ -1,6 +1,6 @@
 goals = {
-    "1": "Celular R$700,00 em 3 meses", 
-    "2": "Formatura R$1500,00 em 6 meses",
+    "1": "Celular R$600,00 em 3 meses", 
+    "2": "Formatura R$1700,00 em 6 meses",
     "3": "Intercâmbio = R$4000,00 em 12 meses"
 };
 

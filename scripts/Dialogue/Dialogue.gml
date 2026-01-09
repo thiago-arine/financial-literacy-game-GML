@@ -100,7 +100,7 @@ dialog_mentor = [{
 	        name: "Mentor",
 	        msg: "Vamos começar. Qual é o seu objetivo financeiro?",
 			is_question: true,
-			options: ["Celular: R$700,00 em 3 meses", "Formatura: R$1500,00 em 6 meses", "Intercâmbio: R$4000,00 em 12 meses"],
+			options: ["Celular: R$600,00 em 3 meses", "Formatura: R$1700,00 em 6 meses", "Intercâmbio: R$4000,00 em 12 meses"],
 			option_results: [1, 2, 3],
 			choice: "meta",
 			kind: "special",
