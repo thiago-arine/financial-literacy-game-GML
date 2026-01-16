@@ -30,7 +30,7 @@ function Process_loss_event(event_name, event_kind, option_result){
 loss_events = [
 	{
 	name: "game_promotion",
-	loss: -60,
+	loss: -15,
 	reputation: 2,
 	},
 	{
