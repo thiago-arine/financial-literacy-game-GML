@@ -13,3 +13,4 @@ x = round(x / TILE_SIZE) * TILE_SIZE;
 y = round(y / TILE_SIZE) * TILE_SIZE;
 
 global.current_idle_sprite = spr_player_idle_down;
+global.reputation = 100

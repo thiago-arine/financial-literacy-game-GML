@@ -1,7 +1,6 @@
 var gui_w = display_get_gui_width();
 var gui_h = display_get_gui_height();
 
-// tamanho do frame escalado
 var frame_w = sprite_get_width(spr_reputation_bar) ;
 var frame_h = sprite_get_height(spr_reputation_bar);
 

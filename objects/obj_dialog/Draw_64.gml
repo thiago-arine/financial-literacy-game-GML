@@ -96,10 +96,12 @@ function handle_question_choice(choice_type, option_index) {
             
         case "game_promotion": //mudar para "reputation_quest" e aplicar ama função que recebe o nome da quest e altera a reputação e o saldo do jogador
             if ( _str.dialog[current_message].option_results[option_index] == 1) {
-                global.balance -= 60.00;
+                global.balance -= 15.00;
+				global.reputation += 10;
                 show_debug_message("Promoção adquirida! Saldo: " + string(global.balance));
             }
             number_option = _str.dialog[current_message].option_results[option_index];
+			global.reputation -= 5; //Criar função para verificar se a reputação do player já é máxima ou mínima, visto que não pode ultrapassar esses valores
             break;
     }
 }
