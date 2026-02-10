@@ -100,7 +100,7 @@ dialog_mentor = [{
 	        name: "Mentor",
 	        msg: "Vamos começar. Qual é o seu objetivo financeiro?",
 			is_question: true,
-			options: ["Tênis: R$240,00 em 4 meses", "Celular: R$900,00 em 9 meses", "Formatura: R$1700,00 em 15 meses"],
+			options: ["Fone de Ouvido: R$100,00 em 4 meses", "Celular: R$900,00 em 9 meses", "Formatura: R$1700,00 em 15 meses"],
 			option_results: [1, 2, 3],
 			choice: "meta",
 			kind: "special",
@@ -116,7 +116,7 @@ dialog_mentor = [{
 		},
 		{
 			name: "Mentor",
-			msg: "Em todos os meses, no dia 1º, você receberá uma mesada de R$100,00 de seus pais. Além disso, você pode procurar por fontes de renda alternativas, mesmo sendo criança.",
+			msg: "Em todos os meses, no dia 1º, você receberá uma mesada de R$30,00 de seus pais. Além disso, você pode procurar por fontes de renda alternativas, mesmo sendo criança.",
 			is_question: false,
 			number: -1,
 			is_end: false

@@ -1,5 +1,5 @@
 goals = {
-    "1": "Tênis R$240,00 em 4 meses", 
+    "1": "Fone de Ouvido R$100,00 em 4 meses", 
     "2": "Celular R$900,00 em 9 meses",
     "3": "Formatura = R$1700,00 em 15 meses"
 };
