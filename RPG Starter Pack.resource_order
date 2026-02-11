@@ -11,6 +11,7 @@
     {"name":"spr_bg_day","order":6,"path":"sprites/spr_bg_day/spr_bg_day.yy",},
     {"name":"spr_bg_dusk","order":8,"path":"sprites/spr_bg_dusk/spr_bg_dusk.yy",},
     {"name":"spr_bg_night","order":5,"path":"sprites/spr_bg_night/spr_bg_night.yy",},
+    {"name":"spr_bg_sunset","order":13,"path":"sprites/spr_bg_sunset/spr_bg_sunset.yy",},
     {"name":"spr_button_close","order":3,"path":"sprites/spr_button_close/spr_button_close.yy",},
     {"name":"spr_icon_bank","order":10,"path":"sprites/spr_icon_bank/spr_icon_bank.yy",},
     {"name":"spr_icon_goal","order":11,"path":"sprites/spr_icon_goal/spr_icon_goal.yy",},
