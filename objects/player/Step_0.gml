@@ -3,17 +3,16 @@ if (instance_exists(obj_dialog)) exit;
 if (!moving) {
     handle_input();
 } 
-else {
+if (moving) {
     move_to_target();
 }
 
 function handle_input() {
-
-    var input_dir_x = keyboard_check(ord("D")) - keyboard_check(ord("A"));
+	var input_dir_x = keyboard_check(ord("D")) - keyboard_check(ord("A"));
     var input_dir_y = keyboard_check(ord("S")) - keyboard_check(ord("W"));
-	
+
     if (input_dir_x != 0 || input_dir_y != 0) {
-        
+
         if (input_dir_y != 0) {
             dir_x = 0;
             dir_y = input_dir_y;
@@ -22,13 +21,37 @@ function handle_input() {
             dir_y = 0;
         }
 
-        var _next_target_x = x + dir_x * TILE_SIZE;
-        var _next_target_y = y + dir_y * TILE_SIZE;
+        var next_x = x + dir_x * TILE_SIZE;
+        var next_y = y + dir_y * TILE_SIZE;
 
-        if (tilemap_get_at_pixel(tilemap, _next_target_x, _next_target_y) == 0) {
+        var half = TILE_SIZE / 2 - 1;
 
-            target_x = _next_target_x;
-            target_y = _next_target_y;
+        var check1_x, check1_y;
+        var check2_x, check2_y;
+
+        if (dir_x != 0) {
+            check1_x = next_x + dir_x * half;
+            check1_y = next_y - half;
+
+            check2_x = next_x + dir_x * half;
+            check2_y = next_y + half;
+        }
+
+        if (dir_y != 0) {
+            check1_x = next_x - half;
+            check1_y = next_y + dir_y * half;
+
+            check2_x = next_x + half;
+            check2_y = next_y + dir_y * half;
+        }
+
+        var tile1 = tilemap_get_at_pixel(tilemap, check1_x, check1_y);
+        var tile2 = tilemap_get_at_pixel(tilemap, check2_x, check2_y);
+
+        if (tile1 == 0 && tile2 == 0) {
+
+            target_x = next_x;
+            target_y = next_y;
             moving = true;
 
             if (dir_y < 0) {
@@ -52,22 +75,56 @@ function handle_input() {
 }
 
 function move_to_target() {
+
+    var dt = delta_time / 1000000;
+    var move_distance = MOVE_SPEED * dt;
+
+    var dx = target_x - x;
+    var dy = target_y - y;
+
+    if (dx != 0) {
+        var step = sign(dx) * move_distance;
+        if (abs(step) >= abs(dx)) {
+            x = target_x;
+        } else {
+            x += step;
+        }
+
+    } else if (dy != 0) {
+        var step = sign(dy) * move_distance;
+        if (abs(step) >= abs(dy)) {
+            y = target_y;
+        } else {
+            y += step;
+        }
+    }
+
+    if (x == target_x && y == target_y) {
+        moving = false;
+    }
+}
+
+/*function move_to_target() {
+
     var dt = delta_time / 1000000; 
 
     var move_distance = MOVE_SPEED * dt;
+
     
-    var move_vector_x = (target_x - x) / point_distance(x, y, target_x, target_y);
-    var move_vector_y = (target_y - y) / point_distance(x, y, target_x, target_y);
-    
-    if (point_distance(x, y, target_x, target_y) <= move_distance) {
-        x = target_x;
-        y = target_y;
-        moving = false;
-    } else {
-        x += move_vector_x * move_distance;
-        y += move_vector_y * move_distance;
-		
-		x = round(x);
-        y = round(y);
-    }
-}
+    var dist = point_distance(x, y, target_x, target_y);
+
+	if (dist <= move_distance) {
+	    x = target_x;
+	    y = target_y;
+	    moving = false;
+	} else {
+	    var move_vector_x = (target_x - x) / dist;
+	    var move_vector_y = (target_y - y) / dist;
+
+	    x += move_vector_x * move_distance;
+	    y += move_vector_y * move_distance;
+
+	    x = round(x);
+	    y = round(y);
+	}
+}*/
