@@ -30,6 +30,9 @@
     {"name":"spr_button_close","order":3,"path":"sprites/spr_button_close/spr_button_close.yy",},
     {"name":"spr_icon_bank","order":10,"path":"sprites/spr_icon_bank/spr_icon_bank.yy",},
     {"name":"spr_icon_goal","order":11,"path":"sprites/spr_icon_goal/spr_icon_goal.yy",},
+    {"name":"spr_inner1","order":16,"path":"sprites/spr_inner1/spr_inner1.yy",},
+    {"name":"spr_inner2","order":17,"path":"sprites/spr_inner2/spr_inner2.yy",},
+    {"name":"spr_inner3","order":18,"path":"sprites/spr_inner3/spr_inner3.yy",},
     {"name":"spr_mission_background","order":2,"path":"sprites/spr_mission_background/spr_mission_background.yy",},
     {"name":"spr_mission","order":1,"path":"sprites/spr_mission/spr_mission.yy",},
     {"name":"spr_phone_body","order":12,"path":"sprites/spr_phone_body/spr_phone_body.yy",},
@@ -40,5 +43,8 @@
     {"name":"TileSet2","order":15,"path":"tilesets/TileSet2/TileSet2.yy",},
     {"name":"TileSet3","order":17,"path":"tilesets/TileSet3/TileSet3.yy",},
     {"name":"TileSet4","order":18,"path":"tilesets/TileSet4/TileSet4.yy",},
+    {"name":"TileSet5","order":22,"path":"tilesets/TileSet5/TileSet5.yy",},
+    {"name":"TileSet6","order":23,"path":"tilesets/TileSet6/TileSet6.yy",},
+    {"name":"TileSet7","order":24,"path":"tilesets/TileSet7/TileSet7.yy",},
   ],
 }
