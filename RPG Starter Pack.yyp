@@ -49,6 +49,7 @@
     {"id":{"name":"rm_city","path":"rooms/rm_city/rm_city.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"Dialogue","path":"scripts/Dialogue/Dialogue.yy",},},
+    {"id":{"name":"scr_game_functions","path":"scripts/scr_game_functions/scr_game_functions.yy",},},
     {"id":{"name":"spr_bg_dawn","path":"sprites/spr_bg_dawn/spr_bg_dawn.yy",},},
     {"id":{"name":"spr_bg_day","path":"sprites/spr_bg_day/spr_bg_day.yy",},},
     {"id":{"name":"spr_bg_dusk","path":"sprites/spr_bg_dusk/spr_bg_dusk.yy",},},

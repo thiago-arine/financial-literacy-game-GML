@@ -98,6 +98,7 @@ function handle_question_choice(choice_type, option_index) {
             if ( _str.dialog[current_message].option_results[option_index] == 1) {
                 global.balance -= 15.00;
 				global.reputation += 10;
+				update_statement("Baldur's gate", "15", "loss")
                 show_debug_message("Promoção adquirida! Saldo: " + string(global.balance));
             }
             number_option = _str.dialog[current_message].option_results[option_index];

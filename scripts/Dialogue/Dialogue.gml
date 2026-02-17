@@ -116,14 +116,14 @@ dialog_mentor = [{
 		},
 		{
 			name: "Mentor",
-			msg: "Em todos os meses, no dia 1º, você receberá uma mesada de R$30,00 de seus pais. Além disso, você pode procurar por fontes de renda alternativas, mesmo sendo criança.",
+			msg: "Em todos os meses, no dia 1º, você receberá uma mesada de R$30,00 de seus pais. Por enquanto, essa será sua única fonte de renda, mas no futuro você poderá procurar por fontes alternativas, mesmo sendo criança.",
 			is_question: false,
 			number: -1,
 			is_end: false
 		}, 
 		{
 			name: "Mentor",
-			msg:  "E lembre-se, ganhar não é tudo, você também deve controlar seus gastos durante sua jornada!",
+			msg:  "E lembre-se, ganhar não é tudo, você também deve controlar seus gastos durante sua jornada! Para isso, acesse seu extrato pressionando a tecla 'E', assim você poderá vizualizar suas despesas e ganhos.",
 			is_question: false,
 			number: -1,
 			is_end: false

@@ -1,5 +1,7 @@
 if (instance_exists(obj_dialog)) exit;
-    
+if (instance_exists(obj_statement_ui)) exit
+   
+
 if (instance_exists(player) && distance_to_object(player) < 8)
 {
     can_talk = true;

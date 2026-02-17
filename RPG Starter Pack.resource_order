@@ -21,6 +21,7 @@
     {"name":"obj_ui_cellphone","order":14,"path":"objects/obj_ui_cellphone/obj_ui_cellphone.yy",},
     {"name":"player","order":1,"path":"objects/player/player.yy",},
     {"name":"rm_city","order":1,"path":"rooms/rm_city/rm_city.yy",},
+    {"name":"scr_game_functions","order":1,"path":"scripts/scr_game_functions/scr_game_functions.yy",},
     {"name":"spr_bg_dawn","order":7,"path":"sprites/spr_bg_dawn/spr_bg_dawn.yy",},
     {"name":"spr_bg_day","order":6,"path":"sprites/spr_bg_day/spr_bg_day.yy",},
     {"name":"spr_bg_dusk","order":8,"path":"sprites/spr_bg_dusk/spr_bg_dusk.yy",},

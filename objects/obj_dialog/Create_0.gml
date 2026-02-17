@@ -1,3 +1,4 @@
+
 _str = noone
 messages = [];
 current_dialog = 0
