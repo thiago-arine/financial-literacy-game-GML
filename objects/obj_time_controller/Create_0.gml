@@ -1,4 +1,4 @@
-
+// --- Configurações de Tempo ---
 var REAL_DAY_DURATION = 60; 
 var GAME_MINUTES_PER_DAY = 1440; 
 global.REAL_SECONDS_PER_GAME_MINUTE = REAL_DAY_DURATION / GAME_MINUTES_PER_DAY;
@@ -20,7 +20,16 @@ current_bg = bg_night;
 next_bg    = bg_night;
 bg_alpha   = 0;
 
+icon_morning   = spr_timer_morning;
+icon_afternoon = spr_timer_evening;
+icon_evening   = spr_timer_afternoon;
+
+alpha_morning   = 0;
+alpha_afternoon = 0;
+alpha_evening   = 0;
+
 var _lay_id = layer_get_id("Background");
 back_id = layer_background_get_id(_lay_id);
-
 layer_background_visible(back_id, false);
+
+depth = 1000;
