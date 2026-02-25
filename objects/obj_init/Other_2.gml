@@ -1,0 +1,12 @@
+// DEFINA AQUI A RESOLUÇÃO DA SUA VIEW (O TAMANHO DA SUA ARTE)
+var _w = 320; 
+var _h = 180;
+
+// Configura a GUI para ter o mesmo tamanho da arte
+display_set_gui_size(_w, _h);
+
+// Garante que o GameMaker não tente "suavizar" os pixels
+gpu_set_texfilter(false); 
+
+// Força a GUI a manter a proporção 1:1 com a tela definida acima
+display_set_gui_maximize(1, 1, 0, 0);
