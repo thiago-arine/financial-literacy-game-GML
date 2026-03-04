@@ -1,3 +1,5 @@
+event_inherited();                  // Inherit events from the parent object
+
 if (instance_exists(obj_dialog)) exit;
 if (instance_exists(obj_statement_ui)) exit
    
