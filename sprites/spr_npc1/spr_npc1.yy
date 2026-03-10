@@ -23,7 +23,7 @@
   ],
   "name":"spr_npc1",
   "nineSlice":null,
-  "origin":7,
+  "origin":6,
   "parent":{
     "name":"Sprites",
     "path":"folders/Sprites.yy",
@@ -75,7 +75,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":8,
+    "xorigin":0,
     "yorigin":20,
   },
   "swatchColours":null,
