@@ -8,8 +8,8 @@
   "name":"obj_tree1",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"scenery",
+    "path":"folders/Objects/scenery.yy",
   },
   "parentObjectId":{
     "name":"obj_entity_parent",

@@ -6,8 +6,8 @@
   "name":"obj_bush2",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"scenery",
+    "path":"folders/Objects/scenery.yy",
   },
   "parentObjectId":{
     "name":"obj_entity_parent",
@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_bush1_1",
-    "path":"sprites/spr_bush1_1/spr_bush1_1.yy",
+    "name":"spr_bush2",
+    "path":"sprites/spr_bush2/spr_bush2.yy",
   },
   "spriteMaskId":null,
   "visible":true,

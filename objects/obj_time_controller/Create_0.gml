@@ -10,15 +10,6 @@ global.game_minute_total = 360;
 global.time_is_paused = false;
 real_time_accumulator = 0;
 
-bg_night  = spr_bg_night; 
-bg_dawn   = spr_bg_dawn;  
-bg_day    = spr_bg_day;   
-bg_sunset = spr_bg_sunset;
-bg_dusk   = spr_bg_dusk;  
-
-current_bg = bg_night;
-next_bg    = bg_night;
-bg_alpha   = 0;
 
 icon_morning   = spr_timer_morning;
 icon_afternoon = spr_timer_evening;
@@ -28,8 +19,4 @@ alpha_morning   = 0;
 alpha_afternoon = 0;
 alpha_evening   = 0;
 
-var _lay_id = layer_get_id("Background");
-back_id = layer_background_get_id(_lay_id);
-layer_background_visible(back_id, false);
 
-depth = 1000;
