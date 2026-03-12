@@ -3,6 +3,10 @@ if (keyboard_check_pressed(ord("M"))) {
     phone_open = !phone_open; 
 }
 
+if (keyboard_check_pressed(vk_tab) || keyboard_check_pressed(ord("E"))) {
+    phone_open = false; 
+}
+
 // Interpolação para movimento suave
 var _target = phone_open ? (display_get_gui_height() - 500) : display_get_gui_height();
 phone_y = lerp(phone_y, _target, 0.15);

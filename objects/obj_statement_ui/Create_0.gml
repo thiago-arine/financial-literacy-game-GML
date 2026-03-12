@@ -1,1 +1,1 @@
-visible = true;
+open = false;
