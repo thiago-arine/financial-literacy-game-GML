@@ -1,9 +1,10 @@
 event_inherited();                  // Inherit events from the parent object
 
 if (instance_exists(obj_dialog)) exit;
-if (instance_exists(obj_statement_ui)) exit;
 
-
+if (instance_exists(obj_statement_ui)) {
+    if (obj_statement_ui.statement_open) exit;
+}
 
 if (!moving) {
     handle_input();
@@ -115,4 +116,3 @@ function move_to_target() {
         moving = false;
     }
 }
-

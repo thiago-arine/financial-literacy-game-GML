@@ -1,7 +1,9 @@
-if (keyboard_check_pressed(ord("E"))) {
-    open = !open;
+if (variable_global_exists("statement")) {
+    if (keyboard_check_pressed(ord("E"))) {
+        statement_open = !statement_open;
+    }
 }
 
 if (keyboard_check_pressed(vk_tab) || keyboard_check_pressed(ord("M"))) {
-    open = false;
+    statement_open = false;
 }

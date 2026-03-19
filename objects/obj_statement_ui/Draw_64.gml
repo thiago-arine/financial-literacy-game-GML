@@ -1,4 +1,4 @@
-if (open) {
+if (statement_open) {
 
     draw_set_alpha(1); 
 
