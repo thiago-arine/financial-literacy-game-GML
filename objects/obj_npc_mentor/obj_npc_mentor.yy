@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_mentor",
-    "path":"sprites/spr_mentor/spr_mentor.yy",
+    "name":"spr_npc_mentor",
+    "path":"sprites/spr_npc_mentor/spr_npc_mentor.yy",
   },
   "spriteMaskId":null,
   "visible":true,
