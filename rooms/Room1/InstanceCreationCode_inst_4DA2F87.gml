@@ -1,3 +1,3 @@
 target_room = rm_city
-target_x = 360
-target_y = 20
+target_x = 96
+target_y = 144

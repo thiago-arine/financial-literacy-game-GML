@@ -10,3 +10,9 @@ gpu_set_texfilter(false);
 
 // Força a GUI a manter a proporção 1:1 com a tela definida acima
 display_set_gui_maximize(1, 1, 0, 0);
+
+global.has_headset = false;
+global.has_key = false;
+global.has_kite = false;
+global.reputation = 0;
+global.balance = 1000; // Saldo inicial
