@@ -12,7 +12,7 @@ char_colors = {
     "Mentor": c_white,
 };
 
-dialog_npc = [ //Em opções de gastos, a resposta 1 SEMPRE será para gastar, enquanto a 2 não gasta
+dialog_amigo = [ //Em opções de gastos, a resposta 1 SEMPRE será para gastar, enquanto a 2 não gasta
 	{	kind: "unique",
 		happened: false,
 		required_event : "",
@@ -47,15 +47,30 @@ dialog_npc = [ //Em opções de gastos, a resposta 1 SEMPRE será para gastar, e
 	        msg: "Amanhã nós jogamos juntos, tchauu.",
 			is_question: false,
 			number: 1,
-			is_end: true
+			is_end: false
 		},
 		{
 			name: "Amigo",
 	        msg: "Eita, deixa para lá então...",
 			is_question: false,
 			number: 2,
+			is_end: false
+		},
+		{
+			name: "Amigo",
+	        msg: "E cara, você pode me ajudar com uma coisa? É que hoje, quando eu estava vindo para cá, deixei cair a chave da minha casa em algum lugar do seu quintal e não consegui encontrar de jeito nenhum.",
+			is_question: false,
+			number: 3,
+			is_end: false
+		},
+		{
+			name: "Amigo",
+	        msg: "Se você achar, pega pra mim pelo amor de deus! Se não minha mãe me mata!",
+			is_question: false,
+			number: 3,
 			is_end: true
-		}]
+		}
+		]
 	},
 	{
 		kind: "pattern",

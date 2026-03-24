@@ -38,7 +38,7 @@ else if ((!_str.dialog[current_message].is_question and keyboard_check_pressed(i
 				current_message++;
 			}
 		current_message--
-		}	
+		}
 	}
 	current_message++;
 	if (current_message >= array_length(_str.dialog)){
