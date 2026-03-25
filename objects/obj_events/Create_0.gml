@@ -1,128 +1,102 @@
-//Eventos serão divididos em três grupos: gain_event, loss_event e special_event.
-//gain_event e loss_event são tratados de maneiras semelhantes, alteraldo as var globais balance e reputation
-//special_event são outras escolhas do jogados, que não trabalha com balance ou reputation, como o evento de escolha de meta.
-   //special_events de maneiras distintas
-   
-//Os diálogos com opções de escolha devem ter uma chave de tipo de escola: gain, loss ou special.
-
-function Process_game_event(event_name, event_kind, option_result){
-//event_name tem que ser igual ao valor de "choice", event_kind também fica nos diálogos e deve ser igual a "gain", "loss" ou "special"
-	
-	//Tratamento de eventos de perda de dinheiro
-	if (event_kind == "loss") {
-		for (var i=0; i < array_length(loss_events); i++){
-			if (event_name == loss_events[i].name){
-				if (option_result == 1){
-					//Jogador aceitou gastar: altera saldo e reputação
-					global.balance += loss_events[i].loss
-					global.reputation += loss_events[i].reputation
-					
-					//Registra a transação no extrato bancário
-					if (variable_global_exists("statement")) {
-						array_push(global.statement, {
-							date: "24/03", 
-							from: loss_events[i].name, 
-							values: loss_events[i].loss, 
-							kind: "loss"
-						});
-					}
-				} else {
-					//Jogador recusou: perde reputação por não participar
-					global.reputation -= loss_events[i].reputation
-				}
-				break
-			}
-		}
-	} 
-	
-	//Tratamento de eventos de ganho de dinheiro
-	else if (event_kind == "gain") {
-		for (var i=0; i < array_length(gain_events); i++){
-			if (event_name == gain_events[i].name){
-				if (option_result == 1){
-					global.balance += gain_events[i].gain
-					global.reputation += gain_events[i].reputation
-				}
-				break
-			}
-		}
-	} 
-	
-	//Tratamento de eventos especiais (missões e itens coletáveis)
-	else if (event_kind == "special") {
-		//tratar com switch case, já que cada special_event terá um comportamento e saída diferente
-		switch(event_name) {
-			
-			case "quest_headset":
-				//Se o jogador escolher entregar (1) e possuir o item coletado
-				if (option_result == 1 && global.has_headset) {
-					global.reputation += 20
-					global.has_headset = false //Remove a flag de posse para o diálogo
-					inventory_remove_item("Headset") //Remove o item visualmente da grade
-				}
-			break;
-
-			case "quest_key":
-				if (option_result == 1 && global.has_key) {
-					global.reputation += 10
-					global.has_key = false
-					inventory_remove_item("Chave")
-				}
-			break;
-
-			case "quest_kite":
-				if (option_result == 1 && global.has_kite) {
-					global.reputation += 5
-					global.has_kite = false
-					inventory_remove_item("Pipa")
-				}
-			break;
-			
-			case "meta":
-				//Define a meta de vida do jogador baseada na escolha
-				if (option_result == 1) global.player_meta = "economizar";
-			break;
-		}
-	}
+// --- Inicialização Global ---
+if (instance_number(object_index) > 1) {
+    instance_destroy();
+    exit;
 }
 
-//Lista de eventos de perda de saldo
+global.balance = 0;
+global.reputation = 50;
+global.meta = 0;
+global.statement = [];
+global.player_speed = 2; // Velocidade padrão do jogador
+
+global.goals = {
+    "1": "Fone de Ouvido - R$100,00", 
+    "2": "Celular - R$900,00",
+    "3": "Formatura - R$1700,00"
+};
+
+// --- Listas de Dados ---
 loss_events = [
-	{
-	name: "game_promotion",
-	loss: -15,
-	reputation: 2,
-	},
-	{
-	name: "cinema",
-	loss: -80,
-	reputation: 5,
-	}
-]
+    { name: "game_promotion", loss: -15, reputation: 10 },
+    { name: "cinema",         loss: -80, reputation: 20 },
+    { name: "buy_icecream",   loss: -5,  reputation: 1 } // Preço base (Casquinha)
+];
 
-//Lista de eventos de ganho de saldo
-gain_events = [
-	{
-	name: "work_payout",
-	gain: 150,
-	reputation: 1,
-	}
-]
+// --- Funções Auxiliares ---
 
-//Função auxiliar para remover item da matriz inv[i][j] pelo nome
-function inventory_remove_item(_name) {
-    if (!instance_exists(obj_inventory_ui)) return;
-    
-    with(obj_inventory_ui) {
+// Função de Inventário
+inventory_remove_item = function(_target_name) {
+    if (!instance_exists(obj_inventory)) return false;
+    with(obj_inventory) {
         for (var j = 0; j < invMaxY; j++) {
             for (var i = 0; i < invMaxX; i++) {
-                //O nome do item está guardado no índice 4 do array do slot
-                if (is_array(inv[i][j]) && inv[i][j][4] == _name) {
-                    inv[i][j] = -1 //Limpa o slot da matriz
+                if (is_array(inv[i][j]) && inv[i][j][4] == _target_name) {
+                    inv[i][j] = -1; 
                     return true;
                 }
             }
         }
     }
     return false;
+}
+
+// Função de Processar Eventos (CORRIGIDA E COMPLETA)
+Process_game_event = function(event_name, event_kind, option_result) {
+    show_debug_message("Evento Recebido: " + string(event_name) + " | Valor: " + string(option_result));
+    
+    // --- LÓGICA DE GASTOS (LOSS) ---
+    if (event_kind == "loss") {
+        for (var i=0; i < array_length(loss_events); i++){
+            if (event_name == loss_events[i].name){
+                
+                var _final_price = loss_events[i].loss;
+                var _item_label = loss_events[i].name;
+
+                // Ajuste dinâmico para o Sorveteiro
+                if (event_name == "buy_icecream") {
+                    if (option_result == 1) { _final_price = -5;  _item_label = "Sorvete Casquinha"; }
+                    if (option_result == 2) { _final_price = -10; _item_label = "Sorvete Copo"; }
+                    if (option_result == 3) return; // Cancelou
+                }
+
+                // Verifica Saldo
+                if (global.balance >= abs(_final_price)) {
+                    global.balance += _final_price;
+                    global.reputation += loss_events[i].reputation;
+                    update_statement(_item_label, abs(_final_price), "loss");
+                    
+                    // Efeito de Velocidade do Sorvete
+                    if (event_name == "buy_icecream") {
+                        //global.MOVE_SPEED = 4;
+                        alarm[2] = 300; // 5 segundos (a 60fps)
+                        show_debug_message("Bônus de velocidade ativado!");
+                    }
+                } else {
+                    show_debug_message("Saldo insuficiente!");
+                }
+                break;
+            }
+        }
+    }
+
+    // --- LÓGICA ESPECIAL (METAS E MISSÕES) ---
+    if (event_kind == "special") {
+        switch(event_name) {
+            case "meta":
+                global.meta = option_result;
+                show_debug_message("Meta definida: " + string(global.meta));
+            break;
+            
+            case "quest_key":
+                if (option_result == 1 && global.has_key) {
+                    global.reputation += 15;
+                    global.has_key = false;
+                    global.quest_key_finished = true;
+                    inventory_remove_item("Chave"); 
+                    show_debug_message("Missão da chave concluída.");
+                }
+            break;
+        }
+    }
 }

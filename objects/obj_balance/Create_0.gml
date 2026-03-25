@@ -1,1 +1,6 @@
-last_payment_month = 0
+last_payment_month = -1
+
+if (instance_number(object_index) > 1) {
+    instance_destroy();
+    exit;
+}

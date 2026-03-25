@@ -42,7 +42,7 @@
     {"name":"player","order":1,"path":"objects/player/player.yy",},
     {"name":"rm_city","order":1,"path":"rooms/rm_city/rm_city.yy",},
     {"name":"rm_shop","order":2,"path":"rooms/rm_shop/rm_shop.yy",},
-    {"name":"scr_game_functions","order":1,"path":"scripts/scr_game_functions/scr_game_functions.yy",},
+    {"name":"Functions_Finance","order":2,"path":"scripts/Functions_Finance/Functions_Finance.yy",},
     {"name":"spr_bg_dawn","order":25,"path":"sprites/spr_bg_dawn/spr_bg_dawn.yy",},
     {"name":"spr_bg_day","order":24,"path":"sprites/spr_bg_day/spr_bg_day.yy",},
     {"name":"spr_bg_dusk","order":26,"path":"sprites/spr_bg_dusk/spr_bg_dusk.yy",},

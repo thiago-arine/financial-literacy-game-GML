@@ -10,7 +10,6 @@ global.game_minute_total = 360;
 global.time_is_paused = false;
 real_time_accumulator = 0;
 
-
 icon_morning   = spr_timer_morning;
 icon_afternoon = spr_timer_evening;
 icon_evening   = spr_timer_afternoon;
@@ -18,5 +17,3 @@ icon_evening   = spr_timer_afternoon;
 alpha_morning   = 0;
 alpha_afternoon = 0;
 alpha_evening   = 0;
-
-

@@ -9,7 +9,7 @@ if (global.day == 1 and global.month != last_payment_month){
 	};
 
 	array_push(global.statement, new_entry);*/
-	update_statement("Pais", "30", "gain")
+	update_statement("Mesada Pais", "30", "gain")
 
 	last_payment_month = global.month
 }

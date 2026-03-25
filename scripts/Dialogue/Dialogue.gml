@@ -1,158 +1,111 @@
 function create_dialog(_messages){
     if (instance_exists(obj_dialog)) return;
-        show_debug_message("criando dialogo")
+    show_debug_message("criando dialogo")
     var _inst = instance_create_depth(0,0,0, obj_dialog);
-    _inst.messages  =_messages;
-	_inst.current_dialog = 0
+    _inst.messages = _messages;
+    _inst.current_dialog = 0;
     _inst.current_message = 0;
 };
 
-char_colors = {
+global.char_colors = {
     "Amigo": c_white,
     "Mentor": c_white,
 };
 
-dialog_amigo = [ //Em opções de gastos, a resposta 1 SEMPRE será para gastar, enquanto a 2 não gasta
-	{	kind: "unique",
-		happened: false,
-		required_event : "",
-		dialog:
-		[{
-	        name: "Amigo",
-	        msg: "Cara, você não sabe o que aconteceu! Baldur's Gate 3 está com 70% de desconto!",
-			is_question: false,
-			number: 0,
-			is_end: false,
-	    },
-	    {
-	        name: "Amigo",
-	        msg: "Você vai comprar né?",
-			is_question: true,
-			options: ["Óbvio", "Queria muito, mas não vai dar..."],
-			option_results: [1, 2],
-			choice: "game_promotion",
-			kind: "loss",
-			number: 0,
-			is_end: false
-	    },
-		{
-			name: "Amigo",
-	        msg: "Boa, sabia que iria comprar.",
-			is_question: false,
-			number: 1,
-			is_end: false
-		},
-		{
-			name: "Amigo",
-	        msg: "Amanhã nós jogamos juntos, tchauu.",
-			is_question: false,
-			number: 1,
-			is_end: false
-		},
-		{
-			name: "Amigo",
-	        msg: "Eita, deixa para lá então...",
-			is_question: false,
-			number: 2,
-			is_end: false
-		},
-		{
-			name: "Amigo",
-	        msg: "E cara, você pode me ajudar com uma coisa? É que hoje, quando eu estava vindo para cá, deixei cair a chave da minha casa em algum lugar do seu quintal e não consegui encontrar de jeito nenhum.",
-			is_question: false,
-			number: 3,
-			is_end: false
-		},
-		{
-			name: "Amigo",
-	        msg: "Se você achar, pega pra mim pelo amor de deus! Se não minha mãe me mata!",
-			is_question: false,
-			number: 3,
-			is_end: true
-		}
-		]
-	},
-	{
-		kind: "pattern",
-		happened: false,
-		required_event : "",
-		dialog: [{
-			name: "Amigo",
-	        msg: "Oi, amigo",
-			is_question: false,
-			number: 0,
-			is_end: true
-		}]
-	}]
+global.dialog_amigo_completou = [{
+    kind: "unique",
+    happened: false,
+    dialog: [{
+        name: "Amigo",
+        msg: "Caramba, você achou a chave! Muito obrigado, cara!",
+        is_question: false,
+        number: 0,
+        is_end: false
+    },
+    {
+        name: "Amigo",
+        msg: "Vou levar ela agora. Muito obrigado pela ajuda!",
+        is_question: false,
+        number: 0,
+        is_end: true,
+        trigger_event: { name: "quest_key", kind: "special", result: 1 }
+    }]
+}];
 
-dialog_mentor = [{	
-		kind: "unique",
-		happened: false,
-		required_event : "",
-		dialog:
-		[{
-	        name: "Mentor",
-	        msg: "Bem vindo! Sou seu mentor financeiro.",
-			is_question: false,
-			number: -1,
-			is_end: false
-	    },
-	    {
-	        name: "Mentor",
-	        msg: "Nossa meta: Construir liberdade financeira. Você aprenderá a investir e a diferença entre necessidade e desejo. A partir de agora cada escolha é sua.",
-			is_question: false,
-			number: -1,
-			is_end: false
-	    },
-	    {
-	        name: "Mentor",
-	        msg: "Ao longo de sua jornada aparecerão oportunidades, além disso, o influenciador digital vai tentar te convencer a seguir por outro caminho.",
-			is_question: false,
-			number: -1,
-			is_end: false
-	    },
-	    {
-	        name: "Mentor",
-	        msg: "Vamos começar. Qual é o seu objetivo financeiro?",
-			is_question: true,
-			options: ["Fone de Ouvido: R$100,00 em 4 meses", "Celular: R$900,00 em 9 meses", "Formatura: R$1700,00 em 15 meses"],
-			option_results: [1, 2, 3],
-			choice: "meta",
-			kind: "special",
-			number: -1,
-			is_end: false
-	    },
-		{
-			name: "Mentor",
-			msg: "Ótimo! Agora que já definiu a sua meta, vamos ao que interessa: como cumpri-la.",
-			is_question: false,
-			number: -1,
-			is_end: false
-		},
-		{
-			name: "Mentor",
-			msg: "Em todos os meses, no dia 1º, você receberá uma mesada de R$30,00 de seus pais. Por enquanto, essa será sua única fonte de renda, mas no futuro você poderá procurar por fontes alternativas, mesmo sendo criança.",
-			is_question: false,
-			number: -1,
-			is_end: false
-		}, 
-		{
-			name: "Mentor",
-			msg:  "E lembre-se, ganhar não é tudo, você também deve controlar seus gastos durante sua jornada! Para isso, acesse seu extrato pressionando a tecla 'E', assim você poderá vizualizar suas despesas e ganhos.",
-			is_question: false,
-			number: -1,
-			is_end: false
-		}]
-		},
-		{
-		kind: "pattern",
-		happened: false,
-		required_event : "",
-		dialog: [{
-			name: "Mentor",
-	        msg: "Mantenha seu foco, controle seus gastos e alcance a sua meta!",
-			is_question: false,
-			number: 0,
-			is_end: true
-		}]
-		}];
+dialog_amigo = [ 
+    {   kind: "unique",
+        happened: false,
+        dialog: [
+            { name: "Amigo", msg: "Cara, você não sabe o que aconteceu! Baldur's Gate 3 está com 70% de desconto!", is_question: false, number: 0, is_end: false },
+            { 
+                name: "Amigo", 
+                msg: "Você vai comprar né?", 
+                is_question: true, 
+                options: ["Óbvio", "Queria muito, mas não vai dar..."], 
+                option_results: [1, 2], // 1 = Sim, 2 = Não
+                choice: "game_promotion", 
+                kind: "loss", 
+                number: 0, 
+                is_end: false 
+            },
+            // RAMO DO SIM (Resultado 1)
+            { name: "Amigo", msg: "Boa, sabia que iria comprar!", is_question: false, number: 1, is_end: false },
+            { name: "Amigo", msg: "Amanhã nós jogamos juntos, tchauu.", is_question: false, number: 1, is_end: false },
+            
+            // RAMO DO NÃO (Resultado 2)
+            { name: "Amigo", msg: "Eita, deixa para lá então...", is_question: false, number: 2, is_end: false },
+            
+            // PARTE COMUM - MISSÃO (Número 3)
+            // IMPORTANTE: Definimos o option_results do Sim/Não para que, após as falas 1 ou 2, ele busque o 3
+            { name: "Amigo", msg: "E cara, você pode me ajudar com uma coisa?", is_question: false, number: 3, is_end: false },
+            { name: "Amigo", msg: "Deixei cair a chave da minha casa no seu quintal...", is_question: false, number: 3, is_end: false },
+            { name: "Amigo", msg: "Se você achar, pega pra mim! Se não minha mãe me mata!", is_question: false, number: 3, is_end: true }
+        ]
+    },
+    {   kind: "pattern",
+        happened: false,
+        required_event : "",
+        dialog: [{ name: "Amigo", msg: "Oi, amigo", is_question: false, number: 0, is_end: true }]
+    }
+];
+
+dialog_mentor = [
+    {   kind: "unique",
+        happened: false,
+        required_event : "",
+        dialog: [
+            { name: "Mentor", msg: "Bem vindo! Sou seu mentor financeiro.", is_question: false, number: -1, is_end: false },
+            { name: "Mentor", msg: "Nossa meta: Construir liberdade financeira...", is_question: false, number: -1, is_end: false },
+            { name: "Mentor", msg: "Ao longo de sua jornada aparecerão oportunidades...", is_question: false, number: -1, is_end: false },
+            { name: "Mentor", msg: "Vamos começar. Qual é o seu objetivo financeiro?", is_question: true, options: ["Fone de Ouvido: R$100,00 em 4 meses", "Celular: R$900,00 em 9 meses", "Formatura: R$1700,00 em 15 meses"], option_results: [1, 2, 3], choice: "meta", kind: "special", number: -1, is_end: false },
+            { name: "Mentor", msg: "Ótimo! Agora que já definiu a sua meta...", is_question: false, number: -1, is_end: false },
+            { name: "Mentor", msg: "Em todos os meses, no dia 1º, você receberá uma mesada...", is_question: false, number: -1, is_end: false }, 
+            { name: "Mentor", msg: "E lembre-se, ganhar não é tudo, você também deve controlar seus gastos! Pressione 'E'...", is_question: false, number: -1, is_end: true }
+        ]
+    },
+    {   kind: "pattern",
+        happened: false,
+        required_event : "",
+        dialog: [{ name: "Mentor", msg: "Mantenha seu foco, controle seus gastos e alcance a sua meta!", is_question: false, number: 0, is_end: true }]
+    }
+];
+
+global.dialog_sorveteiro = [
+    {   
+        kind: "unique",
+        happened: false,
+        dialog: [
+            { 
+                name: "Sorveteiro", 
+                msg: "Olá! O dia está quente. Aceita um sorvete?", 
+                is_question: true, 
+                options: ["Casquinha (R$5)", "Copo Médio (R$10)", "Não, obrigado"], 
+                option_results: [1, 2, 3], 
+                choice: "buy_icecream", 
+                kind: "loss", 
+                number: 0, 
+                is_end: true 
+            }
+        ]
+    }
+];

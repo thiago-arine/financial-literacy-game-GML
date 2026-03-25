@@ -90,7 +90,7 @@ function handle_input() {
 function move_to_target() {
 
     var dt = delta_time / 1000000;
-    var move_distance = MOVE_SPEED * dt;
+    var move_distance = global.MOVE_SPEED * dt;
 
     var dx = target_x - x;
     var dy = target_y - y;

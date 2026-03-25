@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_game_functions",
+  "%Name":"Functions_Finance",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_game_functions",
+  "name":"Functions_Finance",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

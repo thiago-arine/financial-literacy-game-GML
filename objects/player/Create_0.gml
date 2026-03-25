@@ -1,5 +1,5 @@
 TILE_SIZE = 16;
-MOVE_SPEED = 128; 
+global.MOVE_SPEED = 128; 
 
 moving = false;
 target_x = x;
