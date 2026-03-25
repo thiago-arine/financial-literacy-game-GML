@@ -126,3 +126,33 @@ global.dialog_sem_dinheiro = [
         ]
     }
 ];
+
+
+global.dialog_shopkeeper = [
+    {   kind: "unique",
+        happened: false,
+        required_event : "",
+        dialog: [
+            { name: "Tadeu", msg: "Boa tarde! Seja bem vindo à Lojinha do Tadeu!", is_question: false, number: -1, is_end: false },
+            { name: "Tadeu", msg: "O que você deseja?", is_question: true, options: ["Ver o catálogo","Perguntar sobre decoração de pipa (missão)","Sair"], option_results: [1, 2, 3], number: 0, choice: "shopkeeper_choice",kind: "special", number: -1, is_end: false },
+            { name: "Tadeu", msg: "Aqui está o catálogo", is_question: false, number: 1, is_end: true },
+            { name: "Tadeu", msg: "Ah, eu gosto muito de pipas desde criança. Não só vendo elas na loja, como também brinco de empinar pipa quando posso.", is_question: false, number: 2, is_end: false },
+            { name: "Tadeu", msg: "Aliás, no outro dia, estava brincando com minha pipa novinha na praça, mas bateu um vento forte e ela caiu lá pra direita do parque depois de uma cerca. Não consigo chegar lá para recuperá-la", is_question: false, number: 2, is_end: false },
+            { name: "Tadeu", msg: "Se você estiver passando por lá qualquer dia e conseguir encontrar a pipa, traz ela para mim, por favor? Se você fizesse isso, eu ficaria muito grato!", is_question: false, number: 2, is_end: true },
+            { name: "Tadeu", msg: "Volte sempre!", is_question: false, number: 3, is_end: true },
+        ]
+    },
+    {   
+        kind: "pattern",
+        happened: false,
+        dialog: [
+            { 
+                name: "Vendedor", 
+                msg: "Boa tarde! Seja bem vindo à Lojinha do Tadeu!", 
+                is_question: false, 
+                number: -1, 
+                is_end: false
+            }
+        ]
+    }
+];

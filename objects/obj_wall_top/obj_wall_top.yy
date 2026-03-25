@@ -1,19 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_npc_shopkeeper",
+  "%Name":"obj_wall_top",
   "eventList":[],
   "managed":true,
-  "name":"obj_npc_shopkeeper",
-  "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_npc_parent","path":"objects/obj_npc_parent/obj_npc_parent.yy",},"propertyId":{"name":"dialog","path":"objects/obj_npc_parent/obj_npc_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"global.dialog_shopkeeper",},
-  ],
+  "name":"obj_wall_top",
+  "overriddenProperties":[],
   "parent":{
     "name":"Objects",
     "path":"folders/Objects.yy",
   },
   "parentObjectId":{
-    "name":"obj_npc_parent",
-    "path":"objects/obj_npc_parent/obj_npc_parent.yy",
+    "name":"obj_entity_parent",
+    "path":"objects/obj_entity_parent/obj_entity_parent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -33,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_npc_shopkeeper",
-    "path":"sprites/spr_npc_shopkeeper/spr_npc_shopkeeper.yy",
+    "name":"str_wall_top",
+    "path":"sprites/str_wall_top/str_wall_top.yy",
   },
   "spriteMaskId":null,
   "visible":true,
