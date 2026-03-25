@@ -52,28 +52,44 @@ Process_game_event = function(event_name, event_kind, option_result) {
                 
                 var _final_price = loss_events[i].loss;
                 var _item_label = loss_events[i].name;
-
-                // Ajuste dinâmico para o Sorveteiro
+                var _is_buying = true; 
+        
+                // --- LÓGICA DO AMIGO (Promoção do Jogo) ---
+                if (event_name == "game_promotion") {
+                    if (option_result == 2) { // 2 = "Queria muito, mas não vai dar..."
+                        _is_buying = false;
+                        show_debug_message("Player recusou a compra do jogo.");
+                        return; // Encerra aqui, não tira dinheiro nem mostra erro de saldo
+                    }
+                }
+        
+                // --- LÓGICA DO SORVETEIRO ---
                 if (event_name == "buy_icecream") {
                     if (option_result == 1) { _final_price = -5;  _item_label = "Sorvete Casquinha"; }
-                    if (option_result == 2) { _final_price = -10; _item_label = "Sorvete Copo"; }
-                    if (option_result == 3) return; // Cancelou
-                }
-
-                // Verifica Saldo
-                if (global.balance >= abs(_final_price)) {
-                    global.balance += _final_price;
-                    global.reputation += loss_events[i].reputation;
-                    update_statement(_item_label, abs(_final_price), "loss");
-                    
-                    // Efeito de Velocidade do Sorvete
-                    if (event_name == "buy_icecream") {
-                        //global.MOVE_SPEED = 4;
-                        alarm[2] = 300; // 5 segundos (a 60fps)
-                        show_debug_message("Bônus de velocidade ativado!");
+                    else if (option_result == 2) { _final_price = -10; _item_label = "Sorvete Copo"; }
+                    else if (option_result == 3) { // 3 = "Não, obrigado"
+                        _is_buying = false;
+                        return; 
                     }
-                } else {
-                    show_debug_message("Saldo insuficiente!");
+                }
+        
+                // --- PROCESSAMENTO FINAL ---
+                if (_is_buying) {
+                    if (global.balance >= abs(_final_price)) {
+                        global.balance += _final_price;
+                        global.reputation += loss_events[i].reputation;
+                        update_statement(_item_label, abs(_final_price), "loss");
+                        
+                        // Efeito especial apenas se for sorvete
+                        if (event_name == "buy_icecream") {
+                            //global.player_speed = 4;
+                            alarm[2] = 300;
+                        }
+                    } else {
+                        // Se tentou comprar mas não tem dinheiro:
+                        if (instance_exists(obj_dialog)) instance_destroy(obj_dialog);
+                        create_dialog(global.dialog_sem_dinheiro);
+                    }
                 }
                 break;
             }

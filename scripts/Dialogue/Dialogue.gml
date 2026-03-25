@@ -8,8 +8,10 @@ function create_dialog(_messages){
 };
 
 global.char_colors = {
-    "Amigo": c_white,
-    "Mentor": c_white,
+    "Amigo": c_orange,
+    "Mentor": c_blue,
+    "Banco": c_red,
+    "Sorveteiro": c_fuchsia,
 };
 
 global.dialog_amigo_completou = [{
@@ -58,14 +60,13 @@ dialog_amigo = [
             // PARTE COMUM - MISSÃO (Número 3)
             // IMPORTANTE: Definimos o option_results do Sim/Não para que, após as falas 1 ou 2, ele busque o 3
             { name: "Amigo", msg: "E cara, você pode me ajudar com uma coisa?", is_question: false, number: 3, is_end: false },
-            { name: "Amigo", msg: "Deixei cair a chave da minha casa no seu quintal...", is_question: false, number: 3, is_end: false },
-            { name: "Amigo", msg: "Se você achar, pega pra mim! Se não minha mãe me mata!", is_question: false, number: 3, is_end: true }
+            { name: "Amigo", msg: "Deixei cair a chave da minha casa no seu quintal... Se você achar, pega pra mim! Se não minha mãe vai me matar!", is_question: false, number: 3, is_end: true }
         ]
     },
     {   kind: "pattern",
         happened: false,
         required_event : "",
-        dialog: [{ name: "Amigo", msg: "Oi, amigo", is_question: false, number: 0, is_end: true }]
+        dialog: [{ name: "Amigo", msg: "Oi, amigo!", is_question: false, number: 0, is_end: true }]
     }
 ];
 
@@ -92,7 +93,7 @@ dialog_mentor = [
 
 global.dialog_sorveteiro = [
     {   
-        kind: "unique",
+        kind: "pattern",
         happened: false,
         dialog: [
             { 
@@ -103,6 +104,22 @@ global.dialog_sorveteiro = [
                 option_results: [1, 2, 3], 
                 choice: "buy_icecream", 
                 kind: "loss", 
+                number: 0, 
+                is_end: true 
+            }
+        ]
+    }
+];
+
+global.dialog_sem_dinheiro = [
+    {   
+        kind: "pattern",
+        happened: false,
+        dialog: [
+            { 
+                name: "Banco", 
+                msg: "Você não tem saldo suficiente para esta compra...", 
+                is_question: false, 
                 number: 0, 
                 is_end: true 
             }
