@@ -20,7 +20,8 @@ global.goals = {
 loss_events = [
     { name: "game_promotion", loss: -15, reputation: 10 },
     { name: "cinema",         loss: -80, reputation: 20 },
-    { name: "buy_icecream",   loss: -5,  reputation: 1 } // Preço base (Casquinha)
+    { name: "buy_icecream",   loss: -5,  reputation: 0 }, // Preço base (Casquinha)
+    { name: "buy_led_hat",    loss: -50, reputation: 20 }
 ];
 
 // --- Funções Auxiliares ---
@@ -72,6 +73,18 @@ Process_game_event = function(event_name, event_kind, option_result) {
                         return; 
                     }
                 }
+                
+                if (event_name == "buy_led_hat") {
+                    if (option_result == 1) { _final_price = -50; _item_label = "Boné de LED"; }
+                    else if (option_result == 2) { // 2 = "Manter meta"
+                        _is_buying = false;
+                        return 
+                    }
+                    else if (option_result == 3) { // 3 - "Verificar se o boné é útil"
+                        _is_buying = false;
+                        return
+                    }
+                }
         
                 // --- PROCESSAMENTO FINAL ---
                 if (_is_buying) {
@@ -113,6 +126,15 @@ Process_game_event = function(event_name, event_kind, option_result) {
                     show_debug_message("Missão da chave concluída.");
                 }
             break;
+            
+            case "quest_headset":
+                if (option_result == 1 && global.has_headset) {
+                    global.reputation += 25
+                    global.has_headset = false;
+                    global.quest_headset_finished = true;
+                    inventory_remove_item("Headset"); 
+                    show_debug_message("Missão do headset concluída.");
+                }
         }
     }
 }

@@ -9,7 +9,7 @@ function create_dialog(_messages){
 
 global.char_colors = {
     "Amigo": c_orange,
-    "Mentor": c_blue,
+    "Mentor": c_aqua,
     "Banco": c_red,
     "Sorveteiro": c_fuchsia,
 };
@@ -128,15 +128,17 @@ global.dialog_sem_dinheiro = [
 ];
 
 
+
+
 global.dialog_shopkeeper = [
     {   kind: "unique",
         happened: false,
         required_event : "",
         dialog: [
             { name: "Tadeu", msg: "Boa tarde! Seja bem vindo à Lojinha do Tadeu!", is_question: false, number: -1, is_end: false },
-            { name: "Tadeu", msg: "O que você deseja?", is_question: true, options: ["Ver o catálogo","Perguntar sobre decoração de pipa (missão)","Sair"], option_results: [1, 2, 3], number: 0, choice: "shopkeeper_choice",kind: "special", number: -1, is_end: false },
+            { name: "Tadeu", msg: "O que você deseja?", is_question: true, options: ["Ver o catálogo","Perguntar sobre decoração de pipa (missão)", "Sair"], option_results: [1, 2, 3], choice: "shopkeeper_choice",kind: "special", number: 0, is_end: false },
             { name: "Tadeu", msg: "Aqui está o catálogo", is_question: false, number: 1, is_end: true },
-            { name: "Tadeu", msg: "Ah, eu gosto muito de pipas desde criança. Não só vendo elas na loja, como também brinco de empinar pipa quando posso.", is_question: false, number: 2, is_end: false },
+            { name: "Tadeu", msg: "Ah, eu gosto muito de pipas desde criança. Não só vendo elas na loja, eu também brinco de empinar pipa quando posso.", is_question: false, number: 2, is_end: false },
             { name: "Tadeu", msg: "Aliás, no outro dia, estava brincando com minha pipa novinha na praça, mas bateu um vento forte e ela caiu lá pra direita do parque depois de uma cerca. Não consigo chegar lá para recuperá-la", is_question: false, number: 2, is_end: false },
             { name: "Tadeu", msg: "Se você estiver passando por lá qualquer dia e conseguir encontrar a pipa, traz ela para mim, por favor? Se você fizesse isso, eu ficaria muito grato!", is_question: false, number: 2, is_end: true },
             { name: "Tadeu", msg: "Volte sempre!", is_question: false, number: 3, is_end: true },
@@ -155,4 +157,147 @@ global.dialog_shopkeeper = [
             }
         ]
     }
+];
+
+global.dialog_influencer_completou = [{
+    kind: "unique",
+    happened: false,
+    dialog: [{
+        name: "Influencer",
+        msg: "Caramba, você achou o fone! Muito obrigado, cara!",
+        is_question: false,
+        number: 0,
+        is_end: false
+    },
+    {
+        name: "Influencer",
+        msg: "Vou levar ela agora. Muito obrigado pela ajuda!",
+        is_question: false,
+        number: 0,
+        is_end: true,
+        trigger_event: { name: "quest_headset", kind: "special", result: 1 }
+    }]
+}];
+
+global.dialog_influencer = [
+  {
+    kind: "unique",
+    happened: false,
+    required_event: "",
+    dialog: [
+      {
+        name: "Influencer",
+        msg: "Fala, pessoal! Acabei de comprar o novo 'Tênis Neon 3000'. Se você não tem um desses, você está perdendo a moda!",
+        is_question: false,
+        number: -1,
+        is_end: false
+      },
+      {
+        name: "Influencer",
+        msg: "[O que você faz?]",
+        is_question: true,
+        options: ["Sair", "Ficar encarando o influencer (missão)"],
+        option_results: [1, 2],
+        choice: "staring_mission",
+        kind: "special",
+        number: 0,
+        is_end: false
+      },
+      {
+        name: "Influencer",
+        msg: "Isso aí, tchau!",
+        is_question: false,
+        number: 1,
+        is_end: true
+      },
+      {
+        name: "Influencer",
+        msg: "...",
+        is_question: false,
+        number: 2,
+        is_end: false
+      },
+      {
+        name: "Influencer",
+        msg: "...........",
+        is_question: false,
+        number: 2,
+        is_end: false
+      },
+      {
+        name: "Influencer",
+        msg: "Tá olhando o quê? Quer uma foto?",
+        is_question: false,
+        number: 2,
+        is_end: false
+      },
+      {
+        name: "Influencer",
+        msg: "Não? Então vai ver se eu tô la na esquina vai!!------Naa verdadee! Já que você não tá fazendo nada aí parado...",
+        is_question: false,
+        number: 2,
+        is_end: false
+      },
+      {
+        name: "Influencer",
+        msg: "Você bem que podia pegar meu fone de ouvido Hi-Tech T570S que eu deixei na minha mansão particular futurista brilhante.",
+        is_question: false,
+        number: 2,
+        is_end: false
+      },
+    {
+        name: "Influencer",
+        msg: "Eu preciso desse fone para gravar meu próximo vídeo. Se você pegar pra mim, talvez eu até marque você no próximo story.",
+        is_question: false,
+        number: 2,
+        is_end: true
+    }
+    ]
+  },
+  {
+    kind: "pattern",
+    happened: false,
+    required_event: "",
+    dialog: [
+        {
+            name: "Influencer",
+            msg: "Ei! Vi que você guardou sua mesada o mês todo... mas esquece isso! ",
+            is_question: false,
+            number: -1,
+            is_end: false 
+        }, 
+        {
+            name: "Influencer",
+            msg: "Se você comprar esse 'Boné de LED' agora, eu te coloco no meu vídeo.",
+            is_question: true,
+            options: ["Comprar o Boné (-R$50,00)", "Manter meta", "Verificar se o boné é útil"],
+            option_results: [1, 2, 3],
+            choice: "buy_led_hat",
+            kind: "loss",
+            number: 0,
+            is_end: false 
+        }, 
+        {
+            name: "Influencer",
+            msg: "ISSO! O boné ficou incrível. Olha esse brilho!",
+            is_question: false,
+            number: 1,
+            is_end: true 
+        }, 
+        {
+            name: "Influencer",
+            msg: "Sério? Você vai preferir guardar dinheiro? Que tédio...",
+            is_question: false,
+            number: 2,
+            is_end: true 
+        }, 
+        {
+            name: "Influencer",
+            msg: "Útil? Cara, é um boné que brilha! Tchau!",
+            is_question: false,
+            number: 3,
+            is_end: true 
+        }
+    ]
+  }
 ];

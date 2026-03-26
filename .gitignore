@@ -60,3 +60,8 @@ Temporary Items
 
 # GMRT build directory
 Build
+
+# Outros
+.gitignore
+.gitattributes
+/notes
