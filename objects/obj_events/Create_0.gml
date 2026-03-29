@@ -116,6 +116,16 @@ Process_game_event = function(event_name, event_kind, option_result) {
                 global.meta = option_result;
                 show_debug_message("Meta definida: " + string(global.meta));
             break;
+			
+			case "open_shop":
+			    if (option_result == 1) {
+			        if (!instance_exists(obj_shop_ui)) {
+			            instance_create_depth(0, 0, -1000, obj_shop_ui);
+			            global.time_is_paused = true; 
+			            show_debug_message("Loja aberta.");
+			        }
+			    }
+			break;
             
             case "quest_key":
                 if (option_result == 1 && global.has_key) {
@@ -135,6 +145,7 @@ Process_game_event = function(event_name, event_kind, option_result) {
                     inventory_remove_item("Headset"); 
                     show_debug_message("Missão do headset concluída.");
                 }
+			break;
         }
     }
 }

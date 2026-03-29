@@ -23,7 +23,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.3.217",
+    "IDEVersion":"2024.14.4.221",
   },
   "name":"RPG Starter Pack",
   "resources":[
@@ -61,6 +61,7 @@
     {"id":{"name":"obj_npc_parent","path":"objects/obj_npc_parent/obj_npc_parent.yy",},},
     {"id":{"name":"obj_npc_shopkeeper","path":"objects/obj_npc_shopkeeper/obj_npc_shopkeeper.yy",},},
     {"id":{"name":"obj_reputation","path":"objects/obj_reputation/obj_reputation.yy",},},
+    {"id":{"name":"obj_shop_ui","path":"objects/obj_shop_ui/obj_shop_ui.yy",},},
     {"id":{"name":"obj_statement_ui","path":"objects/obj_statement_ui/obj_statement_ui.yy",},},
     {"id":{"name":"obj_time_controller","path":"objects/obj_time_controller/obj_time_controller.yy",},},
     {"id":{"name":"obj_tp","path":"objects/obj_tp/obj_tp.yy",},},
