@@ -6,6 +6,14 @@ if (instance_exists(obj_statement_ui)) {
     if (obj_statement_ui.statement_open) exit;
 }
 
+if (instance_exists(obj_inventory)) {
+    if (obj_inventory.inventory_open) exit;
+}
+
+if (instance_exists(obj_shop_ui)) {
+    if (obj_shop_ui.shop_open) exit;
+}
+
 if (!moving) {
     handle_input();
 } 

@@ -1,3 +1,5 @@
+global.time_is_paused = true;
+shop_open = true
 depth = -5000; // Garante que a loja está na frente de TUDO
 keyboard_clear(vk_space); // Limpa o buffer para não comprar sem querer ao abrir
 keyboard_clear(vk_enter);
@@ -10,9 +12,22 @@ start_x = (gui_w - shop_w) / 2;
 start_y = (gui_h - shop_h) / 2;
 
 shop_items = [
-    { name: "Pipa de Papel",    price: 15,  desc: "Frágil, mas voa alto." },
-    { name: "Linha de Nylon",   price: 10,  desc: "Resistente a ventos fortes." },
-    { name: "Rabiola Longa",    price: 5,   desc: "Dá estabilidade à pipa." }
+    { 
+        name: "Pipa de Papel", 
+        price: 15, 
+        sprite: spr_npc_influencer, 
+        image_index: 0, 
+        type: "equip", 
+        desc: "Frágil, mas voa alto." 
+    },
+    { 
+        name: "Linha de Nylon", 
+        price: 10, 
+        sprite: spr_icon_goal, 
+        image_index: 1, 
+        type: "item", 
+        desc: "Resistente a ventos fortes." 
+    }
 ];
 
 selected = 0;

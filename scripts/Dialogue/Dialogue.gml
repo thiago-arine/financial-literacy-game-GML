@@ -127,9 +127,6 @@ global.dialog_sem_dinheiro = [
     }
 ];
 
-
-
-
 global.dialog_shopkeeper = [
     {   kind: "unique",
         happened: false,
