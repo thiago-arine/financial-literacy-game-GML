@@ -2,7 +2,7 @@
   "$GMSprite":"v2",
   "%Name":"spr_npc_shopkeeper",
   "bboxMode":0,
-  "bbox_bottom":27,
+  "bbox_bottom":20,
   "bbox_left":0,
   "bbox_right":15,
   "bbox_top":0,

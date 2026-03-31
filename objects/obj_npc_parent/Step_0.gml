@@ -30,6 +30,15 @@ if (instance_exists(player) && distance_to_object(player) < 12) { // Aumentei um
                 exit; // Sai para não rodar o create_dialog(dialog) abaixo
             }
         }
+        if (object_get_name(object_index) == "obj_npc_shopkeeper") {
+            var _has_kite = variable_global_exists("has_kite") && global.has_kite;
+            var _finished = variable_global_exists("quest_kite_finished") && global.quest_kite_finished;
+
+            if (_has_kite && !_finished) {
+                create_dialog(global.dialog_shopkeeper_completou);
+                exit; // Sai para não rodar o create_dialog(dialog) abaixo
+            }
+        }
         
         // LÓGICA PARA TODOS OS OUTROS (Mentor, Sorveteiro, etc)
         if (variable_instance_exists(id, "dialog")) {

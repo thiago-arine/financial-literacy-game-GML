@@ -2,7 +2,7 @@
   "$GMSprite":"v2",
   "%Name":"spr_ts_indoor_unified",
   "bboxMode":0,
-  "bbox_bottom":927,
+  "bbox_bottom":968,
   "bbox_left":0,
   "bbox_right":751,
   "bbox_top":0,

@@ -147,6 +147,16 @@ Process_game_event = function(event_name, event_kind, option_result) {
                     show_debug_message("Missão do headset concluída.");
                 }
 			break;
+            
+            case "quest_kite":
+                if (option_result == 1 && global.has_kite) {
+                    global.reputation += 10
+                    global.has_kite = false;
+                    global.quest_kite_finished = true;
+                    inventory_remove_item("Kite"); 
+                    show_debug_message("Missão kite concluída.");
+                }
+			break;
         }
     }
 }
