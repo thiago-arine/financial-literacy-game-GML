@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_enemy1",
-    "path":"sprites/spr_enemy1/spr_enemy1.yy",
+    "name":"spr_npc_luna",
+    "path":"sprites/spr_npc_luna/spr_npc_luna.yy",
   },
   "spriteMaskId":null,
   "visible":true,

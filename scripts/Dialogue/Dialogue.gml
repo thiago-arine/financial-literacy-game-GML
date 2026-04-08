@@ -468,6 +468,7 @@ global.dialog_wanderley = [
             }
         ]
     }
+    
 ];
 
 global.dialog_lucas = [
@@ -532,12 +533,27 @@ global.dialog_lucas = [
                 is_end: true 
             }
         ]
+    },
+    {   
+        kind: "pattern",
+        happened: false,
+        dialog: [
+            // Mensagem introdutória (-1) - Criando o desejo de consumo
+            { 
+                name: "Lucas", 
+                msg: "E aí, cara!", 
+                is_question: false, 
+                number: -1, 
+                is_end: true 
+            },
+			
+        ]
     }
 ];
 
 global.dialog_donagraca = [
     {   
-        kind: "pattern",
+        kind: "unique",
         happened: false,
         dialog: [
             // Mensagem introdutória (-1) - Apelo emocional e visual
@@ -597,15 +613,45 @@ global.dialog_donagraca = [
                 is_end: true 
             }
         ]
+    },
+    {   
+        kind: "unique",
+        happened: false,
+        dialog: [
+            // Mensagem introdutória (-1) - Apelo emocional e visual
+            { 
+                name: "Dona Graça", 
+                msg: "Oi, meu filho! A vendinha está fechada nesses dias...", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+			
+			{ 
+                name: "Dona Graça", 
+                msg: "mas quando eu reabrir vai ter muitas coisinha para você comprar!", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+            
+            { 
+                name: "Dona Graça", 
+                msg: "Até mais, viu? Aproveite seu dia!", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            } 
+        ]
     }
 ];
 
 global.dialog_luna = [
     {   
-        kind: "pattern",
+        kind: "unique",
         happened: false,
         dialog: [
-            // Mensagem introdutória (-1) - Foco na apreciação estética
+
             { 
                 name: "Luna", 
                 msg: "Ei, olha só... acabei de terminar esse quadro do parque. Essa vista é linda, né?", 
@@ -614,7 +660,6 @@ global.dialog_luna = [
                 is_end: false 
             },
 
-            // BLOCO DE ESCOLHA (0) - Gasto maior, teste de prioridade
             { 
                 name: "Luna", 
                 msg: "Estou vendendo essa pintura por R$ 20,00. Você quer comprar?", 
@@ -627,7 +672,6 @@ global.dialog_luna = [
                 is_end: false 
             },
 
-            // RESULTADO 1: Compra efetuada (Ocupa espaço, gasta R$ 20)
             { 
                 name: "Luna", 
                 msg: "Valeu demais pelo apoio! Essa aqui é única, viu? Coloca em algum lugar com luz boa que ela transforma o ambiente. Até mais!", 
@@ -654,5 +698,34 @@ global.dialog_luna = [
                 is_end: true 
             }
         ]
-    }
+    },
+    
+    {   
+        kind: "pattern",
+        happened: false,
+        dialog: [
+            // Mensagem introdutória (-1) - Foco na apreciação estética
+            { 
+                name: "Luna", 
+                msg: "Oie! Já vendi todas as minhas pinturas essa semana.", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+            { 
+                name: "Luna", 
+                msg: "Mas gora vou focar nas minhas energias interiores buscando inspiração para a próxima pintura.", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+            { 
+                name: "Luna", 
+                msg: "Foi bom falar com você. Até mais!!", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+        ]    
+    }        
 ];

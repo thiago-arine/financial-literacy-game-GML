@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_enemy1",
-    "path":"sprites/spr_enemy1/spr_enemy1.yy",
+    "name":"spr_npc_lucas",
+    "path":"sprites/spr_npc_lucas/spr_npc_lucas.yy",
   },
   "spriteMaskId":{
     "name":"spr_enemy2",
