@@ -21,7 +21,11 @@ loss_events = [
     { name: "game_promotion", loss: -15, reputation: 10 },
     { name: "cinema",         loss: -80, reputation: 20 },
     { name: "buy_icecream",   loss: -5,  reputation: 0 }, // Preço base (Casquinha)
-    { name: "buy_led_hat",    loss: -50, reputation: 20 }
+    { name: "buy_led_hat",    loss: -50, reputation: 20 },
+	{ name: "buy_coxinha",    loss: -8, reputation: 0 },
+	{ name: "buy_card",		  loss: -8, reputation: 0 },
+	{ name: "buy_plushie",    loss: -12, reputation: 0 },
+	{ name: "buy_painting",   loss: -20, reputation: 0 }
 ];
 
 // --- Funções Auxiliares ---
@@ -73,6 +77,17 @@ Process_game_event = function(event_name, event_kind, option_result) {
                         return; 
                     }
                 }
+				
+				if (event_name == "buy_coxinha") {
+                    if (option_result == 1) { _final_price = -6;  _item_label = "Coxinha"; }
+                    else if (option_result == 2) {
+						_is_buying = false;
+							return; }
+                    else if (option_result == 3) {
+                        _is_buying = false;
+                        return; 
+                    }
+                }
                 
                 if (event_name == "buy_led_hat") {
                     if (option_result == 1) { _final_price = -50; _item_label = "Boné de LED"; }
@@ -81,6 +96,42 @@ Process_game_event = function(event_name, event_kind, option_result) {
                         return 
                     }
                     else if (option_result == 3) { // 3 - "Verificar se o boné é útil"
+                        _is_buying = false;
+                        return
+                    }
+                }
+				
+				if (event_name == "buy_card") {
+                    if (option_result == 1) { _final_price = -8; _item_label = "Carta Rara"; }
+                    else if (option_result == 2) { 
+                        _is_buying = false;
+                        return 
+                    }
+                    else if (option_result == 3) {
+                        _is_buying = false;
+                        return
+                    }
+                }
+				
+				if (event_name == "buy_plushie") {
+                    if (option_result == 1) { _final_price = -12; _item_label = "Pelúcia"; }
+                    else if (option_result == 2) { 
+                        _is_buying = false;
+                        return 
+                    }
+                    else if (option_result == 3) {
+                        _is_buying = false;
+                        return
+                    }
+                }
+				
+				if (event_name == "buy_painting") {
+                    if (option_result == 1) { _final_price = -12; _item_label = "Pintura da Praça"; }
+                    else if (option_result == 2) { 
+                        _is_buying = false;
+                        return 
+                    }
+                    else if (option_result == 3) {
                         _is_buying = false;
                         return
                     }

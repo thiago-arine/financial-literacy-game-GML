@@ -51,16 +51,45 @@ dialog_amigo = [
                 is_end: false 
             },
             // RAMO DO SIM (Resultado 1)
-            { name: "Amigo", msg: "Boa, sabia que iria comprar!", is_question: false, number: 1, is_end: false },
-            { name: "Amigo", msg: "Amanhã nós jogamos juntos, tchauu.", is_question: false, number: 1, is_end: false },
+            { 
+				name: "Amigo",
+				msg: "Boa, sabia que iria comprar!",
+				is_question: false,
+				number: 1,
+				is_end: false
+			},
+            { name: "Amigo",
+				msg: "Amanhã nós jogamos juntos, tchauu.",
+				is_question: false,
+				number: 1,
+				is_end: false
+				},
             
             // RAMO DO NÃO (Resultado 2)
-            { name: "Amigo", msg: "Eita, deixa para lá então...", is_question: false, number: 2, is_end: false },
+            { 
+				name: "Amigo",
+				msg: "Eita, deixa para lá então...",
+				is_question: false,
+				number: 2,
+				is_end: false
+			},
             
             // PARTE COMUM - MISSÃO (Número 3)
             // IMPORTANTE: Definimos o option_results do Sim/Não para que, após as falas 1 ou 2, ele busque o 3
-            { name: "Amigo", msg: "E cara, você pode me ajudar com uma coisa?", is_question: false, number: 3, is_end: false },
-            { name: "Amigo", msg: "Deixei cair a chave da minha casa no seu quintal... Se você achar, pega pra mim! Se não minha mãe vai me matar!", is_question: false, number: 3, is_end: true }
+            { 
+				name: "Amigo",
+				msg: "E cara, você pode me ajudar com uma coisa?",
+				is_question: false,
+				number: 3,
+				is_end: false
+			},
+            { 
+				name: "Amigo",
+				msg: "Deixei cair a chave da minha casa no seu quintal... Se você achar, pega pra mim! Se não minha mãe vai me matar!",
+				is_question: false,
+				number: 3,
+				is_end: true
+			}
         ]
     },
     {   kind: "pattern",
@@ -387,4 +416,243 @@ global.dialog_influencer = [
         }
     ]
   }
+];
+
+global.dialog_wanderley = [
+    {   
+        kind: "pattern",
+        happened: false,
+        dialog: [
+
+            { 
+                name: "Wanderley", 
+                msg: "E aí, campeão!  Vai uma coxinha pra viagem aí? Tá na promoção! só 6 reais", 
+                is_question: true, 
+                options: ["Comprar (R$ 6,00)", "Tô tentando economizar um pouco, seu Wanderley.", "Hoje não, valeu."], 
+                option_results: [1, 2, 3],
+                choice: "buy_coxinha", 
+                kind: "loss", 
+                number: 0, 
+                is_end: false 
+            },
+
+            { 
+                name: "Wanderley", 
+                msg: "Boa! Toma aqui, cuidado pra não sujar a camisa da escola, que sua mãe fica brava. Até amanhã!", 
+                is_question: false, 
+                number: 1, 
+                is_end: true 
+            },
+
+            { 
+                name: "Wanderley", 
+                msg: "Ah, sei como é que é. Juntar um trocado é difícil mesmo, tudo subindo...", 
+                is_question: false, 
+                number: 2, 
+                is_end: false 
+            },
+            { 
+                name: "Wanderley", 
+                msg: "Mas ó, precisando de sustância pra aguentar o caminho até em casa, sabe onde me achar. Juízo aí com esse dinheiro, hein!", 
+                is_question: false, 
+                number: 2, 
+                is_end: true 
+            },
+
+            { 
+                name: "Wanderley", 
+                msg: "Sem problemas, chefe! Passa aqui amanhã que deve ter uma leva saindo quentinha. Bom descanso pra você aí!", 
+                is_question: false, 
+                number: 3, 
+                is_end: true 
+            }
+        ]
+    }
+];
+
+global.dialog_lucas = [
+    {   
+        kind: "unique",
+        happened: false,
+        dialog: [
+            // Mensagem introdutória (-1) - Criando o desejo de consumo
+            { 
+                name: "Lucas", 
+                msg: "Cara, você não tem noção! Consegui uma  carta do 'Gato Invisível' ontem. É raríssima!", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+			
+			{ 
+                name: "Lucas", 
+                msg: "Faço por R$ 8,00 só porque a gente é parceiro. Eu ia guardar pra mim, mas tô precisando de uma grana pra um jogo novo.", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+
+            // BLOCO DE ESCOLHA (0) - A tentação do hobby
+            { 
+                name: "Lucas", 
+                msg: "Quer comprar?", 
+                is_question: true, 
+                options: ["Comprar (R$ 8,00)", "R$ 8? É muita grana pra um papel...", "Agora não, Lucas. Valeu!"], 
+                option_results: [1, 2, 3], 
+                choice: "buy_card", 
+                kind: "loss", 
+                number: 0, 
+                is_end: false 
+            },
+
+            // RESULTADO 1: Compra efetuada (Ocupa um espaço no inventário e gasta o dinheiro)
+            { 
+                name: "Lucas", 
+                msg: "Valeu! Você não vai se arrepender, olha como ela brilha no sol. Cuida bem dela, hein!", 
+                is_question: false, 
+                number: 1, 
+                is_end: true 
+            },
+
+            // RESULTADO 2: Crítica ao preço/Reflexão
+            { 
+                name: "Lucas", 
+                msg: "Papel? Isso aqui é item de colecionador, pô! Mas beleza, depois não chora quando ela valorizar e eu não quiser mais vender.", 
+                is_question: false, 
+                number: 2, 
+                is_end: true 
+            },
+
+            // RESULTADO 3: Recusa direta
+            { 
+                name: "Lucas", 
+                msg: "Tranquilo, sem grilo. Vou ver se o pessoal do outro nono ano tem interesse. Falou!", 
+                is_question: false, 
+                number: 3, 
+                is_end: true 
+            }
+        ]
+    }
+];
+
+global.dialog_donagraca = [
+    {   
+        kind: "pattern",
+        happened: false,
+        dialog: [
+            // Mensagem introdutória (-1) - Apelo emocional e visual
+            { 
+                name: "Dona Graça", 
+                msg: "Oi, meu filho! Estava aqui arrumando as prateleiras e achei uma pelúcia... não é a coisa mais fofa do mundo?", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+			
+			{ 
+                name: "Dona Graça", 
+                msg: "Essa pelúcia é última que eu tenho, sobrou só essa unidade. Ficaria linda decorando o seu quarto, não acha?", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+
+            // BLOCO DE ESCOLHA (0) - A opção de gasto é a 1
+            { 
+                name: "Dona Graça", 
+                msg: "Faço por R$ 12,00 pra você.", 
+                is_question: true, 
+                options: ["Comprar Pelúcia (R$ 12,00)", "É linda, mas preciso guardar meu dinheiro.", "Agora não, Dona Graça. Obrigado!"], 
+                option_results: [1, 2, 3], 
+                choice: "buy_plushie", 
+                kind: "loss", 
+                number: 0, 
+                is_end: false 
+            },
+
+            // RESULTADO 1: Compra efetuada (Obrigatório ser o 1 para gastos)
+            { 
+                name: "Dona Graça", 
+                msg: "Ai, que bom gosto! Ele vai te dar muita sorte, você vai ver. Anda com cuidado, viu!", 
+                is_question: false, 
+                number: 1, 
+                is_end: true 
+            },
+
+            // RESULTADO 2: Recusa consciente (Foco na economia)
+            { 
+                name: "Dona Graça", 
+                msg: "Ah, eu entendo perfeitamente, querido. Está certo em poupar. Você é um bom menino.", 
+                is_question: false, 
+                number: 2, 
+                is_end: true 
+            },
+
+            // RESULTADO 3: Recusa direta
+            { 
+                name: "Dona Graça", 
+                msg: "Tudo bem, meu anjo. Passa aqui depois pra me dar um oi, mesmo se não for comprar nada! Vai com Deus.", 
+                is_question: false, 
+                number: 3, 
+                is_end: true 
+            }
+        ]
+    }
+];
+
+global.dialog_luna = [
+    {   
+        kind: "pattern",
+        happened: false,
+        dialog: [
+            // Mensagem introdutória (-1) - Foco na apreciação estética
+            { 
+                name: "Luna", 
+                msg: "Ei, olha só... acabei de terminar esse quadro do parque. Essa vista é linda, né?", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+
+            // BLOCO DE ESCOLHA (0) - Gasto maior, teste de prioridade
+            { 
+                name: "Luna", 
+                msg: "Estou vendendo essa pintura por R$ 20,00. Você quer comprar?", 
+                is_question: true, 
+                options: ["Comprar Pintura (R$ 20,00)", "É linda, mas não posso gastar agora.", "Não, valeu."], 
+                option_results: [1, 2, 3], 
+                choice: "buy_painting", 
+                kind: "loss", 
+                number: 0, 
+                is_end: false 
+            },
+
+            // RESULTADO 1: Compra efetuada (Ocupa espaço, gasta R$ 20)
+            { 
+                name: "Luna", 
+                msg: "Valeu demais pelo apoio! Essa aqui é única, viu? Coloca em algum lugar com luz boa que ela transforma o ambiente. Até mais!", 
+                is_question: false, 
+                number: 1, 
+                is_end: true 
+            },
+
+            // RESULTADO 2: Recusa consciente (Dificuldade de priorizar)
+            { 
+                name: "Luna", 
+                msg: "Entendo perfeitamente. Às vezes o bolso não acompanha a vontade, né? Mas valeu por parar pra apreciar!", 
+                is_question: false, 
+                number: 2, 
+                is_end: true 
+            },
+
+            // RESULTADO 3: Recusa direta
+            { 
+                name: "Luna", 
+                msg: "Beleza! Bom caminho pra você, garoto. Se mudar de ideia, estarei por aqui até o sol se pôr.", 
+                is_question: false, 
+                number: 3, 
+                is_end: true 
+            }
+        ]
+    }
 ];
