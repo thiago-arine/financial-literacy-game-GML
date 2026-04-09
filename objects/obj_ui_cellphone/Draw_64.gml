@@ -57,7 +57,7 @@ if (phone_y < display_get_gui_height() - 10) {
         var _col_w = 40; 
         var _row_h = 32;
         
-        for (var i = 1; i <= 30; i++) {
+        for (var i = 1; i <= 28; i++) {
             var _row = (i - 1) div 4;
             var _col = (i - 1) mod 4;
             

@@ -22,8 +22,8 @@ if (moving) {
 }
 
 function handle_input() {
-	var input_dir_x = keyboard_check(ord("D")) - keyboard_check(ord("A"));
-    var input_dir_y = keyboard_check(ord("S")) - keyboard_check(ord("W"));
+	var input_dir_x = keyboard_check(vk_right) - keyboard_check(vk_left);
+    var input_dir_y = keyboard_check(vk_down) - keyboard_check(vk_up);
 	
 
     if (input_dir_x != 0 || input_dir_y != 0) {

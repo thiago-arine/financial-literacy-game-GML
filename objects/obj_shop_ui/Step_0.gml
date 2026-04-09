@@ -1,6 +1,6 @@
 var _up    = keyboard_check_pressed(vk_up)    || keyboard_check_pressed(ord("W"));
 var _down  = keyboard_check_pressed(vk_down)  || keyboard_check_pressed(ord("S"));
-var _exit  = keyboard_check_pressed(vk_escape)  || keyboard_check_pressed(ord("E"));
+var _exit  = keyboard_check_pressed(vk_escape)  || keyboard_check_pressed(ord("Z"));
 var _buy   = keyboard_check_pressed(vk_space)   || keyboard_check_pressed(vk_enter);
 
 if (_up) selected--;

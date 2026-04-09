@@ -9,7 +9,7 @@ if (instance_exists(_player_asset)) {
     var _inst = instance_find(_player_asset, 0);
     var _dist = distance_to_object(_inst);
     
-    if (_dist < 20 && keyboard_check_pressed(ord("C"))) {
+    if (_dist < 20 && keyboard_check_pressed(ord("M"))) {
 
         if (instance_exists(obj_inventory)) {
             // Tenta adicionar

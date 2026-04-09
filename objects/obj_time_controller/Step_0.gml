@@ -9,11 +9,11 @@ if (real_time_accumulator >= global.REAL_SECONDS_PER_GAME_MINUTE) {
     // Passagem de Dia
     if (global.game_minute_total >= 1440) {
         global.game_minute_total = 0;
-        global.day += 1;
-        global.day_of_week = (global.day_of_week + 1) mod 7;
+        global.day += 7;
+        global.day_of_week = (global.day_of_week + 7) mod 7;
 
-        if (global.day > 30) {
-            global.day = 1;
+        if (global.day > 28) {
+            global.day -= 28;
             global.month += 1;
             
             if (global.month > 12) {

@@ -1,7 +1,7 @@
-if (keyboard_check_pressed(vk_tab)) {
+if (keyboard_check_pressed(ord("X"))) {
     inventory_open = !inventory_open;
 }
 
-if (keyboard_check_pressed(ord("M")) || keyboard_check_pressed(ord("E"))) {
+if (keyboard_check_pressed(ord("C")) || keyboard_check_pressed(ord("Z"))) {
     inventory_open = false; 
 }
