@@ -47,8 +47,8 @@ inventory_remove_item = function(_target_name) {
 }
 
 // Função de Processar Eventos (CORRIGIDA E COMPLETA)
-Process_game_event = function(event_name, event_kind, option_result) {
-    show_debug_message("Evento Recebido: " + string(event_name) + " | Valor: " + string(option_result));
+Process_game_event = function(event_name, event_kind, option_result, _reward = 0) {
+    show_debug_message("Evento Recebido: " + string(event_name) + " | Valor: " + string(option_result) + " | Recompensa: " + string(_reward));
     
     // --- LÓGICA DE GASTOS (LOSS) ---
     if (event_kind == "loss") {
@@ -162,6 +162,14 @@ Process_game_event = function(event_name, event_kind, option_result) {
 
     // --- LÓGICA ESPECIAL (METAS E MISSÕES) ---
     if (event_kind == "special") {
+        
+        // Se houver recompensa, adiciona ao saldo global
+        if (_reward > 0) {
+            global.balance += _reward;
+            // Opcional: Registrar no extrato/statement se desejar
+            update_statement("Recompensa: " + event_name, _reward, "gain"); 
+        }
+        
         switch(event_name) {
             case "meta":
                 global.meta = option_result;

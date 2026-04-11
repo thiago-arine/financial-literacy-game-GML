@@ -29,7 +29,7 @@ else if ((!_dialog_data.is_question and keyboard_check_pressed(input_key)) or re
         }
     }
 
-    // Lógica de Pulo por Escolha (A que você já tinha para branches iniciais)
+    // Lógica de Pulo por Escolha 
     if (_dialog_data.number != -1 and _dialog_data.is_end == false){
         if (_dialog_data.number != number_option && number_option != 0){
             while (current_message < array_length(_str.dialog) - 1 && _str.dialog[current_message].number != number_option){
@@ -43,8 +43,15 @@ else if ((!_dialog_data.is_question and keyboard_check_pressed(input_key)) or re
 	if (variable_struct_exists(_dialog_data, "trigger_event")) {
 	    if (instance_exists(obj_events)) {
 	        with(obj_events) {
+                
+                // Verifica se existe o campo 'reward' dentro do trigger_event do diálogo
+                var _val_reward = variable_struct_exists(_dialog_data.trigger_event, "reward") ? _dialog_data.trigger_event.reward : 0;
+                
 	            // Aqui ele chama o método que definimos acima
-	            Process_game_event(_dialog_data.trigger_event.name, _dialog_data.trigger_event.kind, _dialog_data.trigger_event.result);
+	            Process_game_event(_dialog_data.trigger_event.name, 
+                _dialog_data.trigger_event.kind, 
+                _dialog_data.trigger_event.result,
+                _val_reward);
 	        }
 	    }
 	}

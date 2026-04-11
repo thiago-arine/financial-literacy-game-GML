@@ -30,7 +30,7 @@ global.dialog_amigo_completou = [{
         is_question: false,
         number: 0,
         is_end: true,
-        trigger_event: { name: "quest_key", kind: "special", result: 1 }
+        trigger_event: { name: "quest_key", kind: "special", result: 1,}
     }]
 }];
 
@@ -291,7 +291,7 @@ global.dialog_influencer_completou = [{
         is_question: false,
         number: 0,
         is_end: true,
-        trigger_event: { name: "quest_headset", kind: "special", result: 1 }
+        trigger_event: { name: "quest_headset", kind: "special", result: 1, reward: 20 }
     }]
 }];
 
