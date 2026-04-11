@@ -27,6 +27,7 @@
     {"name":"obj_dialog","order":4,"path":"objects/obj_dialog/obj_dialog.yy",},
     {"name":"obj_entity_parent","order":24,"path":"objects/obj_entity_parent/obj_entity_parent.yy",},
     {"name":"obj_events","order":13,"path":"objects/obj_events/obj_events.yy",},
+    {"name":"obj_fade_transition","order":42,"path":"objects/obj_fade_transition/obj_fade_transition.yy",},
     {"name":"obj_game_controller","order":19,"path":"objects/obj_game_controller/obj_game_controller.yy",},
     {"name":"obj_init","order":23,"path":"objects/obj_init/obj_init.yy",},
     {"name":"obj_inventory","order":28,"path":"objects/obj_inventory/obj_inventory.yy",},
