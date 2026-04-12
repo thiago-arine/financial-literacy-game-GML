@@ -7,6 +7,17 @@ function create_dialog(_messages){
     _inst.current_message = 0;
 };
 
+function mentor_popup(_messages) {
+    if (instance_exists(obj_dialog)) return;
+    
+    // Usamos profundidade 0 pois o Draw GUI cuidará da prioridade visual
+    var _inst = instance_create_depth(0, 0, 0, obj_dialog);
+    _inst.messages = _messages;
+    _inst.current_dialog = 0;
+    _inst.current_message = 0;
+    _inst.is_mentor_popup = true; 
+}
+
 global.char_colors = {
     "Amigo": c_orange,
     "Mentor": c_aqua,
@@ -729,3 +740,24 @@ global.dialog_luna = [
         ]    
     }        
 ];
+
+global.dialog_mentor_low_balance = [{
+    kind: "unique",
+    happened: false,
+    dialog: [
+        { 
+            name: "Mentor", 
+            msg: "Ei, preste atenção! Você tem menos de R$ 50,00. MMMMM MMMMM MMMMMM MMMMM M M MMM MMMMM MMM MMMMMM M MM MMMMMMM MM MM MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM", 
+            is_question: false, 
+            number: -1, 
+            is_end: false 
+        },
+        { 
+            name: "Mentor", 
+            msg: "Seu dinheiro está acabando rápido. Se continuar gastando assim, não vai bater sua meta!", 
+            is_question: false, 
+            number: -1, 
+            is_end: true 
+        }
+    ]
+}];

@@ -62,6 +62,7 @@ else if ((!_dialog_data.is_question and keyboard_check_pressed(input_key)) or re
     if (current_message >= array_length(_str.dialog) || _dialog_data.is_end == true){
         if (_str.kind == "unique") _str.happened = true;
         
+        global.is_dialog_active = false; // Ao morrer, libera para o Mentor
         instance_destroy();
         global.time_is_paused = false;
         number_option = 0; // Reseta para o próximo diálogo

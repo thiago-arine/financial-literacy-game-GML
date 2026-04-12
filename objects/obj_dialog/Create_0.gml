@@ -10,6 +10,9 @@ char_speed = 0.5;
 input_key = vk_space;
 response = false;
 
+is_mentor_popup = false;
+global.is_dialog_active = true; // Ao nascer, avisa que o diálogo está ativo
+
 gui_w = display_get_gui_width();
 gui_h = display_get_gui_height();
 

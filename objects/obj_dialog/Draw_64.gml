@@ -9,10 +9,21 @@ if (_str.dialog[current_message].is_question == true) _boxh *= 1.1;
 var _dx = (display_get_gui_width() - _boxw) / 2;
 var _dy = display_get_gui_height() - _boxh - _margin_bottom;
 
+var _text_x_offset = 0; // Espaço que o texto vai "pular" para a direita
+
+if (variable_instance_exists(id, "is_mentor_popup") && is_mentor_popup) {
+    // Desenha a sprite do Mentor alinhada à esquerda da caixa
+    // O y é o mesmo da caixa (_dy), subtraindo a altura da sprite se quiser que ele "saia" da caixa
+    var _scale = 15; 
+    _text_x_offset = 200; // Define que o texto deve recuar 100 pixels
+    draw_sprite_ext(spr_npc_mentor, 0, _dx + 20, _dy + 20, _scale, _scale, 0, c_white, 1); 
+}
+
 // Desenha a caixa
 draw_sprite_stretched(spr_box, 0, _dx, _dy, _boxw, _boxh);
 
-_dx += 16; _dy += 16;
+_dx += 16; 
+_dy += 16;
 var _padding = 10; 
 
 draw_set_font(Font1);
@@ -22,11 +33,11 @@ var _name = _str.dialog[current_message].name;
 if (variable_global_exists("char_colors") && struct_exists(global.char_colors, _name)) {
     draw_set_colour(global.char_colors[$ _name]);
 }
-draw_text(_dx + _padding, _dy + _padding, _name);
+draw_text(_dx + _padding + _text_x_offset, _dy + _padding, _name);
 draw_set_colour(c_white);
 
 _dy += 40;
-draw_text_ext(_dx + _padding, _dy + 10, draw_message, -1, _boxw - (_padding * 2));
+draw_text_ext(_dx + _padding + _text_x_offset, _dy + 10, draw_message, -1, _boxw - (_padding * 2) - _text_x_offset);
 
 // Lógica de Opções/Perguntas
 if (_str.dialog[current_message].is_question == true) {
@@ -41,7 +52,7 @@ if (_str.dialog[current_message].is_question == true) {
         var mx = device_mouse_x_to_gui(0);
         var my = device_mouse_y_to_gui(0);
         
-        var _hover = point_in_rectangle(mx, my, _dx + _padding, _current_y, _dx + _padding + _tw, _current_y + _th);
+        var _hover = point_in_rectangle(mx, my, _dx + _padding + _text_x_offset, _current_y, _dx + _padding + _tw, _current_y + _th);
         
         if (_hover) {
             draw_set_colour(c_orange);
@@ -57,6 +68,6 @@ if (_str.dialog[current_message].is_question == true) {
 		    handle_question_choice(_str.dialog[current_message].choice, i);
 		}
         
-        draw_text(_dx + _padding, _current_y, _option_text);
+        draw_text(_dx + _padding + _text_x_offset, _current_y, _option_text);
     }
 }
