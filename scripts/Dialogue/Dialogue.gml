@@ -747,7 +747,7 @@ global.dialog_mentor_low_balance = [{
     dialog: [
         { 
             name: "Mentor", 
-            msg: "Ei, preste atenção! Você tem menos de R$ 50,00. MMMMM MMMMM MMMMMM MMMMM M M MMM MMMMM MMM MMMMMM M MM MMMMMMM MM MM MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM", 
+            msg: "Ei, preste atenção! Você tem menos de R$ 50,00.", 
             is_question: false, 
             number: -1, 
             is_end: false 
@@ -758,6 +758,34 @@ global.dialog_mentor_low_balance = [{
             is_question: false, 
             number: -1, 
             is_end: true 
+        }
+    ]
+}];
+
+global.dialog_mentor_first_goal_reached = [{
+    kind: "unique",
+    happened: false,
+    dialog: [
+        { 
+            name: "Mentor", 
+            msg: "Parabéns! Você conseguiu guardar R$ 100,00 e agora pode completar a primeira meta de comprar um fone de ouvido!", 
+            is_question: false, 
+            number: -1, 
+            is_end: false 
+        },
+        { 
+            name: "Mentor", 
+            msg: "Para Venha falar comigo na casa inicial para comprar seu fone e avançarmos!", 
+            is_question: false, 
+            number: -1, 
+            is_end: false
+        },
+        { 
+            name: "Mentor", 
+            msg: "Cuidado para não gastar seu dinheiro antes de comprar o fone! Pense bem antes de qualquer compra.", 
+            is_question: false, 
+            number: -1, 
+            is_end: true
         }
     ]
 }];

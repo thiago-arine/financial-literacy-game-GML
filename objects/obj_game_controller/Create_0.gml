@@ -11,5 +11,7 @@ if (!variable_global_exists("balance")) {
     global.balance = 0.00;
 }
 
-mentor_warned_low_balance = false;
 dialog_cooldown = 0; // Novo contador de segurança
+
+mentor_warned_low_balance = false;
+mentor_warned_first_goal_reached = false;
