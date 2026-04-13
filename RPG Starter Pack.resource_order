@@ -119,6 +119,7 @@
     {"name":"spr_reputation_bar","order":22,"path":"sprites/spr_reputation_bar/spr_reputation_bar.yy",},
     {"name":"spr_reputation_bar2","order":7,"path":"sprites/spr_reputation_bar2/spr_reputation_bar2.yy",},
     {"name":"spr_shadow","order":1,"path":"sprites/spr_shadow/spr_shadow.yy",},
+    {"name":"spr_spacebar_input","order":64,"path":"sprites/spr_spacebar_input/spr_spacebar_input.yy",},
     {"name":"spr_talk","order":18,"path":"sprites/spr_talk/spr_talk.yy",},
     {"name":"spr_tileset","order":4,"path":"sprites/spr_tileset/spr_tileset.yy",},
     {"name":"spr_timer_afternoon","order":39,"path":"sprites/spr_timer_afternoon/spr_timer_afternoon.yy",},
