@@ -110,6 +110,39 @@ dialog_amigo = [
     }
 ];
 
+global.dialog_mentor_transicao_fase = [{
+    kind: "unique",
+    happened: false,
+    dialog: [
+        { 
+            name: "Mentor", 
+            msg: "Vejo que você juntou R$ 100! Deseja comprar o fone agora? Isso iniciará a próxima fase e missões pendentes podem ser perdidas.", 
+            is_question: true, 
+            options: ["Sim, comprar fone", "Ainda não"],
+            option_results: [1, 2],
+            choice: "phase_transition",
+            kind: "special",
+            number: -0, 
+            is_end: false 
+        },
+        { 
+            name: "Mentor", 
+            msg: "Excelente escolha! Com os fones, novas oportunidades de trabalho surgirão. Sua próxima meta é economizar para um celular de R$ 900.", 
+            is_question: false, 
+            number: 1, // Resposta "Sim"
+            is_end: true,
+            trigger_event: { name: "start_phase_2", kind: "special", result: 2 } 
+        },
+        { 
+            name: "Mentor", 
+            msg: "Tudo bem. Volte quando estiver pronto para avançar.", 
+            is_question: false, 
+            number: 2, // Resposta "Não"
+            is_end: true 
+        }
+    ]
+}];
+
 dialog_mentor = [
     {   kind: "unique",
         happened: false,
@@ -775,7 +808,7 @@ global.dialog_mentor_first_goal_reached = [{
         },
         { 
             name: "Mentor", 
-            msg: "Para Venha falar comigo na casa inicial para comprar seu fone e avançarmos!", 
+            msg: "Venha falar comigo na casa inicial para comprar seu fone e avançarmos!", 
             is_question: false, 
             number: -1, 
             is_end: false
@@ -789,3 +822,4 @@ global.dialog_mentor_first_goal_reached = [{
         }
     ]
 }];
+

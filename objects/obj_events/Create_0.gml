@@ -175,6 +175,14 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
                 global.meta = option_result;
                 show_debug_message("Meta definida: " + string(global.meta));
             break;
+        
+            case "start_phase_2":
+                if (global.balance >= 100) {
+                    global.balance -= 100; // Deduz o valor do fone
+                    global.meta = 2;       // Atualiza para a meta do celular 
+                    update_statement("Compra: Fone de Ouvido", 100, "loss"); // Registra no extrato
+                    show_debug_message("Fase 2 iniciada: Meta 900");
+                }
 			
 			case "open_shop":
 			    if (option_result == 1) {

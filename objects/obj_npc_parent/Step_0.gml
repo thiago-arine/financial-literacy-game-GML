@@ -11,6 +11,15 @@ if (instance_exists(player) && distance_to_object(player) < 12) { // Aumentei um
     if (keyboard_check_pressed(input_key)) {
         global.time_is_paused = true;
         
+        // LÓGICA ESPECÍFICA DO MENTOR (Nova adição ao pai)
+        if (object_get_name(object_index) == "obj_npc_mentor") {
+            // Verifica se a meta 1 está ativa e se tem saldo
+            if (global.meta == 1 && global.balance >= 100) {
+                create_dialog(global.dialog_mentor_transicao_fase);
+                exit; // Interrompe para não abrir o diálogo padrão abaixo
+            }
+        }
+        
         // LÓGICA ESPECÍFICA DO AMIGO (Só roda se este NPC for o Amigo)
         if (object_get_name(object_index) == "obj_npc_amigo") {
             var _has_key = variable_global_exists("has_key") && global.has_key;
