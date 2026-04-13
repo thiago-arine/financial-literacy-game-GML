@@ -55,18 +55,21 @@ if (_str.dialog[current_message].is_question == true) {
         var _hover = point_in_rectangle(mx, my, _dx + _padding + _text_x_offset, _current_y, _dx + _padding + _tw, _current_y + _th);
         
         if (_hover) {
-            draw_set_colour(c_orange);
-            if (mouse_check_button_pressed(mb_left)) {
+            selected_option = i; 
+        }
+
+        // Desenha com cor diferente se for a opção selecionada (por mouse ou teclado)
+        if (selected_option == i) {
+            draw_set_colour(c_orange); 
+            
+            // Clique do mouse ainda funciona
+            if (mouse_check_button_pressed(mb_left)) { 
                 response = true;
                 handle_question_choice(_str.dialog[current_message].choice, i);
             }
         } else {
-            draw_set_colour(c_white);
+            draw_set_colour(c_white); 
         }
-		
-		if (_hover && mouse_check_button_pressed(mb_left)) {
-		    handle_question_choice(_str.dialog[current_message].choice, i);
-		}
         
         draw_text(_dx + _padding + _text_x_offset, _current_y, _option_text);
     }

@@ -8,7 +8,15 @@ if (current_char < string_length(_dialog_data.msg)){
     draw_message = string_copy(_dialog_data.msg, 1, floor(current_char));
 } 
 // Momento de avançar o diálogo
-else if ((!_dialog_data.is_question and keyboard_check_pressed(input_key)) or response == true){
+else if (keyboard_check_pressed(input_key) or response == true) {
+    
+    // Se for uma pergunta e o jogador apertou Espaço (confirmando a seleção do teclado)
+    if (_dialog_data.is_question == true && response == false) {
+        response = true;
+        handle_question_choice(_dialog_data.choice, selected_option);
+        exit; // Interrompe para processar a escolha antes de tentar avançar
+    }
+    
     response = false;
     
     // --- LÓGICA DE PULO PARA A MISSÃO (ORDEM CORRETA) ---
@@ -83,4 +91,19 @@ else if ((!_dialog_data.is_question and keyboard_check_pressed(input_key)) or re
         current_char = 0;
         draw_message = "";
     } 
+}
+
+// Lógica de Navegação por Teclado
+if (_dialog_data.is_question == true) {
+    var _max_options = array_length(_dialog_data.options);
+    
+    if (keyboard_check_pressed(vk_up)) {
+        selected_option--;
+        if (selected_option < 0) selected_option = _max_options - 1;
+    }
+    
+    if (keyboard_check_pressed(vk_down)) {
+        selected_option++;
+        if (selected_option >= _max_options) selected_option = 0;
+    }
 }
