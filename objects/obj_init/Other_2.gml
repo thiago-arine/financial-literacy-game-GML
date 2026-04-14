@@ -15,7 +15,7 @@ global.has_headset = false;
 global.has_key = false;
 global.has_kite = false;
 global.reputation = 0;
-global.balance = 50; // Saldo inicial
+global.balance = 0; // Saldo inicial
 
 global.has_key = false;
 global.has_headset = false;

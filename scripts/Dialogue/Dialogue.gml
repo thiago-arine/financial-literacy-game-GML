@@ -148,19 +148,73 @@ dialog_mentor = [
         happened: false,
         required_event : "",
         dialog: [
-            { name: "Mentor", msg: "Bem vindo! Sou seu mentor financeiro.", is_question: false, number: -1, is_end: false },
-            { name: "Mentor", msg: "Nossa meta: Construir liberdade financeira...", is_question: false, number: -1, is_end: false },
-            { name: "Mentor", msg: "Ao longo de sua jornada aparecerão oportunidades...", is_question: false, number: -1, is_end: false },
-            { name: "Mentor", msg: "Vamos começar. Qual é o seu objetivo financeiro?", is_question: true, options: ["Fone de Ouvido: R$100,00 em 4 meses", "Celular: R$900,00 em 9 meses", "Formatura: R$1700,00 em 15 meses"], option_results: [1, 2, 3], choice: "meta", kind: "special", number: -1, is_end: false },
-            { name: "Mentor", msg: "Ótimo! Agora que já definiu a sua meta...", is_question: false, number: -1, is_end: false },
-            { name: "Mentor", msg: "Em todos os meses, no dia 1º, você receberá uma mesada...", is_question: false, number: -1, is_end: false }, 
-            { name: "Mentor", msg: "E lembre-se, ganhar não é tudo, você também deve controlar seus gastos! Pressione 'E'...", is_question: false, number: -1, is_end: true }
+            { 
+                name: "Mentor",
+                msg: "Bem vindo! Sou seu mentor financeiro.",
+                is_question: false,
+                number: -1,
+                is_end: false
+            },
+            { 
+                name: "Mentor",
+                msg: "Nossa meta: Construir liberdade financeira...",
+                is_question: false,
+                number: -1,
+                is_end: false
+            },
+            {
+                name: "Mentor",
+                msg: "Ao longo de sua jornada aparecerão oportunidades...",
+                is_question: false,
+                number: -1,
+                is_end: false
+            },
+            {
+                name: "Mentor", 
+                msg: "Vamos começar. Qual é o seu objetivo financeiro?",
+                is_question: true,
+                options: ["Fone de Ouvido: R$100,00 em 4 meses"],   //"Celular: R$900,00 em 9 meses", "Formatura: R$1700,00 em 15 meses"]
+                option_results: [1], //[1, 2, 3]
+                choice: "meta", 
+                kind: "special",
+                number: -1,
+                is_end: false
+            },
+            {
+                name: "Mentor",
+                msg: "Ótimo! Agora que já definiu a sua meta...",
+                is_question: false,
+                number: -1,
+                is_end: false
+            },
+            {
+                name: "Mentor",
+                msg: "Em todos os meses, no dia 1º, você receberá uma mesada...",
+                is_question: false,
+                number: -1,
+                is_end: false
+            }, 
+            { 
+                name: "Mentor", 
+                msg: "E lembre-se, ganhar não é tudo, você também deve controlar seus gastos! Pressione 'Z' para monitorar seu saldo....",
+                is_question: false,
+                number: -1,
+                is_end: true
+            }
         ]
     },
     {   kind: "pattern",
         happened: false,
         required_event : "",
-        dialog: [{ name: "Mentor", msg: "Mantenha seu foco, controle seus gastos e alcance a sua meta!", is_question: false, number: 0, is_end: true }]
+        dialog: [
+            { 
+                name: "Mentor",
+                msg: "Mantenha seu foco, controle seus gastos e alcance a sua meta!",
+                is_question: false,
+                number: 0,
+                is_end: true
+            }
+        ]
     }
 ];
 
@@ -215,8 +269,22 @@ global.dialog_shopkeeper_completou = [{
         msg: "Vou guardá-la, muito obrigado garoto!",
         is_question: false,
         number: 0,
+        is_end: false
+    },
+    {
+        name: "Tadeu",
+        msg: "Você é um bom menino! Toma aqui um dinheirinho pra você ficar.!",
+        is_question: false,
+        number: 0,
+        is_end: false
+    },
+    {
+        name: "Tadeu",
+        msg: "Agora, me dê licença que vou procurar uma rabiola nova para essa pipa aqui. Até mais!",
+        is_question: false,
+        number: 0,
         is_end: true,
-        trigger_event: { name: "quest_kite", kind: "special", result: 1 }
+        trigger_event: { name: "quest_kite", kind: "special", result: 1, reward: 15 }
     }]
 }];
 
@@ -324,18 +392,18 @@ global.dialog_influencer_completou = [{
     happened: false,
     dialog: [{
         name: "Influencer",
-        msg: "Caramba, você achou o fone! Muito obrigado, cara!",
+        msg: "Olha só quem voltou! E trouxe o fone como eu pedi, eu sei que você me ama.",
         is_question: false,
         number: 0,
         is_end: false
     },
     {
         name: "Influencer",
-        msg: "Vou levar ela agora. Muito obrigado pela ajuda!",
+        msg: "Pode deixar comigo. E toma uns trocados aqui para comprar uma balinha que hoje eu tô me sentindo caridoso.!",
         is_question: false,
         number: 0,
         is_end: true,
-        trigger_event: { name: "quest_headset", kind: "special", result: 1, reward: 20 }
+        trigger_event: { name: "quest_headset", kind: "special", result: 1, reward: 25 }
     }]
 }];
 

@@ -13,14 +13,14 @@ if (instance_exists(obj_shop_ui)) {
 }
 
 //--- Low Balance warning ---//
-if (global.balance < 50 && !mentor_warned_low_balance && !_shop_blocking) {
+if (global.balance < 15 && !mentor_warned_low_balance && !_shop_blocking) {
     if (dialog_cooldown >= 30) {
         mentor_warned_low_balance = true;
         mentor_popup(global.dialog_mentor_low_balance);
     }
 }
 
-if (global.balance >= 60) {
+if (global.balance >= 16) {
     mentor_warned_low_balance = false;
 }
 
