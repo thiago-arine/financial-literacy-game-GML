@@ -224,6 +224,15 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
                     show_debug_message("Missão kite concluída.");
                 }
 			break;
+            case "quest_screwdriver":
+                if (option_result == 1 && global.has_screwdriver) {
+                    global.reputation += 20; // Defina a reputação que desejar
+                    global.has_screwdriver = false;
+                    global.quest_screwdriver_finished = true;
+                    inventory_remove_item("Chave Inglesa"); 
+                    show_debug_message("Missão da chave inglesa concluída.");
+                }
+break;
         }
     }
 }

@@ -39,7 +39,8 @@ if (menu_mode == 0) {
         switch(_item_name) {
             case "Pipa":    _sell_price = 7; break;
             case "Chave":   _sell_price = 5; break;
-            case "Headset": _sell_price = 30; break;    
+            case "Headset": _sell_price = 30; break; 
+            case "Chave Inglesa":    _sell_price = 5 break;
             default:        _sell_price = 2; break;
         }
             

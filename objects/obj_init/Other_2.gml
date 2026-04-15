@@ -14,13 +14,16 @@ display_set_gui_maximize(1, 1, 0, 0);
 global.has_headset = false;
 global.has_key = false;
 global.has_kite = false;
+global.has_screwdriver = false;
 global.reputation = 0;
 global.balance = 0; // Saldo inicial
 
 global.has_key = false;
 global.has_headset = false;
 global.has_kite = false;
+global.has_screwdriver = false
 
 global.quest_key_finished = false;
 global.quest_headset_finished = false;
 global.quest_kite_finished = false;
+global.quest_screwdriver_finished = false

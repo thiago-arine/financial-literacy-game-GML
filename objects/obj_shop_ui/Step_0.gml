@@ -57,7 +57,8 @@ if (_buy && _total > 0) {
         switch(_item_name) {
             case "Pipa": _price = 7; break;
             case "Chave": _price = 5; break;
-            case "Headset": _price = 30; break;    
+            case "Headset": _price = 30; break; 
+            case "Chave Inglesa":    _price = 5 break;   
             default: _price = 2; break;
         }
         

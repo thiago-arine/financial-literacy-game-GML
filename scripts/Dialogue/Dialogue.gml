@@ -273,7 +273,7 @@ global.dialog_shopkeeper_completou = [{
     },
     {
         name: "Tadeu",
-        msg: "Você é um bom menino! Toma aqui um dinheirinho pra você ficar.!",
+        msg: "Você é um bom menino! Toma aqui um dinheirinho pra você ficar!",
         is_question: false,
         number: 0,
         is_end: false
