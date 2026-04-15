@@ -4,6 +4,10 @@ depth = -5000; // Garante que a loja está na frente de TUDO
 keyboard_clear(vk_space); // Limpa o buffer para não comprar sem querer ao abrir
 keyboard_clear(vk_enter);
 
+menu_mode = 0; // 0 = Comprar, 1 = Vender
+sell_items = [];
+//sell_price_multiplier = 0.5; // Itens são vendidos por 50% do valor 
+
 gui_w = display_get_gui_width();
 gui_h = display_get_gui_height();
 shop_w = 500;
