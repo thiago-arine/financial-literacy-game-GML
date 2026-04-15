@@ -399,7 +399,7 @@ global.dialog_influencer_completou = [{
     },
     {
         name: "Influencer",
-        msg: "Pode deixar comigo. E toma uns trocados aqui para comprar uma balinha que hoje eu tô me sentindo caridoso.!",
+        msg: "Pode deixar comigo. E toma uns trocados aqui para comprar uma balinha que hoje eu tô me sentindo caridoso!",
         is_question: false,
         number: 0,
         is_end: true,
@@ -588,7 +588,7 @@ global.dialog_lucas = [
         kind: "unique",
         happened: false,
         dialog: [
-            // Mensagem introdutória (-1) - Criando o desejo de consumo
+            
             { 
                 name: "Lucas", 
                 msg: "Cara, você não tem noção! Consegui uma  carta do 'Gato Invisível' ontem. É raríssima!", 
@@ -605,7 +605,6 @@ global.dialog_lucas = [
                 is_end: false 
             },
 
-            // BLOCO DE ESCOLHA (0) - A tentação do hobby
             { 
                 name: "Lucas", 
                 msg: "Quer comprar?", 
@@ -618,7 +617,6 @@ global.dialog_lucas = [
                 is_end: false 
             },
 
-            // RESULTADO 1: Compra efetuada (Ocupa um espaço no inventário e gasta o dinheiro)
             { 
                 name: "Lucas", 
                 msg: "Valeu! Você não vai se arrepender, olha como ela brilha no sol. Cuida bem dela, hein!", 
@@ -627,7 +625,6 @@ global.dialog_lucas = [
                 is_end: true 
             },
 
-            // RESULTADO 2: Crítica ao preço/Reflexão
             { 
                 name: "Lucas", 
                 msg: "Papel? Isso aqui é item de colecionador, pô! Mas beleza, depois não chora quando ela valorizar e eu não quiser mais vender.", 
@@ -636,7 +633,6 @@ global.dialog_lucas = [
                 is_end: true 
             },
 
-            // RESULTADO 3: Recusa direta
             { 
                 name: "Lucas", 
                 msg: "Tranquilo, sem grilo. Vou ver se o pessoal do outro nono ano tem interesse. Falou!", 
@@ -650,7 +646,7 @@ global.dialog_lucas = [
         kind: "pattern",
         happened: false,
         dialog: [
-            // Mensagem introdutória (-1) - Criando o desejo de consumo
+
             { 
                 name: "Lucas", 
                 msg: "E aí, cara!", 
@@ -668,7 +664,7 @@ global.dialog_donagraca = [
         kind: "unique",
         happened: false,
         dialog: [
-            // Mensagem introdutória (-1) - Apelo emocional e visual
+
             { 
                 name: "Dona Graça", 
                 msg: "Oi, meu filho! Estava aqui arrumando as prateleiras e achei uma pelúcia... não é a coisa mais fofa do mundo?", 
@@ -685,7 +681,6 @@ global.dialog_donagraca = [
                 is_end: false 
             },
 
-            // BLOCO DE ESCOLHA (0) - A opção de gasto é a 1
             { 
                 name: "Dona Graça", 
                 msg: "Faço por R$ 12,00 pra você.", 
@@ -707,7 +702,6 @@ global.dialog_donagraca = [
                 is_end: true 
             },
 
-            // RESULTADO 2: Recusa consciente (Foco na economia)
             { 
                 name: "Dona Graça", 
                 msg: "Ah, eu entendo perfeitamente, querido. Está certo em poupar. Você é um bom menino.", 
@@ -716,7 +710,6 @@ global.dialog_donagraca = [
                 is_end: true 
             },
 
-            // RESULTADO 3: Recusa direta
             { 
                 name: "Dona Graça", 
                 msg: "Tudo bem, meu anjo. Passa aqui depois pra me dar um oi, mesmo se não for comprar nada! Vai com Deus.", 
@@ -730,7 +723,7 @@ global.dialog_donagraca = [
         kind: "unique",
         happened: false,
         dialog: [
-            // Mensagem introdutória (-1) - Apelo emocional e visual
+
             { 
                 name: "Dona Graça", 
                 msg: "Oi, meu filho! A vendinha está fechada nesses dias...", 
@@ -792,7 +785,6 @@ global.dialog_luna = [
                 is_end: true 
             },
 
-            // RESULTADO 2: Recusa consciente (Dificuldade de priorizar)
             { 
                 name: "Luna", 
                 msg: "Entendo perfeitamente. Às vezes o bolso não acompanha a vontade, né? Mas valeu por parar pra apreciar!", 
@@ -801,7 +793,6 @@ global.dialog_luna = [
                 is_end: true 
             },
 
-            // RESULTADO 3: Recusa direta
             { 
                 name: "Luna", 
                 msg: "Beleza! Bom caminho pra você, garoto. Se mudar de ideia, estarei por aqui até o sol se pôr.", 
@@ -816,7 +807,7 @@ global.dialog_luna = [
         kind: "pattern",
         happened: false,
         dialog: [
-            // Mensagem introdutória (-1) - Foco na apreciação estética
+
             { 
                 name: "Luna", 
                 msg: "Oie! Já vendi todas as minhas pinturas essa semana.", 
@@ -848,7 +839,7 @@ global.dialog_mentor_low_balance = [{
     dialog: [
         { 
             name: "Mentor", 
-            msg: "Ei, preste atenção! Você tem menos de R$ 50,00.", 
+            msg: "Ei, preste atenção! Seu saldo chegou a 10% de sua meta ou menos!", 
             is_question: false, 
             number: -1, 
             is_end: false 
