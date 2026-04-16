@@ -34,6 +34,7 @@
     {"name":"obj_item_headset","order":33,"path":"objects/obj_item_headset/obj_item_headset.yy",},
     {"name":"obj_item_key","order":34,"path":"objects/obj_item_key/obj_item_key.yy",},
     {"name":"obj_item_kite","order":32,"path":"objects/obj_item_kite/obj_item_kite.yy",},
+    {"name":"obj_item_parent","order":44,"path":"objects/obj_item_parent/obj_item_parent.yy",},
     {"name":"obj_item_screwdriver","order":43,"path":"objects/obj_item_screwdriver/obj_item_screwdriver.yy",},
     {"name":"obj_meta_display","order":10,"path":"objects/obj_meta_display/obj_meta_display.yy",},
     {"name":"obj_npc_amigo","order":7,"path":"objects/obj_npc_amigo/obj_npc_amigo.yy",},

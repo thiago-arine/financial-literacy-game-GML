@@ -54,6 +54,7 @@
     {"id":{"name":"obj_item_headset","path":"objects/obj_item_headset/obj_item_headset.yy",},},
     {"id":{"name":"obj_item_key","path":"objects/obj_item_key/obj_item_key.yy",},},
     {"id":{"name":"obj_item_kite","path":"objects/obj_item_kite/obj_item_kite.yy",},},
+    {"id":{"name":"obj_item_parent","path":"objects/obj_item_parent/obj_item_parent.yy",},},
     {"id":{"name":"obj_item_screwdriver","path":"objects/obj_item_screwdriver/obj_item_screwdriver.yy",},},
     {"id":{"name":"obj_meta_display","path":"objects/obj_meta_display/obj_meta_display.yy",},},
     {"id":{"name":"obj_npc_amigo","path":"objects/obj_npc_amigo/obj_npc_amigo.yy",},},

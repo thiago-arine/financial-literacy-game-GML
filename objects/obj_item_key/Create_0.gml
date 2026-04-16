@@ -1,5 +1,8 @@
-if (global.has_key == true || global.quest_key_finished == true) {
-    instance_destroy(); // O item se auto-destrói antes mesmo de aparecer
-}
+event_inherited(); // Puxa as variáveis do pai
+item_name = "Key";
+item_sprite = spr_item_key;
+item_type = "special";
 
-can_collect = false;
+// Trava de persistência (Se já tem ou terminou a quest, some)
+if (global.has_key || global.quest_key_finished) 
+    instance_destroy();

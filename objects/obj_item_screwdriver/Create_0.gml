@@ -1,5 +1,5 @@
-if (global.has_screwdriver == true || global.quest_screwdriver_finished == true) {
-    instance_destroy(); // O item se auto-destrói antes mesmo de aparecer
-}
-
-can_collect = false;
+event_inherited();
+item_name = "Screwdriver";
+item_sprite = spr_item_screwdriver;
+item_type = "collectible";
+// Itens colecionáveis múltiplos não precisam de trava de destruição no Create

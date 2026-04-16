@@ -12,7 +12,7 @@ var start_y = 110;
 var start_x = 350;
 
 draw_text_color(start_x, start_y - 60, "COMPRAR [A]", _tab_buy_color, _tab_buy_color, _tab_buy_color, _tab_buy_color, 1);
-draw_text_color(start_x + 150, start_y - 60, "VENDER [D]", _tab_sell_color, _tab_sell_color, _tab_sell_color, _tab_sell_color, 1);
+draw_text_color(start_x + 165, start_y - 60, "VENDER [D]", _tab_sell_color, _tab_sell_color, _tab_sell_color, _tab_sell_color, 1);
 
 if (menu_mode == 0) {
     // Desenha shop_items (seu código original de compra) [cite: 10, 13]
