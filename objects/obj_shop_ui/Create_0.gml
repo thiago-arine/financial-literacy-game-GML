@@ -6,7 +6,7 @@ keyboard_clear(vk_enter);
 
 menu_mode = 0; // 0 = Comprar, 1 = Vender
 sell_items = [];
-//sell_price_multiplier = 0.5; // Itens são vendidos por 50% do valor 
+sell_price_multiplier = 0.5; // Itens são vendidos por 50% do valor 
 
 gui_w = display_get_gui_width();
 gui_h = display_get_gui_height();
@@ -16,22 +16,9 @@ start_x = (gui_w - shop_w) / 2;
 start_y = (gui_h - shop_h) / 2;
 
 shop_items = [
-    { 
-        name: "Pipa de Papel", 
-        price: 15, 
-        sprite: spr_npc_influencer, 
-        image_index: 0, 
-        type: "equip", 
-        desc: "Frágil, mas voa alto." 
-    },
-    { 
-        name: "Linha de Nylon", 
-        price: 10, 
-        sprite: spr_icon_goal, 
-        image_index: 1, 
-        type: "item", 
-        desc: "Resistente a ventos fortes." 
-    }
+    { object: obj_item_kite,        price: 15 },
+    { object: obj_item_headset,     price: 100 },
+    { object: obj_item_screwdriver, price: 20 }
 ];
 
 selected = 0;

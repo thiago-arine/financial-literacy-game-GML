@@ -1,5 +1,6 @@
 event_inherited(); // Puxa as variáveis do pai
-item_name = "Kite";
+item_id = "kite";
+item_display_name = "Pipa";
 item_sprite = spr_item_kite;
 item_type = "special";
 

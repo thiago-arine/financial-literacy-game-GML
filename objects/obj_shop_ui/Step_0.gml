@@ -1,7 +1,7 @@
 var _up    = keyboard_check_pressed(vk_up)    || keyboard_check_pressed(ord("W"));
 var _down  = keyboard_check_pressed(vk_down)  || keyboard_check_pressed(ord("S"));
 var _exit  = keyboard_check_pressed(vk_escape)  || keyboard_check_pressed(ord("Q"));
-var _buy   = keyboard_check_pressed(vk_space)   || keyboard_check_pressed(vk_enter); //var de compra e venda
+var _buy   = keyboard_check_pressed(vk_space)   || keyboard_check_pressed(vk_enter); 
 var _right = keyboard_check_pressed(vk_right)   || keyboard_check_pressed(ord("D")); 
 var _left  = keyboard_check_pressed(vk_left)    || keyboard_check_pressed(ord("A"));  
     
@@ -16,7 +16,6 @@ if (menu_mode == 1) {
             for (var i = 0; i < obj_inventory.invMaxX; i++) {
                 var _slot = obj_inventory.inv[i][j];
                 if (is_array(_slot)) {
-                    // Armazena a info do item + sua posição na matriz para poder remover depois
                     array_push(sell_items, { info: _slot, grid_x: i, grid_y: j });
                 }
             }
@@ -29,8 +28,6 @@ var _total = (menu_mode == 0) ? array_length(shop_items) : array_length(sell_ite
 if (_total > 0) {
     if (_up)   selected--; 
     if (_down) selected++;
-
-    // Lógica de "Wrap" (circular)
     if (selected < 0) selected = _total - 1;
     if (selected >= _total) selected = 0;
 } else {
@@ -38,42 +35,50 @@ if (_total > 0) {
 }
 
 if (_buy && _total > 0) {
-	if (menu_mode == 0){
-        var _item = shop_items[selected];
-        if (global.balance >= _item.price) {
-            var _success = obj_inventory.inventory_add(_item.sprite, _item.image_index, 1, _item.type, _item.name);
+    if (menu_mode == 0) {
+        // --- LÓGICA DE COMPRA ---
+        var _shop_entry = shop_items[selected];
+        var _item_data = get_item_data(_shop_entry.id); // Puxa os dados (sprite, nome, etc) do Script
+        
+        if (global.balance >= _shop_entry.price) {
+            // Adicionamos ao inventário usando o ID técnico (em inglês)
+            var _success = obj_inventory.inventory_add(_item_data.sprite, 0, 1, _item_data.type, _shop_entry.id);
+            
             if (_success) {
-                global.balance -= _item.price;
-                update_statement("Compra: " + _item.name, _item.price, "loss");
+                global.balance -= _shop_entry.price;
+                update_statement("Compra: " + _item_data.name, _shop_entry.price, "loss");
+                
+                // Ativa a flag global se o item for especial
+                var _global_var = "has_" + _shop_entry.id;
+                if (variable_global_exists(_global_var)) {
+                    variable_global_set(_global_var, true);
+                }
             }
         }
     } else {
         // --- LÓGICA DE VENDA ---
         var _sell_data = sell_items[selected];
-        var _item_name = _sell_data.info[4]; // Nome do item no inventário
+        var _item_id = _sell_data.info[4]; // Pegamos o ID que salvamos no inventário
+        var _item_data = get_item_data(_item_id); // Puxamos o preço de venda do Script
         
-        // Define o preço baseado no nome
-        var _price = 0;
-        switch(_item_name) {
-            case "Pipa": _price = 7; break;
-            case "Chave": _price = 5; break;
-            case "Headset": _price = 30; break; 
-            case "Chave Inglesa":    _price = 5 break;   
-            default: _price = 2; break;
-        }
+        var _price = _item_data.sell_price;
         
-        // Adiciona saldo e extrato 
         global.balance += _price;
-        update_statement("Venda: " + _sell_data.info[4], _price, "income");
+        update_statement("Venda: " + _item_data.name, _price, "profit");
         
-        // Remove do inventário (volta para -1) 
+        // Remove do inventário
         obj_inventory.inv[_sell_data.grid_x][_sell_data.grid_y] = -1;
-        show_debug_message("Vendeu: " + _sell_data.info[4]);
+        
+        // Desativa a flag global se o item for vendido
+        var _global_var = "has_" + _item_id;
+        if (variable_global_exists(_global_var)) {
+            variable_global_set(_global_var, false);
+        }
     }
 }
 
 if (_exit) {
     global.time_is_paused = false;
-	shop_open = false;
+    shop_open = false;
     instance_destroy();
 }

@@ -16,6 +16,9 @@ if (inventory_open) {
             draw_rectangle(posX, posY, posX + size, posY + size, true);
             
             if (is_array(inv[i][j])) {
+                var _item_id = inv[i][j][4]; 
+                var _item_info = get_item_data(_item_id);
+                
                 var _sprite = inv[i][j][0];
                 var _index  = inv[i][j][1];
                 

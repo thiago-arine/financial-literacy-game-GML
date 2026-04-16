@@ -91,6 +91,7 @@
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"Dialogue","path":"scripts/Dialogue/Dialogue.yy",},},
     {"id":{"name":"Functions_Finance","path":"scripts/Functions_Finance/Functions_Finance.yy",},},
+    {"id":{"name":"Item_Database","path":"scripts/Item_Database/Item_Database.yy",},},
     {"id":{"name":"spr_bg_dawn","path":"sprites/spr_bg_dawn/spr_bg_dawn.yy",},},
     {"id":{"name":"spr_bg_day","path":"sprites/spr_bg_day/spr_bg_day.yy",},},
     {"id":{"name":"spr_bg_dusk","path":"sprites/spr_bg_dusk/spr_bg_dusk.yy",},},
