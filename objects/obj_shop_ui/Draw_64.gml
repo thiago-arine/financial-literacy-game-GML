@@ -66,5 +66,5 @@ draw_text(880, y_line + 10, "R$ " + string(global.balance));
 
 draw_set_color(c_white);
 draw_set_alpha(0.6);
-draw_text(350, 535, "[A/D] Abas | [W/S] Itens | [ESPAÇO] Confirmar | [Z] Sair");
+draw_text(350, 535, "[A/D] Abas | [W/S] Itens | [ESPAÇO] Confirmar | [ESC] Sair");
 draw_set_alpha(1);

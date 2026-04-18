@@ -8,6 +8,8 @@ global.balance = 0;
 global.reputation = 50;
 global.meta = 0;
 global.statement = [];
+global.draw_reward_value = 0;
+global.reward_alpha = 0;
 global.player_speed = 2; // Velocidade padrão do jogador
 
 global.goals = {
@@ -168,6 +170,10 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
             global.balance += _reward;
             // Opcional: Registrar no extrato/statement se desejar
             update_statement("Recompensa: " + event_name, _reward, "gain"); 
+        
+            // --- feedback visual de recompensa ---
+            global.draw_reward_value = _reward;
+            global.reward_alpha = 1.5; // Começa acima de 1 para durar um pouco mais antes de sumir
         }
         
         switch(event_name) {
