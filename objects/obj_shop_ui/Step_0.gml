@@ -64,7 +64,7 @@ if (_buy && _total > 0) {
         var _price = _item_data.sell_price;
         
         global.balance += _price;
-        update_statement("Venda: " + _item_data.name, _price, "profit");
+        update_statement("Venda: " + _item_data.name, _price, "gain");
         
         // Remove do inventário
         obj_inventory.inv[_sell_data.grid_x][_sell_data.grid_y] = -1;
