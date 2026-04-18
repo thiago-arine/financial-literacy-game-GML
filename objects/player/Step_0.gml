@@ -14,6 +14,10 @@ if (instance_exists(obj_shop_ui)) {
     if (obj_shop_ui.shop_open) exit;
 }
 
+if (instance_exists(obj_ui_cellphone)) {
+    if (obj_ui_cellphone.phone_open) exit; 
+}
+
 if (!moving) {
     handle_input();
 } 

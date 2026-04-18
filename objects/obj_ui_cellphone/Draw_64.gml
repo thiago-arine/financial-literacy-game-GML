@@ -11,36 +11,44 @@ if (phone_y < display_get_gui_height() - 10) {
 
     // --- TELA INICIAL (HOME) ---
     if (state == "HOME") {
-        draw_sprite(spr_icon_bank, 0, _inner_x, _inner_y);
+        draw_set_color(c_black); // Define a cor para os textos
+        
+        // 1. BANCO (Índice 0)
+        var _s_bank = (selected_app == 0) ? spr_icon_bank_highlight : spr_icon_bank;
+        draw_sprite(_s_bank, 0, _inner_x, _inner_y);
         draw_text_transformed(_inner_x + 5, _inner_y + 65, "Banco", 1, 1, 0);
 
-        draw_sprite(spr_icon_goal, 0, _inner_x + 80, _inner_y);
+        // 2. METAS (Índice 1)
+        var _s_goal = (selected_app == 1) ? spr_icon_goal_highlight : spr_icon_goal;
+        draw_sprite(_s_goal, 0, _inner_x + 80, _inner_y);
         draw_text_transformed(_inner_x + 85, _inner_y + 65, "Metas", 1, 1, 0);
         
-        draw_sprite(spr_icon_calendar, 0, _inner_x, _inner_y + 90);
+        // 3. AGENDA (Índice 2)
+        var _s_cal = (selected_app == 2) ? spr_icon_calendar_highlight : spr_icon_calendar;
+        draw_sprite(_s_cal, 0, _inner_x, _inner_y + 90);
         draw_text_transformed(_inner_x + 5, _inner_y + 155, "Agenda", 1, 1, 0);
-    } 
-    
-    // --- APP BANCO ---
-    else if (state == "BANK") {
-        draw_text_transformed(_inner_x, _inner_y - 25, "< Voltar", 1, 1, 0);
-        draw_text(_inner_x, _inner_y + 10, "Saldo Atual:");
-        draw_set_color(make_color_rgb(0, 150, 0));
-        draw_text(_inner_x, _inner_y + 35, "R$ " + string(global.balance));
     }
     
-    // --- APP METAS ---
-    else if (state == "GOAL") {
-        draw_text_transformed(_inner_x, _inner_y - 25, "< Voltar", 1, 1, 0);
-        if (variable_global_exists("meta") && variable_global_exists("goals")) {
-            var _desc = global.goals[$ string(global.meta)]; 
-            if (!is_undefined(_desc)) {
-                draw_text_ext_transformed(_inner_x, _inner_y + 10, "Objetivo: " + _desc, 20, 180, 1, 1, 0);
-            }
-        } else {
-            draw_text(_inner_x, _inner_y + 10, "Nenhuma meta.");
+        // --- APP BANCO ---
+        else if (state == "BANK") {
+            draw_text_transformed(_inner_x, _inner_y - 25, "< Voltar", 1, 1, 0);
+            draw_text(_inner_x, _inner_y + 10, "Saldo Atual:");
+            draw_set_color(make_color_rgb(0, 150, 0));
+            draw_text(_inner_x, _inner_y + 35, "R$ " + string(global.balance));
         }
-    }
+    
+        // --- APP METAS ---
+        else if (state == "GOAL") {
+            draw_text_transformed(_inner_x, _inner_y - 25, "< Voltar", 1, 1, 0);
+            if (variable_global_exists("meta") && variable_global_exists("goals")) {
+                var _desc = global.goals[$ string(global.meta)]; 
+                    if (!is_undefined(_desc)) {
+                    draw_text_ext_transformed(_inner_x, _inner_y + 10, "Objetivo: " + _desc, 20, 150, 1, 1, 0);
+                }
+            } else {
+                draw_text(_inner_x, _inner_y + 10, "Nenhuma meta.");
+            }
+        }
     
     // --- APP CALENDÁRIO --- 
     else if (state == "CALENDAR") {
