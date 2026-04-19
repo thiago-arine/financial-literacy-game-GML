@@ -1,5 +1,25 @@
 var _player = asset_get_index("player");
 var _can_interact = !instance_exists(obj_dialog) && !(instance_exists(obj_statement_ui) && obj_statement_ui.statement_open);
+var _is_visible = true;
+
+// Verificar se é um item de missão e se a missão correspondente começou
+if (item_type == "special") {
+    if (item_id == "kite" && !global.quest_kite_started) _is_visible = false;
+    if (item_id == "headset" && !global.quest_headset_started) _is_visible = false;
+    if (item_id == "key" && !global.quest_key_started) _is_visible = false;
+    
+    
+    if (item_id == "key" && !global.quest_key_started) _is_visible = false;
+    if (item_id == "headset" && !global.quest_headset_started) _is_visible = false;
+    if (item_id == "kite" && !global.quest_kite_started) _is_visible = false;
+    if (item_id == "screwdriver" && !global.quest_screwdriver_started) _is_visible = false;    
+}
+
+// Se a missão não começou, o item não deve ser processado
+if (!_is_visible) {
+    can_collect = false;
+    exit; 
+}
 
 if (instance_exists(_player) && _can_interact) {
     var _inst = instance_find(_player, 0);

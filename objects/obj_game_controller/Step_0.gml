@@ -53,19 +53,3 @@ if (!mentor_warned_statement_tutorial && !_shop_blocking) {
         mentor_popup(global.dialog_mentor_statement_tutorial);
     }
 }
-
-// --- Boas-vindas na rm_city ---
-if (room == rm_city) {
-    if (!mentor_warned_welcome) {
-        // O cooldown garante que o player já carregou totalmente na tela
-        if (dialog_cooldown >= 60 && !instance_exists(obj_dialog)) {
-            mentor_warned_welcome = true;
-            show_debug_message("Disparando diálogo de boas-vindas na rm_city");
-            
-            if (variable_global_exists("dialog_mentor_welcome")) {
-                mentor_popup(global.dialog_mentor_welcome);
-                show_debug_message("Instâncias de diálogo agora: " + string(instance_number(obj_dialog)));
-            }
-        }
-    }
-}

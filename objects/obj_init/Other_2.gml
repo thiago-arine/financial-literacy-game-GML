@@ -22,4 +22,7 @@ global.has_screwdriver = false;
 global.quest_key_finished = false;
 global.quest_headset_finished = false;
 global.quest_kite_finished = false;
-global.quest_screwdriver_finished = false
+
+global.quest_kite_started = false;
+global.quest_headset_started = false;
+global.quest_key_started = false;

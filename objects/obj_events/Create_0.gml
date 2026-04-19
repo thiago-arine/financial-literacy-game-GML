@@ -48,7 +48,6 @@ inventory_remove_item = function(_target_name) {
     return false;
 }
 
-// Função de Processar Eventos (CORRIGIDA E COMPLETA)
 Process_game_event = function(event_name, event_kind, option_result, _reward = 0) {
     show_debug_message("Evento Recebido: " + string(event_name) + " | Valor: " + string(option_result) + " | Recompensa: " + string(_reward));
     
@@ -201,14 +200,24 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
 			    }
 			break;
             
+            case "start_quest_key": 
+                global.quest_key_started = true;
+                show_debug_message("Missão da chave Iniciada!");
+            break;
+        
             case "quest_key":
                 if (option_result == 1 && global.has_key) {
                     global.reputation += 15;
                     global.has_key = false;
                     global.quest_key_finished = true;
-                    inventory_remove_item("Chave"); 
+                    inventory_remove_item("key"); 
                     show_debug_message("Missão da chave concluída.");
                 }
+            break;
+            
+            case "start_quest_headset": 
+                global.quest_headset_started = true;
+                show_debug_message("Missão do headset Iniciada!");
             break;
             
             case "quest_headset":
@@ -216,17 +225,22 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
                     global.reputation += 25
                     global.has_headset = false;
                     global.quest_headset_finished = true;
-                    inventory_remove_item("Headset"); 
+                    inventory_remove_item("headset"); 
                     show_debug_message("Missão do headset concluída.");
                 }
 			break;
+            
+            case "start_quest_kite": 
+                global.quest_kite_started = true;
+                show_debug_message("Missão da Pipa Iniciada!");
+            break;
             
             case "quest_kite":
                 if (option_result == 1 && global.has_kite) {
                     global.reputation += 10
                     global.has_kite = false;
                     global.quest_kite_finished = true;
-                    inventory_remove_item("Kite"); 
+                    inventory_remove_item("kite"); 
                     show_debug_message("Missão kite concluída.");
                 }
 			break;

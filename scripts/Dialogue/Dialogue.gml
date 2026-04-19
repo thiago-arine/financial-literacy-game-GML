@@ -42,7 +42,8 @@ global.dialog_amigo_completou = [{
         number: 0,
         is_end: true,
         trigger_event: { name: "quest_key", kind: "special", result: 1,}
-    }]
+    
+        }]
 }];
 
 dialog_amigo = [ 
@@ -99,7 +100,8 @@ dialog_amigo = [
 				msg: "Deixei cair a chave da minha casa no seu quintal... Se você achar, pega pra mim! Se não minha mãe vai me matar!",
 				is_question: false,
 				number: 3,
-				is_end: true
+				is_end: true,
+                trigger_event: { name: "start_quest_key", kind: "special", result: 1 }
 			}
         ]
     },
@@ -336,7 +338,8 @@ global.dialog_shopkeeper = [
             msg: "Se você estiver passando por lá qualquer dia e conseguir encontrar a pipa, traz ela para mim, por favor? Se você fizesse isso, eu ficaria muito grato!", 
             is_question: false, 
             number: 2, 
-            is_end: true 
+            is_end: true,
+            trigger_event: { name: "start_quest_kite", kind: "special", result: 1 }
             },
             { 
             name: "Tadeu", 
@@ -478,7 +481,8 @@ global.dialog_influencer = [
         msg: "Eu preciso desse fone para gravar meu próximo vídeo. Se você pegar pra mim, talvez eu até marque você no próximo story.",
         is_question: false,
         number: 2,
-        is_end: true
+        is_end: true,
+        trigger_event: { name: "start_quest_headset", kind: "special", result: 1 }
     }
     ]
   },
@@ -956,7 +960,7 @@ global.dialog_mentor_welcome = [
             },
             { 
                 name: "Mentor", 
-                msg: "Aqui, cada moeda conta. Seu objetivo é aprender a gerenciar seu dinheiro para conquistar seus sonhos.", 
+                msg: "Aqui, cada centavo conta. Seu objetivo é aprender a gerenciar seu dinheiro para conquistar seus sonhos.", 
                 is_question: false, 
                 number: -1, 
                 is_end: false 
