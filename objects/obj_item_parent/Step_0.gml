@@ -12,6 +12,15 @@ if (instance_exists(_player) && _can_interact) {
             var _success = obj_inventory.inventory_add(item_sprite, 0, 1, item_type, item_id);
             
             if (_success) {
+                
+                // --- Popup diálogo item ---
+                with (obj_game_controller) {
+                    if (!mentor_warned_inventory_tip) {
+                        mentor_warned_inventory_tip = true;
+                        mentor_popup(global.dialog_mentor_inventory_tip);
+                    }
+                }
+                
                 if (item_type == "special") {
                     var _var_name = "has_" + item_id;
                     if (variable_global_exists(_var_name)) {
@@ -23,6 +32,7 @@ if (instance_exists(_player) && _can_interact) {
                     if (variable_global_exists(_count_name)) {
                         var _current_val = variable_global_get(_count_name);
                         variable_global_set(_count_name, _current_val + 1);
+                        
                     }
                 }
                 

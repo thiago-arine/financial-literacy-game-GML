@@ -15,3 +15,6 @@ dialog_cooldown = 0; // Novo contador de segurança
 
 mentor_warned_low_balance = false;
 mentor_warned_first_goal_reached = false;
+mentor_warned_statement_tutorial = false;
+mentor_warned_inventory_tip = false;
+mentor_warned_welcome = false;

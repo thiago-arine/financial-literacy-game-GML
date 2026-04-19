@@ -49,7 +49,7 @@ dialog_amigo = [
     {   kind: "unique",
         happened: false,
         dialog: [
-            { name: "Amigo", msg: "Cara, você não sabe o que aconteceu! Baldur's Gate 3 está com 70% de desconto!", is_question: false, number: 0, is_end: false },
+            { name: "Amigo", msg: "Cara, você não sabe o que aconteceu! O jogo Super Dungeon RPG 3 está com 70% de desconto!", is_question: false, number: 0, is_end: false },
             { 
                 name: "Amigo", 
                 msg: "Você vai comprar né?", 
@@ -882,3 +882,92 @@ global.dialog_mentor_first_goal_reached = [{
     ]
 }];
 
+global.dialog_mentor_statement_tutorial = [
+    {
+        kind: "unique",
+        happened: false,
+        dialog: [
+            { 
+                name: "Mentor", 
+                msg: "Você acabou de fazer sua primeira compra! Sua transação foi registrada no extrato!", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+            { 
+                name: "Mentor", 
+                msg: "O extrato é sua lista de transações. Itens em vermelho são gastos, e verde são ganhos.", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+            { 
+                name: "Mentor", 
+                msg: "Clique 'Z' para abrir seu extrato. Revise-o sempre para entender se seus hábitos estão te aproximando ou te afastando da meta.", 
+                is_question: false, 
+                number: -1, 
+                is_end: true 
+            }
+        ]
+    }
+];
+
+global.dialog_mentor_inventory_tip = [
+    {
+        kind: "unique",
+        happened: false,
+        dialog: [
+            { 
+                name: "Mentor", 
+                msg: "Belo achado! Guarde isso com cuidado.", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+            { 
+                name: "Mentor", 
+                msg: "Pressione 'X' para abrir seu inventário. Lá você pode ver tudo o que coletou.", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+            { 
+                name: "Mentor", 
+                msg: "Lembre-se: espaço é limitado. Você sempre pode vender os itens que encontrar por aí, contanto que não sejam itens de missão!", 
+                is_question: false, 
+                number: -1, 
+                is_end: true 
+            }
+        ]
+    }
+];
+
+global.dialog_mentor_welcome = [
+    {
+        kind: "unique",
+        happened: false,
+        dialog: [
+            { 
+                name: "Mentor", 
+                msg: "Olá! Seja bem-vindo à sua jornada financeira.", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+            { 
+                name: "Mentor", 
+                msg: "Aqui, cada moeda conta. Seu objetivo é aprender a gerenciar seu dinheiro para conquistar seus sonhos.", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+            { 
+                name: "Mentor", 
+                msg: "Acesse seu celular pela tecla ‘C’ e fique de olho no seu painel de metas e no seu saldo. Saber seus objetivos é o primeiro passo!", 
+                is_question: false, 
+                number: -1, 
+                is_end: true 
+            }
+        ]
+    }
+];

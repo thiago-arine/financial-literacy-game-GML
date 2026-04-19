@@ -31,3 +31,41 @@ if (global.balance >= 100 && !mentor_warned_first_goal_reached && !_shop_blockin
         mentor_popup(global.dialog_mentor_first_goal_reached);
     }
 }
+
+//--- Tutorial de Extrato (Disparado após o primeiro gasto) ---//
+// Verificamos se a loja fechou para não interromper a compra
+if (!mentor_warned_statement_tutorial && !_shop_blocking) {
+    
+    // Verifica se existe ao menos uma entrada de gasto no extrato
+    var _has_spent = false;
+    var _size = array_length(global.statement);
+    
+    for (var i = 0; i < _size; i++) {
+        if (global.statement[i].kind == "loss") {
+            _has_spent = true;
+            break;
+        }
+    }
+
+    // Se houve gasto e o cooldown de diálogo permitiu 
+    if (_has_spent && dialog_cooldown >= 30 && !instance_exists(obj_dialog)) {
+        mentor_warned_statement_tutorial = true;
+        mentor_popup(global.dialog_mentor_statement_tutorial);
+    }
+}
+
+// --- Boas-vindas na rm_city ---
+if (room == rm_city) {
+    if (!mentor_warned_welcome) {
+        // O cooldown garante que o player já carregou totalmente na tela
+        if (dialog_cooldown >= 60 && !instance_exists(obj_dialog)) {
+            mentor_warned_welcome = true;
+            show_debug_message("Disparando diálogo de boas-vindas na rm_city");
+            
+            if (variable_global_exists("dialog_mentor_welcome")) {
+                mentor_popup(global.dialog_mentor_welcome);
+                show_debug_message("Instâncias de diálogo agora: " + string(instance_number(obj_dialog)));
+            }
+        }
+    }
+}
