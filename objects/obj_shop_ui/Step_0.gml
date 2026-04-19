@@ -15,8 +15,15 @@ if (menu_mode == 1) {
         for (var j = 0; j < obj_inventory.invMaxY; j++) {
             for (var i = 0; i < obj_inventory.invMaxX; i++) {
                 var _slot = obj_inventory.inv[i][j];
+                
+                // Verificamos se o slot tem um item
                 if (is_array(_slot)) {
-                    array_push(sell_items, { info: _slot, grid_x: i, grid_y: j });
+                    var _item_type = _slot[3]; // Índice 3 é o tipo (special ou collectible)
+                    
+                    // Impede que itens de missão estejam na lista da loja.
+                    if (_item_type != "special") {
+                        array_push(sell_items, { info: _slot, grid_x: i, grid_y: j });
+                    }
                 }
             }
         }
