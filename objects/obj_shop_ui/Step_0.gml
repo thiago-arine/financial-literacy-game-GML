@@ -44,21 +44,24 @@ if (_total > 0) {
 if (_buy && _total > 0) {
     if (menu_mode == 0) {
         // --- LÓGICA DE COMPRA ---
-        var _shop_entry = shop_items[selected];
-        var _item_data = get_item_data(_shop_entry.id); // Puxa os dados (sprite, nome, etc) do Script
-        
-        if (global.balance >= _shop_entry.price) {
-            // Adicionamos ao inventário usando o ID técnico (em inglês)
-            var _success = obj_inventory.inventory_add(_item_data.sprite, 0, 1, _item_data.type, _shop_entry.id);
-            
-            if (_success) {
-                global.balance -= _shop_entry.price;
-                update_statement("Compra: " + _item_data.name, _shop_entry.price, "loss");
+        if (array_length(shop_items) > 0) {     // Só executa se houver itens na loja
+            var _shop_entry = shop_items[selected];
+            var _item_id_string = _shop_entry.id;  
+            var _item_data = get_item_data(_item_id_string); 
+             
+            if (global.balance >= _shop_entry.price) {
+                // Adicionamos ao inventário usando o ID técnico (em inglês)
+                var _success = obj_inventory.inventory_add(_item_data.sprite, 0, 1, _item_data.type, _shop_entry.id);
                 
-                // Ativa a flag global se o item for especial
-                var _global_var = "has_" + _shop_entry.id;
-                if (variable_global_exists(_global_var)) {
-                    variable_global_set(_global_var, true);
+                if (_success) {
+                    global.balance -= _shop_entry.price;
+                    update_statement("Compra: " + _item_data.name, _shop_entry.price, "loss");
+                    
+                    // Ativa a flag global se o item for especial
+                    var _global_var = "has_" + _shop_entry.id;
+                    if (variable_global_exists(_global_var)) {
+                       variable_global_set(_global_var, true);
+                    }
                 }
             }
         }
