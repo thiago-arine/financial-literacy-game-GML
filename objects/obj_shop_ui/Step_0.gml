@@ -87,8 +87,8 @@ if (_buy && _total > 0) {
     }
 }
 
+// --- LÓGICA DE SAÍDA ---
 if (_exit) {
-    global.time_is_paused = false;
-    shop_open = false;
+    global.time_is_paused = false; // Adicione esta linha antes de destruir
     instance_destroy();
 }
