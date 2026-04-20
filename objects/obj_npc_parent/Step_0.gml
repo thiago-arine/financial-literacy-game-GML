@@ -9,6 +9,14 @@ if (instance_exists(obj_shop_ui)) {
         exit; 
     }
 }
+if (instance_exists(obj_inventory) && obj_inventory.inventory_open) {
+    can_talk = false;
+    exit;
+}
+if (instance_exists(obj_ui_cellphone) && obj_ui_cellphone.phone_open) {
+    can_talk = false;
+    exit;
+}
 
 // 2. VERIFICAÇÃO DE DISTÂNCIA
 if (instance_exists(player) && distance_to_object(player) < 12) { // Aumentei um pouco a margem (12)
