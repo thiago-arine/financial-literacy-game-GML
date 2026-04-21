@@ -34,6 +34,12 @@ if (instance_exists(player) && distance_to_object(player) < 12) { // Aumentei um
             }
         }
         
+		if (object_get_name(object_index) == "obj_npc_cicero") {
+			if (!instance_exists(obj_dialog)) {
+			    create_dialog(global.dialog_cicero);
+			}
+		}
+		
         // LÓGICA ESPECÍFICA DO AMIGO (Só roda se este NPC for o Amigo)
         if (object_get_name(object_index) == "obj_npc_amigo") {
             var _has_key = variable_global_exists("has_key") && global.has_key;

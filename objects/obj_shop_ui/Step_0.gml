@@ -8,6 +8,12 @@ var _left  = keyboard_check_pressed(vk_left)    || keyboard_check_pressed(ord("A
 if (_left)  { menu_mode = 0; selected = 0; }
 if (_right) { menu_mode = 1; selected = 0; }
 
+if (global.time_is_paused) {
+    for (var i = 0; i < 12; i++) {
+        if (alarm[i] > 0) alarm[i]++; // Adiciona 1 frame ao alarme para ele não diminuir
+    }
+}
+
 // Atualizar lista de venda se estiver no modo de venda
 if (menu_mode == 1) {
     sell_items = [];
@@ -43,14 +49,13 @@ if (_total > 0) {
 
 if (_buy && _total > 0) {
     if (menu_mode == 0) {
-        // --- LÓGICA DE COMPRA ---
         if (array_length(shop_items) > 0) {     // Só executa se houver itens na loja
             var _shop_entry = shop_items[selected];
             var _item_id_string = _shop_entry.id;  
             var _item_data = get_item_data(_item_id_string); 
              
             if (global.balance >= _shop_entry.price) {
-                // Adicionamos ao inventário usando o ID técnico (em inglês)
+                // Adicionamos ao inventário usando o ID
                 var _success = obj_inventory.inventory_add(_item_data.sprite, 0, 1, _item_data.type, _shop_entry.id);
                 
                 if (_success) {
@@ -66,7 +71,6 @@ if (_buy && _total > 0) {
             }
         }
     } else {
-        // --- LÓGICA DE VENDA ---
         var _sell_data = sell_items[selected];
         var _item_id = _sell_data.info[4]; // Pegamos o ID que salvamos no inventário
         var _item_data = get_item_data(_item_id); // Puxamos o preço de venda do Script
@@ -87,8 +91,7 @@ if (_buy && _total > 0) {
     }
 }
 
-// --- LÓGICA DE SAÍDA ---
 if (_exit) {
-    global.time_is_paused = false; // Adicione esta linha antes de destruir
+    global.time_is_paused = false;
     instance_destroy();
 }

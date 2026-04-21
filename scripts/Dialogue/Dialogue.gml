@@ -25,6 +25,45 @@ global.char_colors = {
     "Sorveteiro": c_fuchsia,
 };
 
+global.dialog_cicero = [{
+    kind: "pattern",
+    happened: false,
+    dialog: [
+        { 
+            name: "Cícero", 
+            msg: "Ei! Compro itens usados. O que você tem aí?", 
+            is_question: true, 
+            options: ["Vender Chave Inglesa (R$ 7)", "Vender DVD (R$ 10)", "Sair"], 
+            option_results: [1, 2, 3], 
+            choice: "sell_item_simple", 
+            kind: "special", 
+            number: 0, 
+            is_end: true 
+        }
+    ]
+}];
+
+global.dialog_mentor_no_item = [{
+    kind: "unique",
+    happened: false,
+    dialog: [
+        { 
+            name: "Mentor", 
+            msg: "Espere um pouco! Você não tem esse item no seu inventário para vender.", 
+            is_question: false, 
+            number: -1, 
+            is_end: false 
+        },
+        { 
+            name: "Mentor", 
+            msg: "Certifique-se de que o item está na sua mochila antes de negociar com o Cícero.", 
+            is_question: false, 
+            number: -1, 
+            is_end: true 
+        }
+    ]
+}];
+
 global.dialog_amigo_completou = [{
     kind: "unique",
     happened: false,

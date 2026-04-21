@@ -252,7 +252,33 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
                     inventory_remove_item("Chave Inglesa"); 
                     show_debug_message("Missão da chave inglesa concluída.");
                 }
-break;
+			break;
+			case "sell_item_simple":
+		    var _item_id = "";
+		    var _display_name = "";
+		    var _sell_price = 0;
+
+		    // CORREÇÃO: Os nomes devem ser os mesmos IDs usados no shop_items
+		    if (option_result == 1) { _item_id = "screwdriver"; _display_name = "Chave Inglesa"; _sell_price = 7; }
+		    if (option_result == 2) { _item_id = "dvd"; _display_name = "DVD"; _sell_price = 10; }
+
+		    // Usamos a função inventory_remove_item que você já tem no Create, ela é mais limpa!
+		    if (inventory_remove_item(_item_id)) {
+		        global.balance += _sell_price;
+		        update_statement("Venda: " + _display_name, _sell_price, "gain");
+        
+		        // Resetamos a flag global de posse
+		        var _global_var = "has_" + _item_id;
+		        if (variable_global_exists(_global_var)) {
+		            variable_global_set(_global_var, false);
+		        }
+        
+		        show_debug_message("Vendido com sucesso: " + _item_id);
+		    } else {
+		        // Se não encontrou no inventário
+		        create_dialog(global.dialog_mentor_no_item);
+		    }
+		break;
         }
     }
 }
