@@ -1,12 +1,10 @@
 {
   "$GMObject":"",
-  "%Name":"obj_npc_donagraca",
+  "%Name":"obj_npc_rocha",
   "eventList":[],
   "managed":true,
-  "name":"obj_npc_donagraca",
-  "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_npc_parent","path":"objects/obj_npc_parent/obj_npc_parent.yy",},"propertyId":{"name":"dialog","path":"objects/obj_npc_parent/obj_npc_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"global.dialog_donagraca",},
-  ],
+  "name":"obj_npc_rocha",
+  "overriddenProperties":[],
   "parent":{
     "name":"Objects",
     "path":"folders/Objects.yy",
@@ -33,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_npc_donagraca",
-    "path":"sprites/spr_npc_donagraca/spr_npc_donagraca.yy",
+    "name":"spr_npc_rocha",
+    "path":"sprites/spr_npc_rocha/spr_npc_rocha.yy",
   },
   "spriteMaskId":null,
   "visible":true,

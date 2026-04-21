@@ -1,19 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_npc_donagraca",
+  "%Name":"obj_item_coxinha",
   "eventList":[],
   "managed":true,
-  "name":"obj_npc_donagraca",
-  "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_npc_parent","path":"objects/obj_npc_parent/obj_npc_parent.yy",},"propertyId":{"name":"dialog","path":"objects/obj_npc_parent/obj_npc_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"global.dialog_donagraca",},
-  ],
+  "name":"obj_item_coxinha",
+  "overriddenProperties":[],
   "parent":{
     "name":"Objects",
     "path":"folders/Objects.yy",
   },
   "parentObjectId":{
-    "name":"obj_npc_parent",
-    "path":"objects/obj_npc_parent/obj_npc_parent.yy",
+    "name":"obj_item_parent",
+    "path":"objects/obj_item_parent/obj_item_parent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -33,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_npc_donagraca",
-    "path":"sprites/spr_npc_donagraca/spr_npc_donagraca.yy",
+    "name":"spr_item_coxinha",
+    "path":"sprites/spr_item_coxinha/spr_item_coxinha.yy",
   },
   "spriteMaskId":null,
   "visible":true,
