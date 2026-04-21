@@ -4,7 +4,9 @@
   "eventList":[],
   "managed":true,
   "name":"obj_npc_rocha",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_npc_parent","path":"objects/obj_npc_parent/obj_npc_parent.yy",},"propertyId":{"name":"dialog","path":"objects/obj_npc_parent/obj_npc_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"global.dialog_rocha",},
+  ],
   "parent":{
     "name":"Objects",
     "path":"folders/Objects.yy",

@@ -763,7 +763,7 @@ global.dialog_donagraca = [
         ]
     },
     {   
-        kind: "unique",
+        kind: "pattern",
         happened: false,
         dialog: [
 
@@ -1011,6 +1011,57 @@ global.dialog_mentor_welcome = [
                 number: -1, 
                 is_end: true 
             }
+        ]
+    }
+];
+
+global.dialog_rocha  = [{
+    kind: "unique",
+    happened: false,
+    dialog: [
+        { 
+            name: "Rocha", 
+            msg: "Opa, pequeno. Tudo bem?", 
+            is_question: false, 
+            number: -1, 
+            is_end: false 
+        },
+        { 
+            name: "Rocha", 
+            msg: "Cuidado para não ser enganado pelas pessoas.", 
+            is_question: false, 
+            number: -1, 
+            is_end: false
+        },
+        { 
+            name: "Rocha", 
+            msg: "Todo mundo aqui quer uma fatia do mesmo bolo, mesmo que tenha que roubar a fatia de outro.", 
+            is_question: false, 
+            number: -1, 
+            is_end: false
+        },
+        { 
+            name: "Rocha", 
+            msg: "Siga sempre seus sonhos, mas é só com foco e persistência que você vai alcançar eles.", 
+            is_question: false, 
+            number: -1, 
+            is_end: true
+        }
+    ]
+},
+{   
+        kind: "pattern",
+        happened: false,
+        dialog: [
+
+            { 
+                name: "Rocha", 
+                msg: "Juízo, pequeno!", 
+                is_question: false, 
+                number: -1, 
+                is_end: true 
+            },
+			
         ]
     }
 ];

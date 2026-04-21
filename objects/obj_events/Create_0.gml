@@ -244,7 +244,7 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
                     show_debug_message("Missão kite concluída.");
                 }
 			break;
-            case "quest_screwdriver":
+            /*case "quest_screwdriver":
                 if (option_result == 1 && global.has_screwdriver) {
                     global.reputation += 20; // Defina a reputação que desejar
                     global.has_screwdriver = false;
@@ -252,7 +252,7 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
                     inventory_remove_item("Chave Inglesa"); 
                     show_debug_message("Missão da chave inglesa concluída.");
                 }
-			break;
+			break;*/
 			case "sell_item_simple":
 		    var _item_id = "";
 		    var _display_name = "";
