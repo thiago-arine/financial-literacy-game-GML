@@ -279,6 +279,22 @@ global.dialog_sorveteiro = [
     }
 ];
 
+global.goal_tp_block = [
+    {   
+        kind: "pattern",
+        happened: false,
+        dialog: [
+            { 
+                name: "Aviso!", 
+                msg: "Escolha sua meta com o Mentor antes de sair!", 
+                is_question: false, 
+                number: 0, 
+                is_end: true 
+            }
+        ]
+    }
+];
+
 global.dialog_sem_dinheiro = [
     {   
         kind: "pattern",
