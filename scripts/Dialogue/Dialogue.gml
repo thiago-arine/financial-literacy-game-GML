@@ -44,7 +44,7 @@ global.dialog_cicero = [{
 }];
 
 global.dialog_mentor_no_item = [{
-    kind: "unique",
+    kind: "pattern",
     happened: false,
     dialog: [
         { 

@@ -53,3 +53,10 @@ if (!mentor_warned_statement_tutorial && !_shop_blocking) {
         mentor_popup(global.dialog_mentor_statement_tutorial);
     }
 }
+
+if (trigger_no_item) {
+    if (!instance_exists(obj_dialog)) {
+        mentor_popup(global.dialog_mentor_no_item);
+        trigger_no_item = false; // Reseta o gatilho após criar o diálogo
+    }
+}
