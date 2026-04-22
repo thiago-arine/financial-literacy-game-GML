@@ -5,3 +5,5 @@ item_sprite = -1;      // Sprite do item
 item_type = "special"; // "special" para missões, "collectible" para acumulativos
 item_price = 0;
 can_collect = false;
+
+alarm[11] = 1;
