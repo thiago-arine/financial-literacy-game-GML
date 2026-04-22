@@ -555,9 +555,9 @@ global.dialog_influencer = [
         }, 
         {
             name: "Influencer",
-            msg: "Se você comprar esse 'Boné de LED' agora, eu te coloco no meu vídeo.",
+            msg: "Se você comprar esse 'Tênis Neon 3000' agora, eu te coloco no meu vídeo.",
             is_question: true,
-            options: ["Comprar o Boné (-R$50,00)", "Manter meta", "Verificar se o boné é útil"],
+            options: ["Comprar o Tênis (-R$50,00)", "Manter meta", "Verificar se o Tênis é útil"],
             option_results: [1, 2, 3],
             choice: "buy_led_hat",
             kind: "loss",
@@ -566,7 +566,7 @@ global.dialog_influencer = [
         }, 
         {
             name: "Influencer",
-            msg: "ISSO! O boné ficou incrível. Olha esse brilho!",
+            msg: "ISSO! O tênis ficou incrível. Olha esse brilho!",
             is_question: false,
             number: 1,
             is_end: true 
@@ -580,7 +580,7 @@ global.dialog_influencer = [
         }, 
         {
             name: "Influencer",
-            msg: "Útil? Cara, é um boné que brilha! Tchau!",
+            msg: "Útil? Cara, é um tênis que brilha! Tchau!",
             is_question: false,
             number: 3,
             is_end: true 
@@ -746,7 +746,7 @@ global.dialog_donagraca = [
                 is_question: true, 
                 options: ["Comprar Pelúcia (R$ 12,00)", "É linda, mas preciso guardar meu dinheiro.", "Agora não, Dona Graça. Obrigado!"], 
                 option_results: [1, 2, 3], 
-                choice: "buy_plushie", 
+                choice: "buy_bear", 
                 kind: "loss", 
                 number: 0, 
                 is_end: false 

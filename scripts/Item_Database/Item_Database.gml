@@ -41,10 +41,65 @@ function get_item_data(_item_id) {
             return { 
                 name: "Lanterna Quebrada", 
                 sprite: spr_item_flashlight, 
-                sell_price: 4, 
+                sell_price: 5, 
                 type: "collectible" 
             };    
-            
+        case "dvd":
+            return { 
+                name: "DVD Riscado", 
+                sprite: spr_item_flashlight, 
+                sell_price: 2, 
+                type: "collectible" 
+            };    
+        case "bear":
+            return { 
+                name: "Ursinho de Pelúcia", 
+                sprite: spr_item_bear, 
+                sell_price: 0, 
+                type: "special" 
+            };
+        case "card":
+            return { 
+                name: "Card do Gato Invisível", 
+                sprite: spr_item_card, 
+                sell_price: 0, 
+                type: "special" 
+            };    
+        case "coxinha":
+            return { 
+                name: "Coxinha", 
+                sprite: spr_item_coxinha, 
+                sell_price: 0, 
+                type: "special" 
+            };
+        case "gamedisc":
+            return { 
+                name: "Super Dungeon RPG 3", 
+                sprite: spr_item_gamedisc, 
+                sell_price: 0, 
+                type: "special" 
+            };   
+        case "icecream":
+            return { 
+                name: "Sorvete de Casquinha", 
+                sprite: spr_item_icecream, 
+                sell_price: 0, 
+                type: "special" 
+            }; 
+        case "painting":
+            return { 
+                name: "Pintura da Praça", 
+                sprite: spr_item_painting, 
+                sell_price: 0, 
+                type: "special" 
+            };
+        case "sneakers":
+            return { 
+                name: "Tênis Neon 3000", 
+                sprite: spr_item_sneakers, 
+                sell_price: 0, 
+                type: "special" 
+            };        
             
         default:
             return { name: "Item", sprite: spr_icon_goal, sell_price: 2, type: "special" };

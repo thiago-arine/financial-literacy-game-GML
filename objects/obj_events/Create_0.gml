@@ -20,14 +20,14 @@ global.goals = {
 
 // --- Listas de Dados ---
 loss_events = [
-    { name: "game_promotion", loss: -15, reputation: 10 },
-    { name: "cinema",         loss: -80, reputation: 20 },
-    { name: "buy_icecream",   loss: -5,  reputation: 0 }, // Preço base (Casquinha)
-    { name: "buy_led_hat",    loss: -50, reputation: 20 },
-	{ name: "buy_coxinha",    loss: -8, reputation: 0 },
-	{ name: "buy_card",		  loss: -8, reputation: 0 },
-	{ name: "buy_plushie",    loss: -12, reputation: 0 },
-	{ name: "buy_painting",   loss: -20, reputation: 0 }
+    { name: "game_promotion", loss: -15, reputation: 10, item_id: "gamedisc" },
+    { name: "cinema",         loss: -80, reputation: 20, item_id: "" }, // Evento sem item físico
+    { name: "buy_icecream",   loss: -5,  reputation: 0,  item_id: "icecream" },
+    { name: "buy_led_hat",    loss: -50, reputation: 20, item_id: "sneaker" }, // Ajustado para seu item 'sneaker'
+    { name: "buy_coxinha",    loss: -8,  reputation: 0,  item_id: "coxinha" },
+    { name: "buy_card",       loss: -8,  reputation: 0,  item_id: "card" },
+    { name: "buy_bear",    loss: -12, reputation: 0,  item_id: "bear" },
+    { name: "buy_painting",   loss: -20, reputation: 0,  item_id: "painting" },
 ];
 
 // --- Funções Auxiliares ---
@@ -114,7 +114,7 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
                     }
                 }
 				
-				if (event_name == "buy_plushie") {
+				if (event_name == "buy_bear") {
                     if (option_result == 1) { _final_price = -12; _item_label = "Pelúcia"; }
                     else if (option_result == 2) { 
                         _is_buying = false;
@@ -140,23 +140,35 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
         
                 // --- PROCESSAMENTO FINAL ---
                 if (_is_buying) {
-                    if (global.balance >= abs(_final_price)) {
-                        global.balance += _final_price;
-                        global.reputation += loss_events[i].reputation;
-                        update_statement(_item_label, abs(_final_price), "loss");
+                    var _idx = -1;
+                    for (var i = 0; i < array_length(loss_events); i++) {
+                        if (loss_events[i].name == event_name) { _idx = i; break; }
+                    }
+        
+                    if (_idx != -1 && global.balance >= abs(_final_price)) {
+                        var _item_id = loss_events[_idx].item_id;
                         
-                        // Efeito especial apenas se for sorvete
-                        if (event_name == "buy_icecream") {
-                            //global.player_speed = 4;
-                            alarm[2] = 300;
+                        if (_item_id != "") {
+                            var _data = get_item_data(_item_id);
+                            if (obj_inventory.inventory_add(_data.sprite, 0, 1, _data.type, _item_id)) {
+                                global.balance += _final_price;
+                                global.reputation += loss_events[_idx].reputation;
+                                update_statement(_data.name, abs(_final_price), "loss");
+                                variable_global_set("has_" + _item_id, true);
+                            } else {
+                                show_debug_message("Inventário cheio!");
+                                exit; 
+                            }
+                        } else {
+                            // Eventos sem item (Ex: Cinema)
+                            global.balance += _final_price;
+                            global.reputation += loss_events[_idx].reputation;
+                            update_statement(event_name, abs(_final_price), "loss");
                         }
-                    } else {
-                        // Se tentou comprar mas não tem dinheiro:
-                        if (instance_exists(obj_dialog)) instance_destroy(obj_dialog);
-                        create_dialog(global.dialog_sem_dinheiro);
+                    } else if (_idx != -1) {
+                        with(obj_game_controller) trigger_no_money = true;
                     }
                 }
-                break;
             }
         }
     }

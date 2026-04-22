@@ -72,19 +72,19 @@ else if (keyboard_check_pressed(input_key) or response == true) {
         
         global.is_dialog_active = false; // Ao morrer, libera para o Mentor
 
-    // Buscamos o índice do objeto pelo nome para evitar o erro de "Variable not set"
-    var _player_asset = asset_get_index("obj_player"); 
-    if (_player_asset != -1) {
-        var _inst_player = instance_find(_player_asset, 0);
-        if (_inst_player != noone) {
-            _inst_player.moving = false; // Garante que o player pare de andar
-        }   
-    }        
-
-        
-        global.time_is_paused = false;
-        instance_destroy();
-        number_option = 0; // Reseta para o próximo diálogo
+         // Buscamos o índice do objeto pelo nome para evitar o erro de "Variable not set"
+         var _player_asset = asset_get_index("obj_player"); 
+         if (_player_asset != -1) {
+             var _inst_player = instance_find(_player_asset, 0);
+             if (_inst_player != noone) {
+                 _inst_player.moving = false; // Garante que o player pare de andar
+             }   
+         }        
+     
+             
+             global.time_is_paused = false;
+             instance_destroy();
+             number_option = 0; // Reseta para o próximo diálogo
     }
     
     else {
