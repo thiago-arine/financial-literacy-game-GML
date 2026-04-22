@@ -1,70 +1,81 @@
 draw_set_alpha(1); 
 
+var _gui_w = display_get_gui_width();
+var _gui_h = display_get_gui_height();
+var _shop_w = 680;
+var _shop_h = 510;
+
+var _center_x = _gui_w / 2;
+var _center_y = _gui_h / 2;
+
+var _x1 = _center_x - (_shop_w / 2);
+var _y1 = _center_y - (_shop_h / 2);
+var _x2 = _x1 + _shop_w;
+var _y2 = _y1 + _shop_h;
+
 draw_set_color(c_black);
-draw_rectangle(320, 70, 1000, 580, false);
+draw_rectangle(_x1, _y1, _x2, _y2, false);
+
+var start_x = _x1 + 30;
+var start_y = _y1 + 40;
+var right_align_x = _x2 - 120;
 
 draw_set_color(c_white);
 
 var _tab_buy_color = (menu_mode == 0) ? c_yellow : c_white;
 var _tab_sell_color = (menu_mode == 1) ? c_yellow : c_white;
 
-var start_y = 110;
-var start_x = 350;
+draw_text_color(start_x, start_y, "COMPRAR [A]", _tab_buy_color, _tab_buy_color, _tab_buy_color, _tab_buy_color, 1);
+draw_text_color(start_x + 165, start_y, "VENDER [D]", _tab_sell_color, _tab_sell_color, _tab_sell_color, _tab_sell_color, 1);
 
-draw_text_color(start_x, start_y - 60, "COMPRAR [A]", _tab_buy_color, _tab_buy_color, _tab_buy_color, _tab_buy_color, 1);
-draw_text_color(start_x + 165, start_y - 60, "VENDER [D]", _tab_sell_color, _tab_sell_color, _tab_sell_color, _tab_sell_color, 1);
+var item_list_start_y = start_y + 60;
 
-// --- MODO DE COMPRA ---
 if (menu_mode == 0) {
     for (var i = 0; i < array_length(shop_items); i++) {
         var _shop_entry = shop_items[i];
-        
-        // Verificação de segurança: garante que o ID existe antes de chamar o banco de dados
         if (variable_struct_exists(_shop_entry, "id")) {
             var _item_data = get_item_data(_shop_entry.id); 
             
-            var _yy = start_y + (i * 30);
+            var _yy = item_list_start_y + (i * 30);
             var _color = (selected == i) ? c_yellow : c_white;
             var _display_text = (selected == i ? "> " : "") + _item_data.name;
             
             draw_text_color(start_x, _yy, _display_text, _color, _color, _color, _color, 1);
-            draw_text(880, _yy, "R$ " + string(_shop_entry.price)); 
+            draw_text(right_align_x, _yy, "R$ " + string(_shop_entry.price)); 
         }
     }
 }
-// --- MODO DE VENDA ---
+
 else {
     if (array_length(sell_items) == 0) {
-        draw_text(start_x, start_y + 20, "Inventário Vazio");
+        draw_text(start_x, item_list_start_y, "Inventário Vazio");
     } else {
         for (var i = 0; i < array_length(sell_items); i++) {
-            var _inventory_id = sell_items[i].info[4]; // O ID (inglês) que está no slot 4 do inventário
-            var _item_data = get_item_data(_inventory_id); // Puxa nome e preço de venda do script
+            var _inventory_id = sell_items[i].info[4]; 
+            var _item_data = get_item_data(_inventory_id); 
             
-            var _yy = start_y + (i * 30);
+            var _yy = item_list_start_y + (i * 30);
             var _color = (selected == i) ? c_yellow : c_white;
-            
             var _display_text = (selected == i ? "> " : "") + _item_data.name;
             
             draw_text_color(start_x, _yy, _display_text, _color, _color, _color, _color, 1);
-            draw_text(880, _yy, "R$ " + string(_item_data.sell_price));
+            draw_text(right_align_x, _yy, "R$ " + string(_item_data.sell_price));
         }
     }
 }
 
-// --- RODAPÉ E UI ---
 draw_set_color(c_white);
-draw_text(start_x, start_y - 30, "Loja do Tadeu | SELECIONE UM ITEM |");
-draw_line(350, start_y + 5, 960, start_y + 5);
+draw_text(start_x, start_y + 30, "Loja do Tadeu | SELECIONE UM ITEM |");
+draw_line(start_x, item_list_start_y - 5, _x2 - 30, item_list_start_y - 5);
 
-var y_line = 500;
-draw_line(350, y_line, 960, y_line);
+var y_line_footer = _y2 - 80;
+draw_line(start_x, y_line_footer, _x2 - 30, y_line_footer);
 
-draw_text(350, y_line + 10, "Seu Saldo:");
+draw_text(start_x, y_line_footer + 10, "Seu Saldo:");
 draw_set_color(c_yellow);
-draw_text(880, y_line + 10, "R$ " + string(global.balance));
+draw_text(right_align_x, y_line_footer + 10, "R$ " + string(global.balance));
 
 draw_set_color(c_white);
 draw_set_alpha(0.6);
-draw_text(350, 535, "[A/D] Abas | [W/S] Itens | [ESPAÇO] Confirmar | [ESC] Sair");
+draw_text(start_x, _y2 - 35, "[A/D] Abas | [W/S] Itens | [ESPAÇO] Confirmar | [ESC] Sair");
 draw_set_alpha(1);

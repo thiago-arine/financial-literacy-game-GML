@@ -118,7 +118,7 @@
     {"name":"spr_item_bottle","order":67,"path":"sprites/spr_item_bottle/spr_item_bottle.yy",},
     {"name":"spr_item_card","order":68,"path":"sprites/spr_item_card/spr_item_card.yy",},
     {"name":"spr_item_coxinha","order":69,"path":"sprites/spr_item_coxinha/spr_item_coxinha.yy",},
-    {"name":"spr_item_dvd","order":62,"path":"sprites/spr_item_dvd/spr_item_dvd.yy",},
+    {"name":"spr_item_dvd","order":76,"path":"sprites/spr_item_dvd/spr_item_dvd.yy",},
     {"name":"spr_item_flashlight","order":70,"path":"sprites/spr_item_flashlight/spr_item_flashlight.yy",},
     {"name":"spr_item_gamedisc","order":71,"path":"sprites/spr_item_gamedisc/spr_item_gamedisc.yy",},
     {"name":"spr_item_headset","order":47,"path":"sprites/spr_item_headset/spr_item_headset.yy",},
