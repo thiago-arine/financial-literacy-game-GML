@@ -371,7 +371,7 @@
           -2147483648,1,1,-10,-2147483648,1,1,-9,-2147483648,1,1,-42,-2147483648,1,1,-7,-2147483648,3,1,-2147483648,
           1,-7,-2147483648,1,1,-3,-2147483648,1,1,-10,-2147483648,1,1,-9,-2147483648,1,1,-42,-2147483648,1,1,-9,
           -2147483648,1,1,-7,-2147483648,1,1,-3,-2147483648,1,1,-10,-2147483648,1,1,-9,-2147483648,1,1,-24,-2147483648,
-        ],"TileDataFormat":1,},"tilesetId":{"name":"TileSet_Colission","path":"tilesets/TileSet_Colission/TileSet_Colission.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+        ],"TileDataFormat":1,},"tilesetId":{"name":"TileSet_Colission","path":"tilesets/TileSet_Colission/TileSet_Colission.yy",},"userdefinedDepth":false,"visible":false,"x":0,"y":0,},
     {"$GMRTileLayer":"","%Name":"Tiles_Graffiti","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_Graffiti","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":64,"SerialiseWidth":86,"TileCompressedData":[
           -932,-2147483648,5,101,102,103,104,105,-72,-2147483648,4,16,17,18,19,-5,-2147483648,5,117,118,119,120,
           121,-4,-2147483648,4,48,49,50,51,-64,-2147483648,4,32,33,34,35,-5,-2147483648,5,133,134,135,136,137,

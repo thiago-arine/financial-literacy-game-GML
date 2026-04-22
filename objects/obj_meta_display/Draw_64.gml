@@ -1,4 +1,4 @@
-draw_set_font(Font1); 
+/*draw_set_font(Font1); 
 draw_set_color(c_white);
 draw_set_halign(fa_left);
 
@@ -24,4 +24,4 @@ if (variable_global_exists("meta")) {
     }
 }
 
-draw_text(10, 10, "Meta Atual: " + _txt);
+draw_text(10, 10, "Meta Atual: " + _txt);*/

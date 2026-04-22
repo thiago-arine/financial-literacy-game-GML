@@ -34,7 +34,7 @@
           0,1,-6,-2147483648,4,0,-2147483648,0,1,-70,-2147483648,2,1,0,-10,-2147483648,4,0,-2147483648,-2147483648,
           1,-70,-2147483648,2,1,0,-10,-2147483648,4,0,-2147483648,-2147483648,1,-70,-2147483648,2,1,0,-10,-2147483648,
           4,0,-2147483648,-2147483648,1,-70,-2147483648,-4,1,1,0,-11,1,-3932,-2147483648,
-        ],"TileDataFormat":1,},"tilesetId":{"name":"TileSet_Colission","path":"tilesets/TileSet_Colission/TileSet_Colission.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+        ],"TileDataFormat":1,},"tilesetId":{"name":"TileSet_Colission","path":"tilesets/TileSet_Colission/TileSet_Colission.yy",},"userdefinedDepth":false,"visible":false,"x":0,"y":0,},
     {"$GMRTileLayer":"","%Name":"Tiles_Walls","depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_Walls","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":64,"SerialiseWidth":86,"TileCompressedData":[
           -611,-2147483648,-12,0,2,-2147483648,0,-71,-2147483648,1,1632,-14,1315,1,1632,-70,-2147483648,1,1632,
           -6,1379,2,1414,1415,-6,1379,1,1632,-70,-2147483648,1,1632,-6,0,2,1478,1479,-4,0,-2,-2147483648,1,1632,

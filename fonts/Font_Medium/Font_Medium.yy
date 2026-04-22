@@ -1,6 +1,6 @@
 {
   "$GMFont":"",
-  "%Name":"Font1",
+  "%Name":"Font_Medium",
   "AntiAlias":1,
   "applyKerning":0,
   "ascender":30,
@@ -1066,7 +1066,7 @@
   "last":0,
   "lineHeight":39,
   "maintainGms1Font":false,
-  "name":"Font1",
+  "name":"Font_Medium",
   "parent":{
     "name":"RPG Starter Pack",
     "path":"RPG Starter Pack.yyp",

@@ -26,7 +26,7 @@ _dx += 16;
 _dy += 16;
 var _padding = 10; 
 
-draw_set_font(Font1);
+draw_set_font(Font_Medium);
 var _name = _str.dialog[current_message].name;
 
 // Cores (Acessando a struct global que você definiu)

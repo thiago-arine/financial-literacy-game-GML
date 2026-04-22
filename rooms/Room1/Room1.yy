@@ -81,7 +81,7 @@
           -2,0,2,-2147483648,0,-24,-2147483648,-43,0,-4,-2147483648,1,0,-10,-2147483648,-3,0,-23,-2147483648,-45,
           0,-4,-2147483648,1,0,-9,-2147483648,-4,0,-23,-2147483648,-62,0,-25,-2147483648,-44,0,-3,-2147483648,
           -3,0,-37,-2147483648,-43,0,-43,-2147483648,-43,0,-1068,-2147483648,
-        ],"TileDataFormat":1,},"tilesetId":{"name":"TileSet_Colission","path":"tilesets/TileSet_Colission/TileSet_Colission.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+        ],"TileDataFormat":1,},"tilesetId":{"name":"TileSet_Colission","path":"tilesets/TileSet_Colission/TileSet_Colission.yy",},"userdefinedDepth":false,"visible":false,"x":0,"y":0,},
     {"$GMRTileLayer":"","%Name":"Decoration_back","depth":600,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Decoration_back","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":48,"SerialiseWidth":86,"TileCompressedData":[
           -9,-2147483648,-2,0,-2,-2147483648,-3,0,2,-2147483648,0,-77,-2147483648,-9,0,-77,-2147483648,-2,0,-89,
           -2147483648,-2,0,-78,-2147483648,-4,0,-3,-2147483648,1,0,-78,-2147483648,-4,0,-4,-2147483648,1,0,-78,
