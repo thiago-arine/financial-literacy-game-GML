@@ -23,22 +23,23 @@ if (is_fading) {
     
     // Duração de fade
     if (instance_exists(fade_inst)) {
-        fade_inst.fade_alpha += (delta_time / 1000000) / 3.0; 
-        
-        if (fade_inst.fade_alpha >= 1) {
-            fade_inst.fade_alpha = 1;
+        if (fade_inst.fade_state == 1) { // Estado 1: Escurecendo
+           fade_inst.fade_alpha += (delta_time / 1000000) / 3.0; 
+           
+           if (fade_inst.fade_alpha >= 1) {
+               fade_inst.fade_alpha = 1;
+               
+               // Mudança de data no ápice do preto
+               global.game_minute_total = 0;
+               global.day += 7; 
+               if (global.day > 28) {
+                   global.day -= 28;
+                   global.month += 1;
+                   if (global.month > 12) global.month = 1;
+               }
             
-            // Mudança de data no ápice do preto
-            global.game_minute_total = 0;
-            global.day += 7; 
-            if (global.day > 28) {
-                global.day -= 28;
-                global.month += 1;
-                if (global.month > 12) global.month = 1;
+               fade_inst.fade_state = 2; 
             }
-
-            fade_inst.fade_state = 2; 
-            is_fading = false; 
         }
     }
 }
@@ -49,7 +50,10 @@ if (instance_exists(fade_inst) && fade_inst.fade_state == 2) {
     fade_inst.fade_alpha -= (delta_time / 1000000) / 3.0;
     
     if (fade_inst.fade_alpha <= 0) {
-        instance_destroy(fade_inst); 
+        fade_inst.fade_alpha = 0;
+        is_fading = false; // ADICIONE AQUI! O sistema só libera as UIs agora.
+        global.time_is_paused = false; 
+        instance_destroy(fade_inst);
     }
 }
 

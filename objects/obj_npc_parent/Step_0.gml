@@ -3,6 +3,10 @@ event_inherited();
 // 1. TRAVAS DE SEGURANÇA (Impede abrir diálogo sobreposto)
 if (instance_exists(obj_dialog)) exit;
 if (instance_exists(obj_statement_ui) && obj_statement_ui.statement_open) exit;
+if (instance_exists(obj_time_controller) && obj_time_controller.is_fading) {
+    can_talk = false;
+    exit;
+}
 if (instance_exists(obj_shop_ui)) {
     if (obj_shop_ui.shop_open) {
         can_talk = false;

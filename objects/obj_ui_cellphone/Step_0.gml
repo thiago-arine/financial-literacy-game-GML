@@ -1,5 +1,9 @@
 // 1. Controle de abrir/fechar
 if (keyboard_check_pressed(ord("C"))) {
+    // Travas par não abrir UI durante transição de dia
+    if (instance_exists(obj_time_controller) && obj_time_controller.is_fading) exit;
+    if (instance_exists(obj_fade_transition)) exit;
+
     phone_open = !phone_open;
     global.time_is_paused = phone_open;
 }
