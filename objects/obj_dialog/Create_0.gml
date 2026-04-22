@@ -39,3 +39,5 @@ handle_question_choice = function(choice_name, option_index) {
 }
 
 alarm[0] = 1; // Busca o bloco de diálogo no próximo frame
+
+global.time_is_paused = true;

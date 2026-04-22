@@ -20,14 +20,14 @@ global.goals = {
 
 // --- Listas de Dados ---
 loss_events = [
-    { name: "game_promotion", loss: -15, reputation: 10, item_id: "gamedisc" },
+    { name: "game_promotion", loss: -9, reputation: 10,  item_id: "gamedisc" },
     { name: "cinema",         loss: -80, reputation: 20, item_id: "" }, // Evento sem item físico
-    { name: "buy_icecream",   loss: -5,  reputation: 0,  item_id: "icecream" },
-    { name: "buy_led_hat",    loss: -50, reputation: 20, item_id: "sneaker" }, // Ajustado para seu item 'sneaker'
-    { name: "buy_coxinha",    loss: -8,  reputation: 0,  item_id: "coxinha" },
-    { name: "buy_card",       loss: -8,  reputation: 0,  item_id: "card" },
-    { name: "buy_bear",    loss: -12, reputation: 0,  item_id: "bear" },
-    { name: "buy_painting",   loss: -20, reputation: 0,  item_id: "painting" },
+    { name: "buy_icecream",   loss: -4,  reputation: 0,  item_id: "icecream" },
+    { name: "buy_led_hat",    loss: -30, reputation: 20, item_id: "sneakers" }, // sneaker substituiu o led hat
+    { name: "buy_coxinha",    loss: -5,  reputation: 0,  item_id: "coxinha" },
+    { name: "buy_card",       loss: -5,  reputation: 0,  item_id: "card" },
+    { name: "buy_bear",       loss: -8, reputation: 0,   item_id: "bear" },
+    { name: "buy_painting",   loss: -12, reputation: 0,  item_id: "painting" },
 ];
 
 // --- Funções Auxiliares ---
@@ -80,7 +80,7 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
                 }
 				
 				if (event_name == "buy_coxinha") {
-                    if (option_result == 1) { _final_price = -6;  _item_label = "Coxinha"; }
+                    if (option_result == 1) { _final_price = -5;  _item_label = "Coxinha"; }
                     else if (option_result == 2) {
 						_is_buying = false;
 							return; }
@@ -91,7 +91,7 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
                 }
                 
                 if (event_name == "buy_led_hat") {
-                    if (option_result == 1) { _final_price = -50; _item_label = "Boné de LED"; }
+                    if (option_result == 1) { _final_price = -30; _item_label = "Tênis 3000"; }
                     else if (option_result == 2) { // 2 = "Manter meta"
                         _is_buying = false;
                         return 
@@ -103,7 +103,7 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
                 }
 				
 				if (event_name == "buy_card") {
-                    if (option_result == 1) { _final_price = -8; _item_label = "Carta Rara"; }
+                    if (option_result == 1) { _final_price = -5; _item_label = "Carta Rara"; }
                     else if (option_result == 2) { 
                         _is_buying = false;
                         return 
@@ -115,7 +115,7 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
                 }
 				
 				if (event_name == "buy_bear") {
-                    if (option_result == 1) { _final_price = -12; _item_label = "Pelúcia"; }
+                    if (option_result == 1) { _final_price = -8; _item_label = "Pelúcia"; }
                     else if (option_result == 2) { 
                         _is_buying = false;
                         return 
@@ -277,7 +277,7 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
     
     		    // CORREÇÃO: Os nomes devem ser os mesmos IDs usados no shop_items
     		    if (option_result == 1) { _item_id = "screwdriver"; _display_name = "Chave Inglesa"; _sell_price = 7; }
-    		    if (option_result == 2) { _item_id = "dvd"; _display_name = "DVD"; _sell_price = 10; }
+    		    if (option_result == 2) { _item_id = "dvd"; _display_name = "DVD"; _sell_price = 6; }
     
     		    // Usamos a função inventory_remove_item que você já tem no Create, ela é mais limpa!
     		    if (inventory_remove_item(_item_id)) {

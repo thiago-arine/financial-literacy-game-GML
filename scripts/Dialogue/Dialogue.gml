@@ -198,21 +198,21 @@ dialog_mentor = [
             },
             { 
                 name: "Mentor",
-                msg: "Nossa meta: Construir liberdade financeira...",
+                msg: "Nosso objetivo: Construir liberdade financeira...",
                 is_question: false,
                 number: -1,
                 is_end: false
             },
-            {
+            /*{
                 name: "Mentor",
                 msg: "Ao longo de sua jornada aparecerão oportunidades...",
                 is_question: false,
                 number: -1,
                 is_end: false
-            },
+            },*/
             {
                 name: "Mentor", 
-                msg: "Vamos começar. Qual é o seu objetivo financeiro?",
+                msg: "Vamos começar. Qual o seu objetivo financeiro?",
                 is_question: true,
                 options: ["Fone de Ouvido: R$100,00 em 4 meses"],   //"Celular: R$900,00 em 9 meses", "Formatura: R$1700,00 em 15 meses"]
                 option_results: [1], //[1, 2, 3]
@@ -223,7 +223,7 @@ dialog_mentor = [
             },
             {
                 name: "Mentor",
-                msg: "Ótimo! Agora que já definiu a sua meta...",
+                msg: "Ótimo! Vamos começar por algo mais fácil de alcançar. Sem pressa...",
                 is_question: false,
                 number: -1,
                 is_end: false
@@ -237,13 +237,43 @@ dialog_mentor = [
             }, 
             { 
                 name: "Mentor", 
-                msg: "E lembre-se, ganhar não é tudo, você também deve controlar seus gastos! Pressione 'Z' para monitorar seu saldo....",
+                msg: "ATENÇÃO!!! Você encontrará várias decisões de compra. Na maioria você só terá UMA CHANCE de decidir aceitar ou não!",
+                is_question: false,
+                number: -1,
+                is_end: false
+            },
+            { 
+                name: "Mentor", 
+                msg: "Cuidado no que gasta o dinheiro e lembre-se sempre de sua meta final!",
+                is_question: false,
+                number: -1,
+                is_end: false
+            },
+            { 
+                name: "Mentor", 
+                msg: "Clique 'Z' para acessar seu saldo e 'C' para acessar seu celular. Boa sorte!",
                 is_question: false,
                 number: -1,
                 is_end: true
             }
+            
         ]
     },
+    
+    {   kind: "unique",
+        happened: false,
+        required_event : "",
+        dialog: [
+            { 
+                name: "Mentor",
+                msg: "O desconto é sempre maior se você não comprar!",
+                is_question: false,
+                number: 0,
+                is_end: true
+            }
+        ]
+    },
+    
     {   kind: "pattern",
         happened: false,
         required_event : "",
@@ -352,55 +382,49 @@ global.dialog_shopkeeper = [
         dialog: [
             { 
             name: "Tadeu", 
-            msg: "Boa tarde! Seja bem vindo à Lojinha do Tadeu!", 
+            msg: "Opa, tudo bem? Estou abrindo a loja agora, desculpa a bagunça.", 
             is_question: false, 
             number: -1, 
             is_end: false 
             },
             { 
             name: "Tadeu", 
-            msg: "O que você deseja?", 
+            msg: "Posso ajudar em algo?", 
             is_question: true, 
-            options: ["Ver o catálogo","Perguntar sobre decoração de pipa (missão)", "Sair"], 
-            option_results: [1, 2, 3], 
+            options: ["Perguntar sobre decoração de pipa (missão)", "Não, obrigado (sair)"], 
+            option_results: [1, 2], 
             choice: "shopkeeper_choice",
             kind: "special", 
             number: 0, 
             is_end: false 
             },
-            { name: "Tadeu", 
-            msg: "Aqui está o catálogo", 
-            is_question: false, 
-            number: 1, is_end: true, 
-            trigger_event: { name: "open_shop", kind: "special", result: 1 } 
-            },
             { 
             name: "Tadeu", 
             msg: "Ah, eu gosto muito de pipas desde criança. Não só vendo elas na loja, eu também brinco de empinar pipa quando posso.", 
             is_question: false, 
-            number: 2, 
+            number: 1, 
             is_end: false 
             },
             { 
             name: "Tadeu", 
             msg: "Aliás, no outro dia, estava brincando com minha pipa novinha na praça, mas bateu um vento forte e ela caiu lá pra direita do parque depois de uma cerca. Não consigo chegar lá para recuperá-la", 
             is_question: false, 
-            number: 2, 
+            number: 1, 
             is_end: false 
             },
             { 
              name: "Tadeu", 
             msg: "Se você estiver passando por lá qualquer dia e conseguir encontrar a pipa, traz ela para mim, por favor? Se você fizesse isso, eu ficaria muito grato!", 
             is_question: false, 
-            number: 2, 
+            number: 1, 
             is_end: true,
             trigger_event: { name: "start_quest_kite", kind: "special", result: 1 }
             },
             { 
             name: "Tadeu", 
-            msg: "Volte sempre!", 
+            msg: "Volte sempre! As coisas já estão praticamente prontas aqui, se já quiser comprar algo.", 
             is_question: false, 
-            number: 3, 
+            number: 2, 
             is_end: true 
             },
         ]
@@ -461,7 +485,7 @@ global.dialog_influencer_completou = [{
         is_question: false,
         number: 0,
         is_end: true,
-        trigger_event: { name: "quest_headset", kind: "special", result: 1, reward: 25 }
+        trigger_event: { name: "quest_headset", kind: "special", result: 1, reward: 20 }
     }]
 }];
 
@@ -526,14 +550,14 @@ global.dialog_influencer = [
       },
       {
         name: "Influencer",
-        msg: "Você bem que podia pegar meu fone de ouvido Hi-Tech T570S que eu deixei na minha mansão particular futurista brilhante.",
+        msg: "Você bem que podia pegar meu headset Hi-Tech T570S roxo que eu deixei na minha mansão particular futurista brilhante.",
         is_question: false,
         number: 2,
         is_end: false
       },
     {
         name: "Influencer",
-        msg: "Eu preciso desse fone para gravar meu próximo vídeo. Se você pegar pra mim, talvez eu até marque você no próximo story.",
+        msg: "Eu preciso desse headset para gravar meu próximo vídeo. Se você pegar pra mim, talvez eu até marque você no próximo story.",
         is_question: false,
         number: 2,
         is_end: true,
@@ -557,7 +581,7 @@ global.dialog_influencer = [
             name: "Influencer",
             msg: "Se você comprar esse 'Tênis Neon 3000' agora, eu te coloco no meu vídeo.",
             is_question: true,
-            options: ["Comprar o Tênis (-R$50,00)", "Manter meta", "Verificar se o Tênis é útil"],
+            options: ["Comprar o Tênis (-R$30,00)", "Manter meta", "Verificar se o Tênis é útil"],
             option_results: [1, 2, 3],
             choice: "buy_led_hat",
             kind: "loss",
@@ -597,9 +621,9 @@ global.dialog_wanderley = [
 
             { 
                 name: "Wanderley", 
-                msg: "E aí, campeão!  Vai uma coxinha pra viagem aí? Tá na promoção! só 6 reais", 
+                msg: "E aí, campeão!  Vai uma coxinha pra viagem aí? Tá na promoção! só 5 reais", 
                 is_question: true, 
-                options: ["Comprar (R$ 6,00)", "Tô tentando economizar um pouco, seu Wanderley.", "Hoje não, valeu."], 
+                options: ["Comprar (R$ 5,00)", "Tô tentando economizar um pouco, seu Wanderley.", "Hoje não, valeu."], 
                 option_results: [1, 2, 3],
                 choice: "buy_coxinha", 
                 kind: "loss", 
@@ -658,7 +682,7 @@ global.dialog_lucas = [
 			
 			{ 
                 name: "Lucas", 
-                msg: "Faço por R$ 8,00 só porque a gente é parceiro. Eu ia guardar pra mim, mas tô precisando de uma grana pra um jogo novo.", 
+                msg: "Faço por R$ 5,00 só porque a gente é parceiro. Eu ia guardar pra mim, mas tô precisando de uma grana pra um jogo novo.", 
                 is_question: false, 
                 number: -1, 
                 is_end: false 
@@ -668,7 +692,7 @@ global.dialog_lucas = [
                 name: "Lucas", 
                 msg: "Quer comprar?", 
                 is_question: true, 
-                options: ["Comprar (R$ 8,00)", "R$ 8? É muita grana pra um papel...", "Agora não, Lucas. Valeu!"], 
+                options: ["Comprar (R$ 5,00)", "R$ 5? É muita grana pra um papel...", "Agora não, Lucas. Valeu!"], 
                 option_results: [1, 2, 3], 
                 choice: "buy_card", 
                 kind: "loss", 
@@ -726,7 +750,7 @@ global.dialog_donagraca = [
 
             { 
                 name: "Dona Graça", 
-                msg: "Oi, meu filho! Estava aqui arrumando as prateleiras e achei uma pelúcia... não é a coisa mais fofa do mundo?", 
+                msg: "Oi, meu filho! Estava aqui arrumando as prateleiras e achei esse ursinho de pelúcia rosa... não é a coisa mais fofa do mundo?", 
                 is_question: false, 
                 number: -1, 
                 is_end: false 
@@ -734,17 +758,41 @@ global.dialog_donagraca = [
 			
 			{ 
                 name: "Dona Graça", 
-                msg: "Essa pelúcia é última que eu tenho, sobrou só essa unidade. Ficaria linda decorando o seu quarto, não acha?", 
+                msg: "Ficaria lindo decorando o seu quarto, não acha?", 
                 is_question: false, 
                 number: -1, 
                 is_end: false 
             },
-
+            
             { 
                 name: "Dona Graça", 
-                msg: "Faço por R$ 12,00 pra você.", 
+                msg: "Se você quiser o ursinho, faço por R$ 8,00 pra você.", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+            
+            { 
+                name: "Dona Graça", 
+                msg: "Se não quiser, eu vou dar pra minha neta mesmo. É bem a carinha dela esse bichinho.", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+            
+            { 
+                name: "Dona Graça", 
+                msg: "Vai querer?", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+            
+            { 
+                name: "Dona Graça", 
+                msg: "", 
                 is_question: true, 
-                options: ["Comprar Pelúcia (R$ 12,00)", "É linda, mas preciso guardar meu dinheiro.", "Agora não, Dona Graça. Obrigado!"], 
+                options: ["Comprar Pelúcia (R$ 8,00)", "É linda, mas preciso guardar meu dinheiro.", "Agora não, Dona Graça. Obrigado!"], 
                 option_results: [1, 2, 3], 
                 choice: "buy_bear", 
                 kind: "loss", 
@@ -779,6 +827,51 @@ global.dialog_donagraca = [
         ]
     },
     {   
+        kind: "unique",
+        happened: false,
+        dialog: [
+
+            { 
+                name: "Dona Graça", 
+                msg: "Oi, meu filho! Tudo bom?", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+            
+            { 
+                name: "Dona Graça", 
+                msg: "Pior que a vendinha ainda tá fechada. Vai abrir ainda não.", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+            
+            { 
+                name: "Dona Graça", 
+                msg: "Também, logo mais chega semana de chuva. Não é nem bom abrir mesmo.", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+            { 
+                name: "Dona Graça", 
+                msg: "Mas não vou te alugar mais não, filho. Vai lá, que se não eu fico o dia todo aqui falando e tu não vai ter tempo de brincar", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+            
+            { 
+                name: "Dona Graça", 
+                msg: "Até logo, filho!", 
+                is_question: false, 
+                number: -1, 
+                is_end: true 
+            }
+        ]
+    },
+    {   
         kind: "pattern",
         happened: false,
         dialog: [
@@ -790,22 +883,15 @@ global.dialog_donagraca = [
                 number: -1, 
                 is_end: false 
             },
-			
-			{ 
-                name: "Dona Graça", 
-                msg: "mas quando eu reabrir vai ter muitas coisinha para você comprar!", 
-                is_question: false, 
-                number: -1, 
-                is_end: false 
-            },
             
             { 
                 name: "Dona Graça", 
-                msg: "Até mais, viu? Aproveite seu dia!", 
+                msg: "Volte outro dia. Logo mais abre!", 
                 is_question: false, 
                 number: -1, 
-                is_end: false 
-            } 
+                is_end: true 
+            }
+            
         ]
     }
 ];
@@ -818,7 +904,7 @@ global.dialog_luna = [
 
             { 
                 name: "Luna", 
-                msg: "Ei, olha só... acabei de terminar esse quadro do parque. Essa vista é linda, né?", 
+                msg: "Ei, olha só... acabei de terminar mais esse quadro do parque. Essa vista é linda, né?", 
                 is_question: false, 
                 number: -1, 
                 is_end: false 
@@ -828,7 +914,7 @@ global.dialog_luna = [
                 name: "Luna", 
                 msg: "Estou vendendo essa pintura por R$ 20,00. Você quer comprar?", 
                 is_question: true, 
-                options: ["Comprar Pintura (R$ 20,00)", "É linda, mas não posso gastar agora.", "Não, valeu."], 
+                options: ["Comprar Pintura (R$ 12,00)", "É linda, mas não posso gastar agora.", "Não, valeu."], 
                 option_results: [1, 2, 3], 
                 choice: "buy_painting", 
                 kind: "loss", 
@@ -855,6 +941,57 @@ global.dialog_luna = [
             { 
                 name: "Luna", 
                 msg: "Beleza! Bom caminho pra você, garoto. Se mudar de ideia, estarei por aqui até o sol se pôr.", 
+                is_question: false, 
+                number: 3, 
+                is_end: true 
+            }
+        ]
+    },
+    
+    {   
+        kind: "unique",
+        happened: false,
+        dialog: [
+
+            { 
+                name: "Luna", 
+                msg: "Oie! Já vendi quase todos os quadros, só sobrou mais um!", 
+                is_question: false, 
+                number: -1, 
+                is_end: false 
+            },
+
+            { 
+                name: "Luna", 
+                msg: "Está por R$12,00. Quer comprar? Na próxima vez que vier aqui, não te garanto que ainda vai ter ein!", 
+                is_question: true, 
+                options: ["Comprar Pintura (R$ 12,00)", "É linda, mas não posso gastar agora.", "Não, valeu."], 
+                option_results: [1, 2, 3], 
+                choice: "buy_painting", 
+                kind: "loss", 
+                number: 0, 
+                is_end: false 
+            },
+
+            { 
+                name: "Luna", 
+                msg: "Valeu demais pelo apoio! Esse aqui é único, viu? Coloca em algum lugar com luz boa que ela transforma o ambiente. Até mais!", 
+                is_question: false, 
+                number: 1, 
+                is_end: true 
+            },
+
+            { 
+                name: "Luna", 
+                msg: "Entendo. Quem sabe numa próxima com outra paisagem, outra pintura e outras energias.", 
+                is_question: false, 
+                number: 2, 
+                is_end: true 
+            },
+
+            { 
+                name: "Luna", 
+                msg: "Que pena... espero que a arte encontre seu coração por outros meios.", 
                 is_question: false, 
                 number: 3, 
                 is_end: true 
@@ -898,14 +1035,14 @@ global.dialog_mentor_low_balance = [{
     dialog: [
         { 
             name: "Mentor", 
-            msg: "Ei, preste atenção! Seu saldo chegou a 10% de sua meta ou menos!", 
+            msg: "Ei, preste atenção! Seu saldo chegou a menos que 15% de sua meta!", 
             is_question: false, 
             number: -1, 
             is_end: false 
         },
         { 
             name: "Mentor", 
-            msg: "Seu dinheiro está acabando rápido. Se continuar gastando assim, não vai bater sua meta!", 
+            msg: "Seu dinheiro está acabando rápido. Se continuar gastando assim, não vai alacançar sua meta!", 
             is_question: false, 
             number: -1, 
             is_end: true 
@@ -1032,6 +1169,48 @@ global.dialog_mentor_welcome = [
 ];
 
 global.dialog_rocha  = [{
+    kind: "unique",
+    happened: false,
+    dialog: [
+        { 
+            name: "Rocha", 
+            msg: "Opa, pequeno. Tudo bem?", 
+            is_question: false, 
+            number: -1, 
+            is_end: false 
+        },
+        { 
+            name: "Rocha", 
+            msg: "Será que a lojinha do Tadeu já abriu?", 
+            is_question: false, 
+            number: -1, 
+            is_end: false
+        },
+        { 
+            name: "Rocha", 
+            msg: "Do jeito que ele é todo perdido não sei não.", 
+            is_question: false, 
+            number: -1, 
+            is_end: false
+        },
+        { 
+            name: "Rocha", 
+            msg: "Vi que agora ele começou a comprar recicláveis e ferramentas. Não sei se vai dar certo isso.", 
+            is_question: false, 
+            number: -1, 
+            is_end: false
+        },
+        { 
+            name: "Rocha", 
+            msg: "Ainda mais que na feira ainda deve ter um preço melhor. Mas vamos ver né", 
+            is_question: false, 
+            number: -1, 
+            is_end: true
+        }
+    ]
+},
+
+{
     kind: "unique",
     happened: false,
     dialog: [

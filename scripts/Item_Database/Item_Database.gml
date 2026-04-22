@@ -41,16 +41,24 @@ function get_item_data(_item_id) {
             return { 
                 name: "Lanterna Quebrada", 
                 sprite: spr_item_flashlight, 
-                sell_price: 5, 
+                sell_price: 7, 
                 type: "collectible" 
             };    
         case "dvd":
             return { 
-                name: "DVD Riscado", 
+                name: "DVD", 
                 sprite: spr_item_flashlight, 
                 sell_price: 2, 
                 type: "collectible" 
-            };    
+            };
+        case "kiteshop":
+            return { 
+                name: "Pipa Roxa", 
+                sprite: spr_item_kite_shop, 
+                sell_price: 4, 
+                type: "collectible" 
+            };
+                        
         case "bear":
             return { 
                 name: "Ursinho de Pelúcia", 

@@ -16,7 +16,8 @@ start_x = (gui_w - shop_w) / 2;
 start_y = (gui_h - shop_h) / 2;
 
 shop_items = [
-    { id: "screwdriver", price: 8,  object: obj_item_screwdriver }
+    { id: "screwdriver", price: 8,  object: obj_item_screwdriver },
+    { id: "kiteshop", price: 4,  object: obj_item_kite_shop }
 ];
 
 selected = 0;
