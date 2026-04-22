@@ -18,5 +18,5 @@ alpha_morning   = 0;
 alpha_afternoon = 0;
 alpha_evening   = 0;
 
-// --- Configurações transição de dia ---
-is_fading = false;
+is_fading = false; // transição de dia
+banner_alpha = 0; //Título pós transição

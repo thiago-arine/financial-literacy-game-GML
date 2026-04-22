@@ -24,21 +24,23 @@ if (is_fading) {
     // Duração de fade
     if (instance_exists(fade_inst)) {
         if (fade_inst.fade_state == 1) { // Estado 1: Escurecendo
-           fade_inst.fade_alpha += (delta_time / 1000000) / 3.0; 
-           
-           if (fade_inst.fade_alpha >= 1) {
-               fade_inst.fade_alpha = 1;
-               
-               // Mudança de data no ápice do preto
-               global.game_minute_total = 0;
-               global.day += 7; 
-               if (global.day > 28) {
-                   global.day -= 28;
-                   global.month += 1;
-                   if (global.month > 12) global.month = 1;
-               }
-            
-               fade_inst.fade_state = 2; 
+            fade_inst.fade_alpha += (delta_time / 1000000) / 3.0; 
+                   
+            if (fade_inst.fade_alpha >= 1) {
+                fade_inst.fade_alpha = 1;
+                   
+                banner_alpha = 2.0;
+                
+                // Mudança de data no ápice do preto
+                global.game_minute_total = 0;
+                global.day += 7; 
+                if (global.day > 28) {
+                    global.day -= 28;
+                    global.month += 1;
+                    if (global.month > 12) global.month = 1;
+                }
+                
+                fade_inst.fade_state = 2; 
             }
         }
     }
@@ -46,15 +48,31 @@ if (is_fading) {
 
 // 3. CLAREAR A TELA
 var fade_inst = instance_find(obj_fade_transition, 0);
+
+// Lógica do Banner (Mover para fora do if do fade_inst)
+if (banner_alpha > 0) {
+    // Reduz o alpha independente do objeto de fade existir ou não
+    banner_alpha -= (delta_time / 1000000) / 2.0; 
+}
+
+// Lógica do Objeto de Fade
 if (instance_exists(fade_inst) && fade_inst.fade_state == 2) {
     fade_inst.fade_alpha -= (delta_time / 1000000) / 3.0;
     
     if (fade_inst.fade_alpha <= 0) {
         fade_inst.fade_alpha = 0;
-        is_fading = false; // ADICIONE AQUI! O sistema só libera as UIs agora.
-        global.time_is_paused = false; 
-        instance_destroy(fade_inst);
+        
+        // SÓ mude is_fading para false quando o fade sumir E o banner também
+        // Isso garante que a UI só destrave quando tudo sumir
+        if (banner_alpha <= 0) {
+            is_fading = false;
+            global.time_is_paused = false; 
+            instance_destroy(fade_inst);
+        }
     }
+} else if (!instance_exists(fade_inst) && banner_alpha <= 0) {
+    // Segurança extra: se por algum motivo o fade sumir, garanta que destrava
+    is_fading = false;
 }
 
 // 4. ATUALIZAÇÃO DOS ÍCONES (Manhã, Tarde, Noite)

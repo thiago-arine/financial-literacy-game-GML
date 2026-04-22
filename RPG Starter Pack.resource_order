@@ -9,6 +9,8 @@
     {"name":"SpritesPlayer","order":4,"path":"folders/SpritesPlayer.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"Font_Banner","order":7,"path":"fonts/Font_Banner/Font_Banner.yy",},
+    {"name":"Font1","order":6,"path":"fonts/Font1/Font1.yy",},
     {"name":"Enemy_Parent","order":3,"path":"objects/Enemy_Parent/Enemy_Parent.yy",},
     {"name":"Enemy1","order":6,"path":"objects/Enemy1/Enemy1.yy",},
     {"name":"Enemy2","order":8,"path":"objects/Enemy2/Enemy2.yy",},

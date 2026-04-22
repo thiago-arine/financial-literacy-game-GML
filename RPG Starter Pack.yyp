@@ -27,6 +27,7 @@
   },
   "name":"RPG Starter Pack",
   "resources":[
+    {"id":{"name":"Font_Banner","path":"fonts/Font_Banner/Font_Banner.yy",},},
     {"id":{"name":"Font1","path":"fonts/Font1/Font1.yy",},},
     {"id":{"name":"ReadMe","path":"notes/ReadMe/ReadMe.yy",},},
     {"id":{"name":"Enemy_Parent","path":"objects/Enemy_Parent/Enemy_Parent.yy",},},

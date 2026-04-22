@@ -1130,8 +1130,8 @@
   "maintainGms1Font":false,
   "name":"Font1",
   "parent":{
-    "name":"SpritesPlayer",
-    "path":"folders/SpritesPlayer.yy",
+    "name":"RPG Starter Pack",
+    "path":"RPG Starter Pack.yyp",
   },
   "pointRounding":0,
   "ranges":[
