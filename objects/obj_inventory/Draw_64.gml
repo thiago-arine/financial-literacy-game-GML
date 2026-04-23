@@ -6,7 +6,7 @@ if (inventory_open) {
     var total_height = invMaxY * size;
     
     var xx = (display_get_gui_width() / 2) - (total_width / 2);
-    var yy = (display_get_gui_height() / 2) - (total_height / 2);
+    var yy = (display_get_gui_height() / 2) - (total_height / 2) - 250;
     
     for(var i=0; i<invMaxX; i++){
         for(var j=0; j<invMaxY; j++){

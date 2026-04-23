@@ -223,13 +223,6 @@ dialog_mentor = [
             },
             {
                 name: "Mentor",
-                msg: "Ótimo! Vamos começar por algo mais fácil de alcançar. Sem pressa...",
-                is_question: false,
-                number: -1,
-                is_end: false
-            },
-            {
-                name: "Mentor",
                 msg: "Em todos os meses, no dia 1º, você receberá uma mesada...",
                 is_question: false,
                 number: -1,
@@ -244,7 +237,7 @@ dialog_mentor = [
             },
             { 
                 name: "Mentor", 
-                msg: "Cuidado no que gasta o dinheiro e lembre-se sempre de sua meta final!",
+                msg: "E fique esperto com os quizzes supresa!",
                 is_question: false,
                 number: -1,
                 is_end: false
@@ -1276,7 +1269,7 @@ global.dialog_mentor_quiz = [{
                 "Anotar gastos e criar um orçamento", // <-- A Certa
                 "Comprar na promoção mesmo sem precisar"
             ], 
-            option_results: [2, 2, 1, 2], // 1 = Ramo Certo, 2 = Ramo Errado
+            option_results: [2, 2, 1], // 1 = Ramo Certo, 2 = Ramo Errado
             choice: "quiz_1", 
             kind: "special", 
             number: 0, 
@@ -1291,7 +1284,7 @@ global.dialog_mentor_quiz = [{
             number: 1, 
             is_end: true, // Termina o diálogo
             // A recompensa é dada automaticamente através do atributo 'reward'
-            trigger_event: { name: "quiz_1_done", kind: "special", result: 1, reward: 50 } 
+            trigger_event: { name: "quiz_1_done", kind: "special", result: 1, reward: 10 } 
         },
         
         // ÍNDICE 2: RAMO DO ERRO (Resultado 2)
@@ -1329,12 +1322,12 @@ global.dialog_mentor_quiz = [{
         
         { 
             name: "Mentor", 
-            msg: "Exatamente! Ter controle dos gastos é o primeiro passo para a inteligência financeira.", 
+            msg: "Resposta correta! Você vai receber uma recompensa de R$10,00 por acertar o quiz!", 
             is_question: false, 
             number: 1, 
             is_end: true,
             // A recompensa é dada automaticamente através do atributo 'reward'
-            trigger_event: { name: "quiz_1_done", kind: "special", result: 1, reward: 15 } 
+            trigger_event: { name: "quiz_1_done", kind: "special", result: 1, reward: 10 } 
         },
 
         { 
@@ -1372,12 +1365,12 @@ global.dialog_mentor_quiz_2 = [{
         
         { 
             name: "Mentor", 
-            msg: "Exatamente! Ter controle dos gastos é o primeiro passo para a inteligência financeira.", 
+            msg: "Resposta correta! Você vai receber uma recompensa de R$10,00 por acertar o quiz!", 
             is_question: false, 
             number: 1, 
             is_end: true,
             // A recompensa é dada automaticamente através do atributo 'reward'
-            trigger_event: { name: "quiz_2_done", kind: "special", result: 1, reward: 15 } 
+            trigger_event: { name: "quiz_2_done", kind: "special", result: 1, reward: 10 } 
         },
 
         { 
@@ -1416,12 +1409,12 @@ global.dialog_mentor_quiz_3 = [{
         
         { 
             name: "Mentor", 
-            msg: "Exatamente! Ter controle dos gastos é o primeiro passo para a inteligência financeira.", 
+            msg: "Resposta correta! Você vai receber uma recompensa de R$10,00 por acertar o quiz!", 
             is_question: false, 
             number: 1, 
             is_end: true,
             // A recompensa é dada automaticamente através do atributo 'reward'
-            trigger_event: { name: "quiz_3_done", kind: "special", result: 1, reward: 15 } 
+            trigger_event: { name: "quiz_3_done", kind: "special", result: 1, reward: 10 } 
         },
 
         { 
