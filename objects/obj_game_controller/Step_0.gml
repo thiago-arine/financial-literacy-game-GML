@@ -61,7 +61,15 @@ if (trigger_no_item) {
     }
 }
 
-// Exemplo: Dispara o quiz assim que o jogador atinge R$ 100 e ainda não fez o quiz
-if (global.balance >= 10 && !variable_global_exists("quiz_1_finished")) {
+// Dispara o quiz assim que o jogador atinge R$ X,XX e ainda não fez o quiz
+if (global.balance >= 20 && !variable_global_exists("quiz_1_finished")) {
     mentor_popup(global.dialog_mentor_quiz);
+}
+
+if (global.balance >= 50 && !variable_global_exists("quiz_2_finished")) {
+    mentor_popup(global.dialog_mentor_quiz_2);
+}
+
+if (global.balance <= 10 && !variable_global_exists("quiz_3_finished")) {
+    mentor_popup(global.dialog_mentor_quiz_3);
 }

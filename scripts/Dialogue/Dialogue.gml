@@ -1305,3 +1305,132 @@ global.dialog_mentor_quiz = [{
         }
     ]
 }];
+
+global.dialog_mentor_quiz = [{
+    kind: "unique", 
+    happened: false,
+    dialog: [
+
+        { 
+            name: "Mentor", 
+            msg: "Para economizar dinheiro no fim do mês, qual é a atitude mais importante?", 
+            is_question: true, 
+            options: [
+                "Gastar tudo no crédito", 
+                "Esconder dinheiro embaixo do colchão", 
+                "Anotar gastos e criar um orçamento", // <-- A Certa
+            ], 
+            option_results: [2, 2, 1], // 1 = Ramo Certo, 2 = Ramo Errado
+            choice: "quiz_1", 
+            kind: "special", 
+            number: 0, 
+            is_end: false 
+        },
+        
+        { 
+            name: "Mentor", 
+            msg: "Exatamente! Ter controle dos gastos é o primeiro passo para a inteligência financeira.", 
+            is_question: false, 
+            number: 1, 
+            is_end: true,
+            // A recompensa é dada automaticamente através do atributo 'reward'
+            trigger_event: { name: "quiz_1_done", kind: "special", result: 1, reward: 15 } 
+        },
+
+        { 
+            name: "Mentor", 
+            msg: "Hmm, não tenho certeza se isso é uma boa ideia... Tente pensar de outra forma.", 
+            is_question: false, 
+            number: 2, 
+            is_end: false, 
+            jump_to: 0 // <--- A MÁGICA: Volta para a frase no Índice 0 (A Pergunta)
+        }
+    ]
+}];
+
+global.dialog_mentor_quiz_2 = [{
+    kind: "unique", 
+    happened: false,
+    dialog: [
+
+        { 
+            name: "Mentor", 
+            msg: "Qual destes é um exemplo de 'Gasto Variável' (aquele que muda todo mês)?", 
+            is_question: true, 
+            options: [
+                "A mensalidade da internet.", 
+                "Gastos com pizza no final de semana.",  // certa
+                "A parcela fixa do seu curso.", 
+
+            ], 
+            option_results: [2, 1, 2], // 1 = Ramo Certo, 2 = Ramo Errado
+            choice: "quiz_2", 
+            kind: "special", 
+            number: 0, 
+            is_end: false 
+        },
+        
+        { 
+            name: "Mentor", 
+            msg: "Exatamente! Ter controle dos gastos é o primeiro passo para a inteligência financeira.", 
+            is_question: false, 
+            number: 1, 
+            is_end: true,
+            // A recompensa é dada automaticamente através do atributo 'reward'
+            trigger_event: { name: "quiz_2_done", kind: "special", result: 1, reward: 15 } 
+        },
+
+        { 
+            name: "Mentor", 
+            msg: "Hmm, não tenho certeza se isso é uma boa ideia... Tente pensar de outra forma.", 
+            is_question: false, 
+            number: 2, 
+            is_end: false, 
+            jump_to: 0 
+        }
+    ]
+}];
+
+
+global.dialog_mentor_quiz_3 = [{
+    kind: "unique", 
+    happened: false,
+    dialog: [
+
+        { 
+            name: "Mentor", 
+            msg: "Se o seu saldo acabando no meio do mês, qual a melhor estratégia?", 
+            is_question: true, 
+            options: [
+                "Pegar um empréstimo com juros altos.", 
+                "Esperar o próximo mês e não fazer nada.",  // certa
+                "Buscar uma forma de renda extra ou vender algo que não usa.", 
+
+            ], 
+            option_results: [2, 1, 2], // 1 = Ramo Certo, 2 = Ramo Errado
+            choice: "quiz_3", 
+            kind: "special", 
+            number: 0, 
+            is_end: false 
+        },
+        
+        { 
+            name: "Mentor", 
+            msg: "Exatamente! Ter controle dos gastos é o primeiro passo para a inteligência financeira.", 
+            is_question: false, 
+            number: 1, 
+            is_end: true,
+            // A recompensa é dada automaticamente através do atributo 'reward'
+            trigger_event: { name: "quiz_3_done", kind: "special", result: 1, reward: 15 } 
+        },
+
+        { 
+            name: "Mentor", 
+            msg: "Hmm, não tenho certeza se isso é uma boa ideia... Tente pensar de outra forma.", 
+            is_question: false, 
+            number: 2, 
+            is_end: false, 
+            jump_to: 0 // 
+        }
+    ]
+}];

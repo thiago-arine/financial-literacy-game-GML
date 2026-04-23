@@ -268,7 +268,17 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
         
             case "quiz_1_done":
                 global.quiz_1_finished = true;
-                show_debug_message("Quiz respondido corretamente! Recompensa de 50 liberada.");
+                show_debug_message("Quiz 1 respondido corretamente! ");
+            break;
+        
+            case "quiz_2_done":
+                global.quiz_1_finished = true;
+                show_debug_message("Quiz 2 respondido corretamente!.");
+            break;
+        
+            case "quiz_3_done":
+                global.quiz_1_finished = true;
+                show_debug_message("Quiz 3 respondido corretamente!.");
             break;
         
 			case "sell_item_simple":
