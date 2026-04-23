@@ -64,7 +64,13 @@ else if (keyboard_check_pressed(input_key) or response == true) {
 	    }
 	}
 
-    current_message++;
+    // --- LÓGICA DE REPETIÇÃO (QUIZ) ---
+    if (variable_struct_exists(_dialog_data, "jump_to")) {
+        current_message = _dialog_data.jump_to;
+        number_option = 0; // Reseta a rota de opções para o loop funcionar limpo
+    } else {
+        current_message++;
+    }
 
     // Verificação de fim de diálogo
     if (current_message >= array_length(_str.dialog) || _dialog_data.is_end == true){

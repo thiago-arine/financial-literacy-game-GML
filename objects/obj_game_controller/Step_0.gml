@@ -60,3 +60,8 @@ if (trigger_no_item) {
         trigger_no_item = false; // Reseta o gatilho após criar o diálogo
     }
 }
+
+// Exemplo: Dispara o quiz assim que o jogador atinge R$ 100 e ainda não fez o quiz
+if (global.balance >= 10 && !variable_global_exists("quiz_1_finished")) {
+    mentor_popup(global.dialog_mentor_quiz);
+}

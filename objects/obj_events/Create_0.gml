@@ -265,11 +265,18 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
                     show_debug_message("Missão da chave inglesa concluída.");
                 }
 			break;*/
+        
+            case "quiz_1_done":
+                global.quiz_1_finished = true;
+                show_debug_message("Quiz respondido corretamente! Recompensa de 50 liberada.");
+            break;
+        
 			case "sell_item_simple":
                 if (option_result == 3) {
                     show_debug_message("Jogador escolheu sair do diálogo.");
                     break; 
-                }
+            }
+                
                 
     		    var _item_id = "";
     		    var _display_name = "";
