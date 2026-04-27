@@ -189,7 +189,7 @@ dialog_mentor = [
         happened: false,
         required_event : "",
         dialog: [
-            { 
+            /*{ 
                 name: "Mentor",
                 msg: "Bem vindo! Sou seu mentor financeiro.",
                 is_question: false,
@@ -220,7 +220,7 @@ dialog_mentor = [
                 kind: "special",
                 number: -1,
                 is_end: false
-            },
+            },/*
             {
                 name: "Mentor",
                 msg: "Em todos os meses, no dia 1º, você receberá uma mesada...",
@@ -241,7 +241,7 @@ dialog_mentor = [
                 is_question: false,
                 number: -1,
                 is_end: false
-            },
+            },*/
             { 
                 name: "Mentor", 
                 msg: "Clique 'Z' para acessar seu saldo e 'C' para acessar seu celular. Boa sorte!",
