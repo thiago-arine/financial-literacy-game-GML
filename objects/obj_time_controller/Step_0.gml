@@ -29,14 +29,11 @@ if (is_fading) {
             if (fade_inst.fade_alpha >= 1) {
                 fade_inst.fade_alpha = 1;
                 
-                // Mudança de data no ápice do preto
-                global.game_minute_total = 0;
-                global.day += 7; 
-                if (global.day > 28) {
-                    global.day -= 28;
-                    global.month += 1;
-                    if (global.month > 12) global.month = 1;
-                }
+                // Mudança de data no ápice da transição
+                global.game_minute_total = 360; 
+                global.month += 1;
+                if (global.month > 12) global.month = 1;
+                    
                 banner_alpha = 2.0;
                 fade_inst.fade_state = 2; 
             }
