@@ -1,9 +1,10 @@
 draw_set_alpha(1); 
+draw_set_font(Font1);
 
 var _gui_w = display_get_gui_width();
 var _gui_h = display_get_gui_height();
 var _shop_w = 680;
-var _shop_h = 510;
+var _shop_h = 550;
 
 var _center_x = _gui_w / 2;
 var _center_y = _gui_h / 2;
@@ -17,7 +18,7 @@ draw_set_color(c_black);
 draw_rectangle(_x1, _y1, _x2, _y2, false);
 
 var start_x = _x1 + 30;
-var start_y = _y1 + 40;
+var start_y = _y1 + 20;
 var right_align_x = _x2 - 120;
 
 draw_set_color(c_white);
@@ -26,7 +27,7 @@ var _tab_buy_color = (menu_mode == 0) ? c_yellow : c_white;
 var _tab_sell_color = (menu_mode == 1) ? c_yellow : c_white;
 
 draw_text_color(start_x, start_y, "COMPRAR [A]", _tab_buy_color, _tab_buy_color, _tab_buy_color, _tab_buy_color, 1);
-draw_text_color(start_x + 165, start_y, "VENDER [D]", _tab_sell_color, _tab_sell_color, _tab_sell_color, _tab_sell_color, 1);
+draw_text_color(start_x + 180, start_y, "VENDER [D]", _tab_sell_color, _tab_sell_color, _tab_sell_color, _tab_sell_color, 1);
 
 var item_list_start_y = start_y + 60;
 
@@ -40,15 +41,15 @@ if (menu_mode == 0) {
             var _color = (selected == i) ? c_yellow : c_white;
             var _display_text = (selected == i ? "> " : "") + _item_data.name;
             
-            draw_text_color(start_x, _yy, _display_text, _color, _color, _color, _color, 1);
-            draw_text(right_align_x, _yy, "R$ " + string(_shop_entry.price)); 
+            draw_text_color(start_x, _yy + 30, _display_text, _color, _color, _color, _color, 1);
+            draw_text(right_align_x, _yy + 30, "R$ " + string(_shop_entry.price)); 
         }
     }
 }
 
 else {
     if (array_length(sell_items) == 0) {
-        draw_text(start_x, item_list_start_y, "Inventário Vazio");
+        draw_text(start_x, item_list_start_y + 30, "Inventário Vazio");
     } else {
         for (var i = 0; i < array_length(sell_items); i++) {
             var _inventory_id = sell_items[i].info[4]; 
@@ -58,15 +59,15 @@ else {
             var _color = (selected == i) ? c_yellow : c_white;
             var _display_text = (selected == i ? "> " : "") + _item_data.name;
             
-            draw_text_color(start_x, _yy, _display_text, _color, _color, _color, _color, 1);
-            draw_text(right_align_x, _yy, "R$ " + string(_item_data.sell_price));
+            draw_text_color(start_x, _yy + 30, _display_text, _color, _color, _color, _color, 1);
+            draw_text(right_align_x, _yy + 30, "R$ " + string(_item_data.sell_price));
         }
     }
 }
 
 draw_set_color(c_white);
-draw_text(start_x, start_y + 30, "Loja do Tadeu | SELECIONE UM ITEM |");
-draw_line(start_x, item_list_start_y - 5, _x2 - 30, item_list_start_y - 5);
+draw_text(start_x, start_y + 50, "Loja do Tadeu | SELECIONE UM ITEM |");
+draw_line(start_x, item_list_start_y + 25, _x2 - 30, item_list_start_y + 25);
 
 var y_line_footer = _y2 - 80;
 draw_line(start_x, y_line_footer, _x2 - 30, y_line_footer);
