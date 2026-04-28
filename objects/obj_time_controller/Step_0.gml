@@ -1,21 +1,21 @@
-if (global.time_is_paused) exit; 
-
-real_time_accumulator += delta_time / 1000000;
-
-// 1. LÓGICA DO RELÓGIO (Sempre dentro do acumulador)
-if (real_time_accumulator >= global.REAL_SECONDS_PER_GAME_MINUTE) {
-    global.game_minute_total += 1;
-    real_time_accumulator -= global.REAL_SECONDS_PER_GAME_MINUTE;
+if(!global.time_is_paused){
+    real_time_accumulator += delta_time / 1000000;
     
-    // Dispara o fade apenas na meia-noite
-    if (global.game_minute_total >= 1440) {
-        if (!is_fading) {
-            is_fading = true;
-            var inst = instance_create_depth(0, 0, -9999, obj_fade_transition);
-            inst.fade_state = 1; 
+    // 1. LÓGICA DO RELÓGIO (Sempre dentro do acumulador)
+    if (real_time_accumulator >= global.REAL_SECONDS_PER_GAME_MINUTE) {
+        global.game_minute_total += 1;
+        real_time_accumulator -= global.REAL_SECONDS_PER_GAME_MINUTE;
+        
+        // Dispara o fade apenas na meia-noite
+        if (global.game_minute_total >= 1440) {
+            if (!is_fading) {
+                is_fading = true;
+                var inst = instance_create_depth(0, 0, -9999, obj_fade_transition);
+                inst.fade_state = 1; 
+            }
         }
     }
-} 
+}
 
 // 2. LÓGICA DO FADE (Deve ficar fora do if do acumulador para ser suave)
 if (is_fading) {
@@ -28,8 +28,6 @@ if (is_fading) {
                    
             if (fade_inst.fade_alpha >= 1) {
                 fade_inst.fade_alpha = 1;
-                   
-                banner_alpha = 2.0;
                 
                 // Mudança de data no ápice do preto
                 global.game_minute_total = 0;
@@ -39,7 +37,7 @@ if (is_fading) {
                     global.month += 1;
                     if (global.month > 12) global.month = 1;
                 }
-                
+                banner_alpha = 2.0;
                 fade_inst.fade_state = 2; 
             }
         }

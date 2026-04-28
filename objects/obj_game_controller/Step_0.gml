@@ -13,7 +13,7 @@ if (instance_exists(obj_shop_ui)) {
 }
 
 //--- Low Balance warning ---//
-if (global.balance < 15 && !mentor_warned_low_balance && !_shop_blocking) {
+if (global.balance < 15 && !mentor_warned_low_balance && !_shop_blocking && !obj_time_controller.is_fading) {
     if (dialog_cooldown >= 30) {
         mentor_warned_low_balance = true;
         mentor_popup(global.dialog_mentor_low_balance);
@@ -25,7 +25,7 @@ if (global.balance >= 16) {
 }
 
 //--- First goal reached warning ---//
-if (global.balance >= 100 && !mentor_warned_first_goal_reached && !_shop_blocking) {
+if (global.balance >= 100 && !mentor_warned_first_goal_reached && !_shop_blocking && !obj_time_controller.is_fading) {
     if (!instance_exists(obj_dialog) && global.time_is_paused == false) {
         mentor_warned_first_goal_reached = true; 
         mentor_popup(global.dialog_mentor_first_goal_reached);
@@ -34,7 +34,7 @@ if (global.balance >= 100 && !mentor_warned_first_goal_reached && !_shop_blockin
 
 //--- Tutorial de Extrato (Disparado após o primeiro gasto) ---//
 // Verificamos se a loja fechou para não interromper a compra
-if (!mentor_warned_statement_tutorial && !_shop_blocking) {
+if (!mentor_warned_statement_tutorial && !_shop_blocking && !obj_time_controller.is_fading) {
     
     // Verifica se existe ao menos uma entrada de gasto no extrato
     var _has_spent = false;
@@ -48,28 +48,29 @@ if (!mentor_warned_statement_tutorial && !_shop_blocking) {
     }
 
     // Se houve gasto e o cooldown de diálogo permitiu 
-    if (_has_spent && dialog_cooldown >= 30 && !instance_exists(obj_dialog)) {
+    if (_has_spent && dialog_cooldown >= 30 && !instance_exists(obj_dialog) && !obj_time_controller.is_fading) {
         mentor_warned_statement_tutorial = true;
         mentor_popup(global.dialog_mentor_statement_tutorial);
     }
 }
 
+
 if (trigger_no_item) {
-    if (!instance_exists(obj_dialog)) {
+    if (!instance_exists(obj_dialog) && !obj_time_controller.is_fading) {
         mentor_popup(global.dialog_mentor_no_item);
         trigger_no_item = false; // Reseta o gatilho após criar o diálogo
     }
 }
 
 // Dispara o quiz assim que o jogador atinge R$ X,XX e ainda não fez o quiz
-if (global.balance <= 29 && !variable_global_exists("quiz_1_finished")) {
+if (global.balance <= 29 && !variable_global_exists("quiz_1_finished") && !obj_time_controller.is_fading) {
     mentor_popup(global.dialog_mentor_quiz);
 }
 
-if (global.balance >= 50 && !variable_global_exists("quiz_2_finished")) {
+if (global.balance >= 50 && !variable_global_exists("quiz_2_finished") && !obj_time_controller.is_fading) {
     mentor_popup(global.dialog_mentor_quiz_2);
 }
 
-if (global.balance <= 10 && !variable_global_exists("quiz_3_finished")) {
+if (global.balance <= 10 && !variable_global_exists("quiz_3_finished") && !obj_time_controller.is_fading) {
     mentor_popup(global.dialog_mentor_quiz_3);
 }
