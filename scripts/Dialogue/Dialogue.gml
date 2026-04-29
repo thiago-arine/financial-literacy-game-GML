@@ -785,7 +785,7 @@ global.dialog_donagraca = [
                 name: "Dona Graça", 
                 msg: "", 
                 is_question: true, 
-                options: ["Comprar Pelúcia (R$ 8,00)", "É linda, mas preciso guardar meu dinheiro.", "Agora não, Dona Graça. Obrigado!"], 
+                options: ["Comprar Pelúcia (R$ 8,00)", "É lindo, mas preciso guardar meu dinheiro.", "Agora não, Dona Graça. Obrigado!"], 
                 option_results: [1, 2, 3], 
                 choice: "buy_bear", 
                 kind: "loss", 
@@ -999,7 +999,7 @@ global.dialog_luna = [
 
             { 
                 name: "Luna", 
-                msg: "Oie! Já vendi todas as minhas pinturas essa semana.", 
+                msg: "Oie! Já vendi todas as minhas pinturas.", 
                 is_question: false, 
                 number: -1, 
                 is_end: false 
