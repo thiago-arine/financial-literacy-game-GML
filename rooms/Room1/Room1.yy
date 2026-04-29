@@ -26,6 +26,7 @@
     {"name":"inst_3329AD8D","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_25A05C78","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_770B5750","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_681165AD","path":"rooms/Room1/Room1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -54,6 +55,7 @@
         {"$GMRInstance":"v4","%Name":"inst_770B5750","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":true,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_770B5750","objectId":{"name":"obj_item_flashlight","path":"objects/obj_item_flashlight/obj_item_flashlight.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_item_parent","path":"objects/obj_item_parent/obj_item_parent.yy",},"propertyId":{"name":"manual_id","path":"objects/obj_item_parent/obj_item_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"flashlight_Room1_01",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":224.0,"y":208.0,},
+        {"$GMRInstance":"v4","%Name":"inst_681165AD","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_681165AD","objectId":{"name":"obj_hud_hints","path":"objects/obj_hud_hints/obj_hud_hints.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":432.0,"y":64.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":true,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"UI","depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_2D26F00E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2D26F00E","objectId":{"name":"obj_init","path":"objects/obj_init/obj_init.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":544.0,"y":160.0,},
