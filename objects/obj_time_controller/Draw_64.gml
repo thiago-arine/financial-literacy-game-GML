@@ -1,20 +1,22 @@
 var _gui_w = display_get_gui_width();
 
+draw_set_font(Font_Medium)
+
 var _month_names = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 var _day_names   = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"];
-var _date_string = _day_names[global.day_of_week] + ", " + string(global.day) + " de " + _month_names[global.month - 1];
+var _date_string = _month_names[global.month - 1];
 
 draw_set_halign(fa_right);
 draw_set_valign(fa_top);
 
 draw_set_color(c_black);
-draw_text(_gui_w - 19, 21, _date_string);
+draw_text(_gui_w - 19, 166, _date_string);
 draw_set_color(c_white);
-draw_text(_gui_w - 20, 20, _date_string);
+draw_text(_gui_w - 20, 165, _date_string);
 
-var _icon_x = _gui_w - 160;
-var _icon_y = 30;          
-var _scale = 4;
+var _icon_x = _gui_w - 230;
+var _icon_y = 0;          
+var _scale = 6;
 
 if (alpha_morning > 0) {
     draw_sprite_ext(icon_morning, 0, _icon_x, _icon_y, _scale, _scale, 0, c_white, alpha_morning);
@@ -37,7 +39,7 @@ if (banner_alpha > 0) {
     
     var _months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
     var _week = ((global.day - 1) div 7) + 1;
-    var _banner_text = _months[global.month - 1] + ", Semana " + string(_week);
+    var _banner_text = _months[global.month - 1] + "(" + string(global.month) + "/3) ";
     
     draw_set_font(Font_Banner); 
     draw_set_halign(fa_center);
