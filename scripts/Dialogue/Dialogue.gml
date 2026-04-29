@@ -926,7 +926,7 @@ global.dialog_luna = [
 
             { 
                 name: "Luna", 
-                msg: "Estou vendendo essa pintura por R$ 20,00. Você quer comprar?", 
+                msg: "Estou vendendo essa pintura por R$ 12,00. Você quer comprar?", 
                 is_question: true, 
                 options: ["Comprar Pintura (R$ 12,00)", "É linda, mas não posso gastar agora.", "Não, valeu."], 
                 option_results: [1, 2, 3], 
