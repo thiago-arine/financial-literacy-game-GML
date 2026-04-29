@@ -54,6 +54,18 @@ if (!mentor_warned_statement_tutorial && !_shop_blocking && !obj_time_controller
     }
 }
 
+// --- Verificação de Derrota (Game Over) ---
+   if (global.month >= 4 && !mentor_warned_game_over) {
+       if (global.balance < 100) {
+           // Se chegou no mês 4 sem os 100 reais
+           if (!obj_time_controller.is_fading && !instance_exists(obj_dialog)) {
+               mentor_warned_game_over = true;
+               mentor_popup(global.dialog_mentor_game_over);
+           }
+       }
+   }
+
+
 
 if (trigger_no_item) {
     if (!instance_exists(obj_dialog) && !obj_time_controller.is_fading) {

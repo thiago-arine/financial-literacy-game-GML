@@ -1255,51 +1255,6 @@ global.dialog_rocha  = [{
 ];
 
 global.dialog_mentor_quiz = [{
-    kind: "unique", // ou "pattern" dependendo de como for chamar
-    happened: false,
-    dialog: [
-        // ÍNDICE 0: A PERGUNTA
-        { 
-            name: "Mentor", 
-            msg: "Para economizar dinheiro no fim do mês, qual é a atitude mais importante?", 
-            is_question: true, 
-            options: [
-                "Gastar tudo no crédito", 
-                "Esconder dinheiro embaixo do colchão", 
-                "Anotar gastos e criar um orçamento", // <-- A Certa
-                "Comprar na promoção mesmo sem precisar"
-            ], 
-            option_results: [2, 2, 1], // 1 = Ramo Certo, 2 = Ramo Errado
-            choice: "quiz_1", 
-            kind: "special", 
-            number: 0, 
-            is_end: false 
-        },
-        
-        // ÍNDICE 1: RAMO DO ACERTO (Resultado 1)
-        { 
-            name: "Mentor", 
-            msg: "Exatamente! Ter controle dos gastos é o primeiro passo para a inteligência financeira.", 
-            is_question: false, 
-            number: 1, 
-            is_end: true, // Termina o diálogo
-            // A recompensa é dada automaticamente através do atributo 'reward'
-            trigger_event: { name: "quiz_1_done", kind: "special", result: 1, reward: 10 } 
-        },
-        
-        // ÍNDICE 2: RAMO DO ERRO (Resultado 2)
-        { 
-            name: "Mentor", 
-            msg: "Hmm, não tenho certeza se isso é uma boa ideia... Tente pensar de outra forma.", 
-            is_question: false, 
-            number: 2, 
-            is_end: false, 
-            jump_to: 0 // <--- A MÁGICA: Volta para a frase no Índice 0 (A Pergunta)
-        }
-    ]
-}];
-
-global.dialog_mentor_quiz = [{
     kind: "unique", 
     happened: false,
     dialog: [
@@ -1424,6 +1379,31 @@ global.dialog_mentor_quiz_3 = [{
             number: 2, 
             is_end: false, 
             jump_to: 0 // 
+        }
+    ]
+}];
+
+global.dialog_mentor_game_over = [{
+    kind: "unique", 
+    happened: false,
+    dialog: [
+        
+        { 
+            name: "Mentor", 
+            msg: "O tempo acabou! Você não conseguiu economizar os R$ 100,00 para o fone...", 
+            is_question: false, 
+            number: -1, 
+            is_end: false,
+            
+        },
+
+        { 
+            name: "Mentor", 
+            msg: "Tente planejar melhor seus gastos na próxima vez.", 
+            is_question: false, 
+            number: -1, 
+            is_end: true, 
+            jump_to: 0 
         }
     ]
 }];

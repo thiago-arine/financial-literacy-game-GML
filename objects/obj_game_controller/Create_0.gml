@@ -18,5 +18,6 @@ mentor_warned_first_goal_reached = false;
 mentor_warned_statement_tutorial = false;
 mentor_warned_inventory_tip = false;
 mentor_warned_welcome = false;
+mentor_warned_game_over = false;
 trigger_no_money = false;
 trigger_no_item = false;
