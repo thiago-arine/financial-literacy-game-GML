@@ -113,7 +113,7 @@ dialog_amigo = [
 				msg: "Amanhã nós jogamos juntos, tchauu.",
 				is_question: false,
 				number: 1,
-				is_end: false
+				is_end: true
 				},
             
             // RAMO DO NÃO (Resultado 2)
@@ -122,10 +122,10 @@ dialog_amigo = [
 				msg: "Eita, deixa para lá então...",
 				is_question: false,
 				number: 2,
-				is_end: false
+				is_end: true
 			},
             
-            // PARTE COMUM - MISSÃO (Número 3)
+            /*// PARTE COMUM - MISSÃO (Número 3)
             // IMPORTANTE: Definimos o option_results do Sim/Não para que, após as falas 1 ou 2, ele busque o 3
             { 
 				name: "Amigo",
@@ -141,7 +141,7 @@ dialog_amigo = [
 				number: 3,
 				is_end: true,
                 trigger_event: { name: "start_quest_key", kind: "special", result: 1 }
-			}
+			}*/
         ]
     },
     {   kind: "pattern",
@@ -155,7 +155,7 @@ global.dialog_mentor_transicao_fase = [{
     kind: "unique",
     happened: false,
     dialog: [
-        { 
+        /*{ 
             name: "Mentor", 
             msg: "Vejo que você juntou R$ 100! Deseja comprar o fone agora? Isso iniciará a próxima fase e missões pendentes podem ser perdidas.", 
             is_question: true, 
@@ -165,8 +165,29 @@ global.dialog_mentor_transicao_fase = [{
             kind: "special",
             number: -0, 
             is_end: false 
+        },*/
+        { 
+            name: "Mentor", 
+            msg: "Vejo que você juntou R$ 100! Parabéns!", 
+            is_question: false, 
+            number: 1, // Resposta "Sim"
+            is_end: false,
         },
         { 
+            name: "Mentor", 
+            msg: "Você conseguiu administrar seus ganhos e gastos corretamente e atingiu a meta a tempo.", 
+            is_question: false, 
+            number: 1, // Resposta "Sim"
+            is_end: false,
+        },
+        { 
+            name: "Mentor", 
+            msg: "Este é o fim da nossa jornada. Obrigado por jogar este playtest!", 
+            is_question: false, 
+            number: 1, // Resposta "Sim"
+            is_end: true,
+        },
+        /*{ 
             name: "Mentor", 
             msg: "Excelente escolha! Com os fones, novas oportunidades de trabalho surgirão. Sua próxima meta é economizar para um celular de R$ 900.", 
             is_question: false, 
@@ -180,7 +201,7 @@ global.dialog_mentor_transicao_fase = [{
             is_question: false, 
             number: 2, // Resposta "Não"
             is_end: true 
-        }
+        }*/
     ]
 }];
 
@@ -1390,7 +1411,15 @@ global.dialog_mentor_game_over = [{
         
         { 
             name: "Mentor", 
-            msg: "O tempo acabou! Você não conseguiu economizar os R$ 100,00 para o fone...", 
+            msg: "O tempo acabou! Você não conseguiu economizar os R$ 100,00 a tempo...", 
+            is_question: false, 
+            number: -1, 
+            is_end: false,
+            
+        },
+        { 
+            name: "Mentor", 
+            msg: "Que esta tentativa fique de experiência e te ajude a se planejar melhor em uma próxima vez!", 
             is_question: false, 
             number: -1, 
             is_end: false,
@@ -1399,7 +1428,7 @@ global.dialog_mentor_game_over = [{
 
         { 
             name: "Mentor", 
-            msg: "Tente planejar melhor seus gastos na próxima vez.", 
+            msg: "Este é o fim da nossa jornada. Obrigado por jogar este playtest!", 
             is_question: false, 
             number: -1, 
             is_end: true, 

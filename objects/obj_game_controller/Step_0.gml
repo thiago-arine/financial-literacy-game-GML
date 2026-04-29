@@ -55,7 +55,7 @@ if (!mentor_warned_statement_tutorial && !_shop_blocking && !obj_time_controller
 }
 
 // --- Verificação de Derrota (Game Over) ---
-   if (global.month >= 4 && !mentor_warned_game_over) {
+   if (global.month >= 4 && !mentor_warned_game_over && !_shop_blocking) {
        if (global.balance < 100) {
            // Se chegou no mês 4 sem os 100 reais
            if (!obj_time_controller.is_fading && !instance_exists(obj_dialog)) {
@@ -75,14 +75,14 @@ if (trigger_no_item) {
 }
 
 // Dispara o quiz assim que o jogador atinge R$ X,XX e ainda não fez o quiz
-if (global.balance <= 29 && !variable_global_exists("quiz_1_finished") && !obj_time_controller.is_fading) {
+if (global.balance <= 29 && !variable_global_exists("quiz_1_finished") && !obj_time_controller.is_fading && !_shop_blocking) {
     mentor_popup(global.dialog_mentor_quiz);
 }
 
-if (global.balance >= 50 && !variable_global_exists("quiz_2_finished") && !obj_time_controller.is_fading) {
+if (global.balance >= 50 && !variable_global_exists("quiz_2_finished") && !obj_time_controller.is_fading && !_shop_blocking) {
     mentor_popup(global.dialog_mentor_quiz_2);
 }
 
-if (global.balance <= 10 && !variable_global_exists("quiz_3_finished") && !obj_time_controller.is_fading) {
+if (mentor_warned_low_balance && !variable_global_exists("quiz_3_finished") && !obj_time_controller.is_fading && !_shop_blocking) {
     mentor_popup(global.dialog_mentor_quiz_3);
 }
