@@ -155,7 +155,7 @@ global.dialog_mentor_transicao_fase = [{
     kind: "unique",
     happened: false,
     dialog: [
-        /*{ 
+        { 
             name: "Mentor", 
             msg: "Vejo que você juntou R$ 100! Deseja comprar o fone agora? Isso iniciará a próxima fase e missões pendentes podem ser perdidas.", 
             is_question: true, 
@@ -165,7 +165,7 @@ global.dialog_mentor_transicao_fase = [{
             kind: "special",
             number: -0, 
             is_end: false 
-        },*/
+        },
         { 
             name: "Mentor", 
             msg: "Vejo que você juntou R$ 100! Parabéns!", 

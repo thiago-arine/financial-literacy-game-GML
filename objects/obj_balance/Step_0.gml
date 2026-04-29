@@ -4,8 +4,8 @@ if (global.day == 1 and global.month != last_payment_month) {
     
     // SÓ recebe se estivermos nos meses 1, 2 ou 3
     if (global.month < 4) {
-        global.balance += 30.00;
-        update_statement("Mesada Pais", "30", "gain");
+        global.balance += 40.00;
+        update_statement("Mesada Pais", "40", "gain");
         last_payment_month = global.month;
     } 
     else {
