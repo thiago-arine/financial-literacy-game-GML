@@ -210,13 +210,13 @@ dialog_mentor = [
         happened: false,
         required_event : "",
         dialog: [
-            /*{ 
+            { 
                 name: "Mentor",
                 msg: "Bem vindo! Sou seu mentor financeiro.",
                 is_question: false,
                 number: -1,
                 is_end: false
-            },
+            },/*
             { 
                 name: "Mentor",
                 msg: "Nosso objetivo: Construir liberdade financeira...",
@@ -233,7 +233,7 @@ dialog_mentor = [
             },*/
             {
                 name: "Mentor", 
-                msg: "Vamos começar. Qual o seu objetivo financeiro?",
+                msg: "Para começar, vamos definir o seu a sua meta:",
                 is_question: true,
                 options: ["Fone de Ouvido: R$100,00 em 4 meses"],   //"Celular: R$900,00 em 9 meses", "Formatura: R$1700,00 em 15 meses"]
                 option_results: [1], //[1, 2, 3]
@@ -241,28 +241,28 @@ dialog_mentor = [
                 kind: "special",
                 number: -1,
                 is_end: false
-            },/*
+            },
             {
                 name: "Mentor",
-                msg: "Em todos os meses, no dia 1º, você receberá uma mesada...",
+                msg: "Você terá 3 meses para atingir sua meta. ATENÇÃO! Cada mês dura 2 minutos!!",
                 is_question: false,
                 number: -1,
                 is_end: false
             }, 
-            { 
+            /*{ 
                 name: "Mentor", 
                 msg: "ATENÇÃO!!! Você encontrará várias decisões de compra. Na maioria você só terá UMA CHANCE de decidir aceitar ou não!",
                 is_question: false,
                 number: -1,
                 is_end: false
-            },
+            },*/
             { 
                 name: "Mentor", 
                 msg: "E fique esperto com os quizzes supresa!",
                 is_question: false,
                 number: -1,
                 is_end: false
-            },*/
+            },
             { 
                 name: "Mentor", 
                 msg: "Clique 'Z' para acessar seu saldo e 'C' para acessar seu celular. Boa sorte!",
@@ -385,7 +385,7 @@ global.dialog_shopkeeper_completou = [{
         is_question: false,
         number: 0,
         is_end: true,
-        trigger_event: { name: "quest_kite", kind: "special", result: 1, reward: 15 }
+        trigger_event: { name: "quest_kite", kind: "special", result: 1, reward: 10 }
     }]
 }];
 
@@ -499,7 +499,7 @@ global.dialog_influencer_completou = [{
         is_question: false,
         number: 0,
         is_end: true,
-        trigger_event: { name: "quest_headset", kind: "special", result: 1, reward: 20 }
+        trigger_event: { name: "quest_headset", kind: "special", result: 1, reward: 12 }
     }]
 }];
 
@@ -562,9 +562,16 @@ global.dialog_influencer = [
         number: 2,
         is_end: false
       },
-      {
+      /*{
         name: "Influencer",
         msg: "Você bem que podia pegar meu headset Hi-Tech T570S roxo que eu deixei na minha mansão particular futurista brilhante.",
+        is_question: false,
+        number: 2,
+        is_end: false
+      },*/
+      {
+        name: "Influencer",
+        msg: "Você bem que podia pegar meu headset Hi-Tech T570S roxo que eu deixei no banco da praça.",
         is_question: false,
         number: 2,
         is_end: false
@@ -1275,11 +1282,18 @@ global.dialog_rocha  = [{
     }
 ];
 
-global.dialog_mentor_quiz = [{
+global.dialog_mentor_quiz_1 = [{
     kind: "unique", 
     happened: false,
     dialog: [
 
+        { 
+            name: "Mentor", 
+            msg: "E lá vem um quiz surpresa para testar seus conhecimentos!", 
+            is_question: false, 
+            number: -1, 
+            is_end: false, 
+        },
         { 
             name: "Mentor", 
             msg: "Para economizar dinheiro no fim do mês, qual é a atitude mais importante?", 
@@ -1322,6 +1336,14 @@ global.dialog_mentor_quiz_2 = [{
     happened: false,
     dialog: [
 
+        { 
+            name: "Mentor", 
+            msg: "Quiz surpresa! Teste seus conhecimentos!", 
+            is_question: false, 
+            number: -1, 
+            is_end: false, 
+        },
+        
         { 
             name: "Mentor", 
             msg: "Qual destes é um exemplo de 'Gasto Variável' (aquele que muda todo mês)?", 
@@ -1368,6 +1390,14 @@ global.dialog_mentor_quiz_3 = [{
 
         { 
             name: "Mentor", 
+            msg: "Quiz surpresa! Responda com atenção!", 
+            is_question: false, 
+            number: -1, 
+            is_end: false, 
+        },
+        
+        { 
+            name: "Mentor", 
             msg: "Se o seu saldo acabando no meio do mês, qual a melhor estratégia?", 
             is_question: true, 
             options: [
@@ -1408,7 +1438,15 @@ global.dialog_mentor_quiz_4 = [{
     kind: "unique", 
     happened: false,
     dialog: [
-
+        
+        { 
+            name: "Mentor", 
+            msg: "Quiz surpresa! Vamos ver se você está afiado!", 
+            is_question: false, 
+            number: -1, 
+            is_end: false, 
+        },
+        
         { 
             name: "Mentor", 
             msg: "Qual a melhor estratégia para gerenciar sua mesada todos os meses?", 

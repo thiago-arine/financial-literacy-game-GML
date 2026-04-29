@@ -75,8 +75,20 @@ if (trigger_no_item) {
 }
 
 // Dispara o quiz assim que o jogador atinge R$ X,XX e ainda não fez o quiz
-if (global.balance <= 29 && !variable_global_exists("quiz_1_finished") && !obj_time_controller.is_fading && !_shop_blocking) {
-    mentor_popup(global.dialog_mentor_quiz);
+/*if (global.balance <= 29 && !variable_global_exists("quiz_1_finished") && !obj_time_controller.is_fading && !_shop_blocking) {
+    mentor_popup(global.dialog_mentor_quiz_1);
+}*/
+if (global.month == 2 && global.game_minute_total >= 500 && !mentor_warned_quiz_1) {
+    
+    // Verificações para garantir que nenhuma tela está sobrepondo e travando o jogo
+    if (!instance_exists(obj_dialog) && !obj_time_controller.is_fading && !_shop_blocking) {
+        
+        // Ativa a flag IMEDIATAMENTE para garantir que o código não rode no próximo frame
+        mentor_warned_quiz_1 = true; 
+        
+        // Chama o quiz
+        mentor_popup(global.dialog_mentor_quiz_1);
+    }
 }
 
 if (global.balance >= 50 && !variable_global_exists("quiz_2_finished") && !obj_time_controller.is_fading && !_shop_blocking) {

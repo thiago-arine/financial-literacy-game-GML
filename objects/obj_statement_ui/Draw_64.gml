@@ -33,7 +33,7 @@ if (statement_open) {
         var entry = global.statement[i];
         if (!is_struct(entry)) continue;
 
-        var _yy = start_y + (i * 24);
+        var _yy = start_y + (i * 30);
 
         draw_set_color(c_white);
         var text_header = string(entry.date) + " | " + string(entry.from) + " |";
@@ -45,7 +45,7 @@ if (statement_open) {
     }
 
     draw_set_color(c_white);
-    var y_line = (start_y + (array_length(global.statement) * 24)) + 12;
+    var y_line = (start_y + (array_length(global.statement) * 30)) + 12;
 
     draw_line(start_x, y_line, _x2 - 40, y_line);
 

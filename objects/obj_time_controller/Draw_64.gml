@@ -10,13 +10,13 @@ draw_set_halign(fa_right);
 draw_set_valign(fa_top);
 
 draw_set_color(c_black);
-draw_text(_gui_w - 19, 166, _date_string);
+draw_text(_gui_w - 19, 191, _date_string);
 draw_set_color(c_white);
-draw_text(_gui_w - 20, 165, _date_string);
+draw_text(_gui_w - 20, 190, _date_string);
 
-var _icon_x = _gui_w - 230;
+var _icon_x = _gui_w - 265;
 var _icon_y = 0;          
-var _scale = 6;
+var _scale = 7;
 
 if (alpha_morning > 0) {
     draw_sprite_ext(icon_morning, 0, _icon_x, _icon_y, _scale, _scale, 0, c_white, alpha_morning);

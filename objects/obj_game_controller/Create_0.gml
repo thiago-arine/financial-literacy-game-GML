@@ -20,5 +20,6 @@ mentor_warned_inventory_tip = false;
 mentor_warned_welcome = false;
 mentor_warned_game_over = false;
 mentor_warned_quiz_4 = false;
+mentor_warned_quiz_1 = false
 trigger_no_money = false;
 trigger_no_item = false;
