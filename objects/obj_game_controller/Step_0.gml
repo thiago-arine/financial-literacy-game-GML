@@ -86,3 +86,16 @@ if (global.balance >= 50 && !variable_global_exists("quiz_2_finished") && !obj_t
 if (mentor_warned_low_balance && !variable_global_exists("quiz_3_finished") && !obj_time_controller.is_fading && !_shop_blocking) {
     mentor_popup(global.dialog_mentor_quiz_3);
 }
+
+if (global.month == 3 && global.game_minute_total >= 500 && !mentor_warned_quiz_4) {
+    
+    // Verificações para garantir que nenhuma tela está sobrepondo e travando o jogo
+    if (!instance_exists(obj_dialog) && !obj_time_controller.is_fading && !_shop_blocking) {
+        
+        // Ativa a flag IMEDIATAMENTE para garantir que o código não rode no próximo frame
+        mentor_warned_quiz_4 = true; 
+        
+        // Chama o quiz
+        mentor_popup(global.dialog_mentor_quiz_4);
+    }
+}

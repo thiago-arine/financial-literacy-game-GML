@@ -1404,6 +1404,49 @@ global.dialog_mentor_quiz_3 = [{
     ]
 }];
 
+global.dialog_mentor_quiz_4 = [{
+    kind: "unique", 
+    happened: false,
+    dialog: [
+
+        { 
+            name: "Mentor", 
+            msg: "Qual a melhor estratégia para gerenciar sua mesada todos os meses?", 
+            is_question: true, 
+            options: [
+                "Dividir o dinheiro entre necessidades, desejos e poupança.", //certa
+                "Gastar tudo na primeira semana e esperar a próxima mesada.",  
+                "Guardar tudo e nunca gastar com nada que eu gosto.", 
+
+            ], 
+            option_results: [1, 2, 2], // 1 = Ramo Certo, 2 = Ramo Errado
+            choice: "quiz_4", 
+            kind: "special", 
+            number: 0, 
+            is_end: false 
+        },
+        
+        { 
+            name: "Mentor", 
+            msg: "Resposta correta! Você vai receber uma recompensa de R$10,00 por acertar o quiz!", 
+            is_question: false, 
+            number: 1, 
+            is_end: true,
+            // A recompensa é dada automaticamente através do atributo 'reward'
+            trigger_event: { name: "quiz_4_done", kind: "special", result: 1, reward: 10 } 
+        },
+
+        { 
+            name: "Mentor", 
+            msg: "Hmm, não tenho certeza se isso é uma boa ideia... Tente pensar de outra forma.", 
+            is_question: false, 
+            number: 2, 
+            is_end: false, 
+            jump_to: 0 // 
+        }
+    ]
+}];
+
 global.dialog_mentor_game_over = [{
     kind: "unique", 
     happened: false,

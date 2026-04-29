@@ -49,7 +49,7 @@ if (menu_mode == 0) {
 
 else {
     if (array_length(sell_items) == 0) {
-        draw_text(start_x, item_list_start_y + 30, "Inventário Vazio");
+        draw_text(start_x, item_list_start_y + 30, "Inventário vazio. (Tadeu só compra pipas e ferramentas)");
     } else {
         for (var i = 0; i < array_length(sell_items); i++) {
             var _inventory_id = sell_items[i].info[4]; 

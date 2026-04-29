@@ -281,6 +281,11 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
                 show_debug_message("Quiz 3 respondido corretamente!.");
             break;
         
+            case "quiz_4_done":
+                global.quiz_4_finished = true;
+                show_debug_message("Quiz 4 respondido corretamente!.");
+            break;
+        
 			case "sell_item_simple":
                 if (option_result == 3) {
                     show_debug_message("Jogador escolheu sair do diálogo.");
