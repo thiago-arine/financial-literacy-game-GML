@@ -21,5 +21,6 @@ mentor_warned_welcome = false;
 mentor_warned_game_over = false;
 mentor_warned_quiz_4 = false;
 mentor_warned_quiz_1 = false
+mentor_warned_quiz_3 = false
 trigger_no_money = false;
 trigger_no_item = false;

@@ -813,7 +813,7 @@ global.dialog_donagraca = [
                 name: "Dona Graça", 
                 msg: "", 
                 is_question: true, 
-                options: ["Comprar Pelúcia (R$ 8,00)", "É lindo, mas preciso guardar meu dinheiro.", "Agora não, Dona Graça. Obrigado!"], 
+                options: ["Comprar Pelúcia (R$ 8,00)", "É lindo, mas preciso guardar meu dinheiro.", "Vou ter que recusar, Dona Graça. Obrigado!"], 
                 option_results: [1, 2, 3], 
                 choice: "buy_bear", 
                 kind: "loss", 
@@ -1398,7 +1398,7 @@ global.dialog_mentor_quiz_3 = [{
         
         { 
             name: "Mentor", 
-            msg: "Se o seu saldo acabando no meio do mês, qual a melhor estratégia?", 
+            msg: "Se o seu saldo estiver acabando no meio do mês, qual a melhor estratégia?", 
             is_question: true, 
             options: [
                 "Pegar um empréstimo com juros altos.", 
@@ -1406,7 +1406,7 @@ global.dialog_mentor_quiz_3 = [{
                 "Buscar uma forma de renda extra ou vender algo que não usa.", 
 
             ], 
-            option_results: [2, 1, 2], // 1 = Ramo Certo, 2 = Ramo Errado
+            option_results: [2, 2, 1], // 1 = Ramo Certo, 2 = Ramo Errado
             choice: "quiz_3", 
             kind: "special", 
             number: 0, 

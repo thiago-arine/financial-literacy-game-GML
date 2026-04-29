@@ -14,15 +14,16 @@ if (instance_exists(obj_shop_ui)) {
 
 //--- Low Balance warning ---//
 if (global.balance < 15 && !mentor_warned_low_balance && !_shop_blocking && !obj_time_controller.is_fading) {
-    if (dialog_cooldown >= 30) {
+
+    if (dialog_cooldown >= 30 && !instance_exists(obj_dialog)) {
         mentor_warned_low_balance = true;
         mentor_popup(global.dialog_mentor_low_balance);
     }
 }
 
-if (global.balance >= 16) {
+/*if (global.balance >= 15) {
     mentor_warned_low_balance = false;
-}
+}*/
 
 //--- First goal reached warning ---//
 if (global.balance >= 100 && !mentor_warned_first_goal_reached && !_shop_blocking && !obj_time_controller.is_fading) {
@@ -95,8 +96,13 @@ if (global.balance >= 50 && !variable_global_exists("quiz_2_finished") && !obj_t
     mentor_popup(global.dialog_mentor_quiz_2);
 }
 
-if (mentor_warned_low_balance && !variable_global_exists("quiz_3_finished") && !obj_time_controller.is_fading && !_shop_blocking) {
-    mentor_popup(global.dialog_mentor_quiz_3);
+if (mentor_warned_low_balance && !mentor_warned_quiz_3 && !variable_global_exists("quiz_3_finished") && !obj_time_controller.is_fading && !_shop_blocking) {
+    
+    // IMPORTANTE: Espera o diálogo do aviso de saldo baixo fechar totalmente
+    if (!instance_exists(obj_dialog) && dialog_cooldown >= 30) {
+        mentor_warned_quiz_3 = true; // Trava para nunca mais repetir
+        mentor_popup(global.dialog_mentor_quiz_3);
+    }
 }
 
 if (global.month == 3 && global.game_minute_total >= 500 && !mentor_warned_quiz_4) {
