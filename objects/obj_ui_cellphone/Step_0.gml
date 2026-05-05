@@ -25,9 +25,9 @@ if (phone_y < display_get_gui_height() - 10) {
         var _move = keyboard_check_pressed(vk_right) - keyboard_check_pressed(vk_left);
         if (_move != 0) {
             selected_app += _move;
-            // Limites entre 0 e 2 (Banco, Metas, Agenda)
-            if (selected_app < 0) selected_app = 2;
-            if (selected_app > 2) selected_app = 0;
+            // Limites entre 0 e 3 (Banco, Metas, Agenda, Pular)
+            if (selected_app < 0) selected_app = 3;
+            if (selected_app > 3) selected_app = 0;
         }
 
         // Confirmar com Espaço ou Enter
@@ -35,6 +35,35 @@ if (phone_y < display_get_gui_height() - 10) {
             if (selected_app == 0) state = "BANK";
             else if (selected_app == 1) state = "GOAL";
             else if (selected_app == 2) state = "CALENDAR";
+            else if (selected_app == 3) {
+                state = "SKIP_CONFIRM";
+                skip_option_selected = 1; // Inicia focado no "Cancelar" por segurança
+            };
+        }
+    }
+    
+    // --- LÓGICA DO MENU DE CONFIRMAÇÃO (NOVO) ---
+    else if (state == "SKIP_CONFIRM") {
+        var _m = keyboard_check_pressed(vk_right) - keyboard_check_pressed(vk_left);
+        if (_m != 0) {
+            skip_option_selected += _m;
+            if (skip_option_selected < 0) skip_option_selected = 1;
+            if (skip_option_selected > 1) skip_option_selected = 0;
+        }
+        
+        if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter)) {
+            if (skip_option_selected == 0) { // OPÇÃO: PULAR DIA
+                global.game_minute_total = 1380; // Define para 23:00
+                state = "HOME";
+                phone_open = false;
+                global.time_is_paused = false;
+            } else { // OPÇÃO: CANCELAR
+                state = "HOME";
+            }
+        }
+        
+        if (keyboard_check_pressed(vk_escape)) {
+            state = "HOME";
         }
     }
 
