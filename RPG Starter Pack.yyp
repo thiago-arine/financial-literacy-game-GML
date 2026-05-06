@@ -134,6 +134,8 @@
     {"id":{"name":"spr_icon_bank","path":"sprites/spr_icon_bank/spr_icon_bank.yy",},},
     {"id":{"name":"spr_icon_calendar_highlight","path":"sprites/spr_icon_calendar_highlight/spr_icon_calendar_highlight.yy",},},
     {"id":{"name":"spr_icon_calendar","path":"sprites/spr_icon_calendar/spr_icon_calendar.yy",},},
+    {"id":{"name":"spr_icon_exit_highlight","path":"sprites/spr_icon_exit_highlight/spr_icon_exit_highlight.yy",},},
+    {"id":{"name":"spr_icon_exit","path":"sprites/spr_icon_exit/spr_icon_exit.yy",},},
     {"id":{"name":"spr_icon_goal_highlight","path":"sprites/spr_icon_goal_highlight/spr_icon_goal_highlight.yy",},},
     {"id":{"name":"spr_icon_goal","path":"sprites/spr_icon_goal/spr_icon_goal.yy",},},
     {"id":{"name":"spr_icon_skip_highlight","path":"sprites/spr_icon_skip_highlight/spr_icon_skip_highlight.yy",},},

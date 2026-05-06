@@ -25,9 +25,9 @@ if (phone_y < display_get_gui_height() - 10) {
         var _move = keyboard_check_pressed(vk_right) - keyboard_check_pressed(vk_left);
         if (_move != 0) {
             selected_app += _move;
-            // Limites entre 0 e 3 (Banco, Metas, Agenda, Pular)
-            if (selected_app < 0) selected_app = 3;
-            if (selected_app > 3) selected_app = 0;
+            // Limites entre 0 e 4 (Banco, Metas, Agenda, Pular, Sair)
+            if (selected_app < 0) selected_app = 4;
+            if (selected_app > 4) selected_app = 0;
         }
 
         // Confirmar com Espaço ou Enter
@@ -38,7 +38,11 @@ if (phone_y < display_get_gui_height() - 10) {
             else if (selected_app == 3) {
                 state = "SKIP_CONFIRM";
                 skip_option_selected = 1; // Inicia focado no "Cancelar" por segurança
-            };
+            }
+            else if (selected_app == 4) {
+                state = "EXIT_CONFIRM";
+                exit_option_selected = 1; // Inicia focado no "Cancelar" por segurança
+            }
         }
     }
     
@@ -64,6 +68,26 @@ if (phone_y < display_get_gui_height() - 10) {
         
         if (keyboard_check_pressed(vk_escape)) {
             state = "HOME";
+        }
+    }
+    
+    // --- LÓGICA DO MENU DE SAIR DO JOGO (NOVO) ---
+    else if (state == "EXIT_CONFIRM") {
+        var _m = keyboard_check_pressed(vk_right) - keyboard_check_pressed(vk_left);
+        if (_m != 0) {
+            exit_option_selected += _m;
+            if (exit_option_selected < 0) exit_option_selected = 1;
+            if (exit_option_selected > 1) exit_option_selected = 0;
+        }
+        
+        if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter)) {
+            if (exit_option_selected == 0) { 
+                // Fecha o jogo imediatamente
+                game_end(); 
+            } else { 
+                // Cancela e volta para a tela inicial do celular
+                state = "HOME";
+            }
         }
     }
 

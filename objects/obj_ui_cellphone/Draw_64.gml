@@ -29,12 +29,14 @@ if (phone_y < display_get_gui_height() - 10) {
         draw_text_transformed(_inner_x + 5, _inner_y + 155, "Agenda", 1, 1, 0);
     
         // 4. PULAR (Índice 3) - Posicionado na segunda linha ou ao lado
-        var _s_skip = (selected_app == 3) ? spr_icon_skip_highlight : spr_icon_skip;
-        var _skip_x = _inner_x;      // Começa nova linha
-        var _skip_y = _inner_y + 90; // 90 pixels abaixo da primeira linha
-        
+        var _s_skip = (selected_app == 3) ? spr_icon_skip_highlight : spr_icon_skip; 
         draw_sprite(_s_skip, 0, _inner_x + 80, _inner_y + 90);
         draw_text_transformed(_inner_x + 85, _inner_y + 155, "Pular", 1, 1, 0);
+        
+        // 5. SAIR (Índice 4) - Posicionado na terceira linha (abaixo da Agenda)
+        var _s_exit = (selected_app == 4) ? spr_icon_exit_highlight : spr_icon_exit;
+        draw_sprite(_s_exit, 0, _inner_x, _inner_y + 180);
+        draw_text_transformed(_inner_x + 5, _inner_y + 245, " Sair", 1, 1, 0);
     }
     
         // --- APP BANCO ---
@@ -94,12 +96,53 @@ if (phone_y < display_get_gui_height() - 10) {
         }
     }
     
-    // --- RENDERIZAÇÃO DO MENU DE CONFIRMAÇÃO (ADICIONAR AO FINAL DO EVENTO) ---
-   if (state == "SKIP_CONFIRM") {
+    // --- RENDERIZAÇÃO DO MENU DE CONFIRMAÇÃO ---
+    if (state == "SKIP_CONFIRM") {
+        var _gw = display_get_gui_width();
+        var _gh = display_get_gui_height();
+        var _mw = 400; // Largura do menu
+        var _mh = 200; // Altura do menu
+        var _x1 = (_gw - _mw) / 2;
+        var _y1 = (_gh - _mh) / 2;
+        var _x2 = _x1 + _mw;
+        var _y2 = _y1 + _mh;
+        
+        // Fundo preto
+        draw_set_color(c_black);
+        draw_set_alpha(0.9);
+        draw_rectangle(_x1, _y1, _x2, _y2, false);
+         
+        // Borda Branca (Tripla como o seu padrão de HUD)
+        draw_set_alpha(1);
+        draw_set_color(c_white);
+        for (var i = 0; i < 3; i++) {
+            draw_rectangle(_x1 - i, _y1 - i, _x2 + i, _y2 + i, true);
+        }
+        
+        // Texto de Pergunta
+        draw_set_halign(fa_center);
+        draw_text(_gw / 2, _y1 + 40, "Deseja pular para o\nfim do dia?");
+        
+        // Opções
+        var _opt_y = _y1 + 130;
+        
+        // Opção: Pular Dia
+        var _c_skip = (skip_option_selected == 0) ? c_yellow : c_white;
+        draw_text_color(_gw / 2 - 80, _opt_y, "Pular dia", _c_skip, _c_skip, _c_skip, _c_skip, 1);
+        
+        // Opção: Cancelar
+        var _c_canc = (skip_option_selected == 1) ? c_yellow : c_white;
+        draw_text_color(_gw / 2 + 80, _opt_y, "Cancelar", _c_canc, _c_canc, _c_canc, _c_canc, 1);
+        
+        draw_set_halign(fa_left); // Reseta alinhamento
+    }
+    
+    // --- RENDERIZAÇÃO DO MENU DE CONFIRMAÇÃO DE SAÍDA ---
+    if (state == "EXIT_CONFIRM") {
        var _gw = display_get_gui_width();
        var _gh = display_get_gui_height();
-       var _mw = 400; // Largura do menu
-       var _mh = 200; // Altura do menu
+       var _mw = 420; // Ligeiramente mais largo para acomodar o texto maior
+       var _mh = 200; 
        var _x1 = (_gw - _mw) / 2;
        var _y1 = (_gh - _mh) / 2;
        var _x2 = _x1 + _mw;
@@ -110,7 +153,7 @@ if (phone_y < display_get_gui_height() - 10) {
        draw_set_alpha(0.9);
        draw_rectangle(_x1, _y1, _x2, _y2, false);
        
-       // Borda Branca (Tripla como o seu padrão de HUD)
+       // Borda Branca (Tripla)
        draw_set_alpha(1);
        draw_set_color(c_white);
        for (var i = 0; i < 3; i++) {
@@ -119,17 +162,17 @@ if (phone_y < display_get_gui_height() - 10) {
    
        // Texto de Pergunta
        draw_set_halign(fa_center);
-       draw_text(_gw / 2, _y1 + 40, "Deseja pular para o\nfim do dia?");
+       draw_text(_gw / 2, _y1 + 40, "Deseja sair do jogo?\n(O progresso será perdido)");
    
        // Opções
        var _opt_y = _y1 + 130;
        
-       // Opção: Pular Dia
-       var _c_skip = (skip_option_selected == 0) ? c_yellow : c_white;
-       draw_text_color(_gw / 2 - 80, _opt_y, "Pular dia", _c_skip, _c_skip, _c_skip, _c_skip, 1);
+       // Opção: Sair
+       var _c_exit = (exit_option_selected == 0) ? c_red : c_white; // Destacado em vermelho fica interessante, mas se preferir mude para c_yellow
+       draw_text_color(_gw / 2 - 80, _opt_y, "Sair", _c_exit, _c_exit, _c_exit, _c_exit, 1);
    
        // Opção: Cancelar
-       var _c_canc = (skip_option_selected == 1) ? c_yellow : c_white;
+       var _c_canc = (exit_option_selected == 1) ? c_yellow : c_white;
        draw_text_color(_gw / 2 + 80, _opt_y, "Cancelar", _c_canc, _c_canc, _c_canc, _c_canc, 1);
        
        draw_set_halign(fa_left); // Reseta alinhamento
