@@ -1,7 +1,8 @@
 // Formato: ["Tecla", "Ação"]
 hints = [
+    ["Z", "Extrato"],
+    ["X", "Inventário"],
     ["C", "Celular"],
-    ["Z", "Saldo"],
     ["Espaço", "Interagir"]
 ];
 

@@ -26,3 +26,5 @@ global.quest_kite_finished = false;
 global.quest_kite_started = false;
 global.quest_headset_started = false;
 global.quest_key_started = false;
+
+window_mouse_set_locked(true)

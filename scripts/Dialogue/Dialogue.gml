@@ -22,7 +22,13 @@ global.char_colors = {
     "Amigo": c_orange,
     "Mentor": c_aqua,
     "Banco": c_red,
-    "Sorveteiro": c_fuchsia,
+    "Wanderley": c_fuchsia,
+    "Tadeu": c_teal,
+    "Luna": c_yellow,
+    "Aviso!": c_red,
+    "Influencer": c_orange,
+    "Lucas": c_lime,
+    "Dona Graça": c_fuchsia,
 };
 
 global.dialog_cicero = [{

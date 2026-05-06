@@ -7,6 +7,7 @@ var _spacing = 50;
 
 draw_set_halign(fa_left);
 draw_set_valign(fa_middle);
+draw_set_font(Font_Medium);
 
 pulse_timer += 0.05;
 var _alpha_pulse = 0.8 + sin(pulse_timer) * 0.2;

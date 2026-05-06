@@ -103,12 +103,12 @@ else if (keyboard_check_pressed(input_key) or response == true) {
 if (_dialog_data.is_question == true) {
     var _max_options = array_length(_dialog_data.options);
     
-    if (keyboard_check_pressed(vk_up)) {
+    if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W"))) {
         selected_option--;
         if (selected_option < 0) selected_option = _max_options - 1;
     }
     
-    if (keyboard_check_pressed(vk_down)) {
+    if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"))) {
         selected_option++;
         if (selected_option >= _max_options) selected_option = 0;
     }

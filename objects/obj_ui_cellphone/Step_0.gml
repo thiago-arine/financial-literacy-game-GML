@@ -1,6 +1,6 @@
 // 1. Controle de abrir/fechar
 if (keyboard_check_pressed(ord("C"))) {
-    // Travas par não abrir UI durante transição de dia
+    // Travas para não abrir UI durante transição de dia
     if (instance_exists(obj_time_controller) && obj_time_controller.is_fading) exit;
     if (instance_exists(obj_fade_transition)) exit;
 
@@ -16,15 +16,19 @@ if (keyboard_check_pressed(ord("X")) || keyboard_check_pressed(ord("Z"))) {
 var _target = phone_open ? (display_get_gui_height() - 500) : display_get_gui_height();
 phone_y = lerp(phone_y, _target, 0.15);
 
-// 2. Lógica de Interação (Cliques)
 // 2. Lógica de Interação
 if (phone_y < display_get_gui_height() - 10) {
     
-    // --- NAVEGAÇÃO POR TECLADO (SETAS) ---
+    // --- NAVEGAÇÃO POR TECLADO (SETAS OU A/D) ---
+    
+    // Criamos variáveis genéricas de entrada para simplificar o código abaixo
+    var input_right = keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D"));
+    var input_left  = keyboard_check_pressed(vk_left)  || keyboard_check_pressed(ord("A"));
+    var _move_input = input_right - input_left;
+
     if (state == "HOME") {
-        var _move = keyboard_check_pressed(vk_right) - keyboard_check_pressed(vk_left);
-        if (_move != 0) {
-            selected_app += _move;
+        if (_move_input != 0) {
+            selected_app += _move_input;
             // Limites entre 0 e 4 (Banco, Metas, Agenda, Pular, Sair)
             if (selected_app < 0) selected_app = 4;
             if (selected_app > 4) selected_app = 0;
@@ -37,20 +41,19 @@ if (phone_y < display_get_gui_height() - 10) {
             else if (selected_app == 2) state = "CALENDAR";
             else if (selected_app == 3) {
                 state = "SKIP_CONFIRM";
-                skip_option_selected = 1; // Inicia focado no "Cancelar" por segurança
+                skip_option_selected = 1; // Inicia focado no "Cancelar"
             }
             else if (selected_app == 4) {
                 state = "EXIT_CONFIRM";
-                exit_option_selected = 1; // Inicia focado no "Cancelar" por segurança
+                exit_option_selected = 1; // Inicia focado no "Cancelar"
             }
         }
     }
     
-    // --- LÓGICA DO MENU DE CONFIRMAÇÃO (NOVO) ---
+    // --- LÓGICA DO MENU DE CONFIRMAÇÃO ---
     else if (state == "SKIP_CONFIRM") {
-        var _m = keyboard_check_pressed(vk_right) - keyboard_check_pressed(vk_left);
-        if (_m != 0) {
-            skip_option_selected += _m;
+        if (_move_input != 0) {
+            skip_option_selected += _move_input;
             if (skip_option_selected < 0) skip_option_selected = 1;
             if (skip_option_selected > 1) skip_option_selected = 0;
         }
@@ -71,21 +74,18 @@ if (phone_y < display_get_gui_height() - 10) {
         }
     }
     
-    // --- LÓGICA DO MENU DE SAIR DO JOGO (NOVO) ---
+    // --- LÓGICA DO MENU DE SAIR DO JOGO ---
     else if (state == "EXIT_CONFIRM") {
-        var _m = keyboard_check_pressed(vk_right) - keyboard_check_pressed(vk_left);
-        if (_m != 0) {
-            exit_option_selected += _m;
+        if (_move_input != 0) {
+            exit_option_selected += _move_input;
             if (exit_option_selected < 0) exit_option_selected = 1;
             if (exit_option_selected > 1) exit_option_selected = 0;
         }
         
         if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter)) {
             if (exit_option_selected == 0) { 
-                // Fecha o jogo imediatamente
                 game_end(); 
             } else { 
-                // Cancela e volta para a tela inicial do celular
                 state = "HOME";
             }
         }
@@ -101,7 +101,7 @@ if (phone_y < display_get_gui_height() - 10) {
         }
     }
 
-    // Mantém a lógica de mouse original por compatibilidade
+    // Lógica de mouse original
     var _mx = device_mouse_x_to_gui(0);
     var _my = device_mouse_y_to_gui(0);
     var _inner_x = display_get_gui_width() - 445;

@@ -173,18 +173,28 @@ Process_game_event = function(event_name, event_kind, option_result, _reward = 0
         }
     }
 
-    // --- LÓGICA ESPECIAL (METAS E MISSÕES) ---
+ // --- LÓGICA ESPECIAL (METAS E MISSÕES) ---
     if (event_kind == "special") {
         
         // Se houver recompensa, adiciona ao saldo global
         if (_reward > 0) {
             global.balance += _reward;
-            // Opcional: Registrar no extrato/statement se desejar
-            update_statement("Recompensa: " + event_name, _reward, "gain"); 
+            
+            // --- NOVA LÓGICA PARA NOMES DE EXIBIÇÃO NO STATEMENT ---
+            var _statement_name = "Recompensa: " + event_name; // Padrão caso não entre no switch
+            
+            switch(event_name) {
+                case "quiz_1_done": _statement_name = "Prêmio: Quiz de Orçamento"; break;
+                case "quiz_2_done": _statement_name = "Prêmio: Quiz de Consumo"; break;
+                case "quiz_3_done": _statement_name = "Prêmio: Quiz de Crédito"; break;
+                case "quiz_4_done": _statement_name = "Prêmio: Quiz de Investimento"; break;
+            }
+            
+            update_statement(_statement_name, _reward, "gain"); 
         
             // --- feedback visual de recompensa ---
             global.draw_reward_value = _reward;
-            global.reward_alpha = 1.5; // Começa acima de 1 para durar um pouco mais antes de sumir
+            global.reward_alpha = 1.5; 
         }
         
         switch(event_name) {
