@@ -239,7 +239,7 @@ dialog_mentor = [
             },*/
             {
                 name: "Mentor", 
-                msg: "Para começar, vamos definir o seu a sua meta:",
+                msg: "Para começar, vamos definir a sua meta:",
                 is_question: true,
                 options: ["Fone de Ouvido: R$100,00 em 4 meses"],   //"Celular: R$900,00 em 9 meses", "Formatura: R$1700,00 em 15 meses"]
                 option_results: [1], //[1, 2, 3]
@@ -420,21 +420,21 @@ global.dialog_shopkeeper = [
             },
             { 
             name: "Tadeu", 
-            msg: "Ah, eu gosto muito de pipas desde criança. Não só vendo elas na loja, eu também brinco de empinar pipa quando posso.", 
+            msg: "Ah, eu gosto muito de pipas desde criança. Não só vendo elas na loja, como também gosto de empinar pipa quando posso.", 
             is_question: false, 
             number: 1, 
             is_end: false 
             },
             { 
             name: "Tadeu", 
-            msg: "Aliás, no outro dia, estava brincando com minha pipa novinha na praça, mas bateu um vento forte e ela caiu lá pra direita do parque depois de uma cerca. Não consigo chegar lá para recuperá-la", 
+            msg: "Aliás, outro dia, estava brincando com minha pipa novinha na praça, mas bateu um vento forte e ela caiu lá pra direita do parque depois de uma cerca. Não consigo chegar lá para recuperá-la", 
             is_question: false, 
             number: 1, 
             is_end: false 
             },
             { 
              name: "Tadeu", 
-            msg: "Se você estiver passando por lá qualquer dia e conseguir encontrar a pipa, traz ela para mim, por favor? Se você fizesse isso, eu ficaria muito grato!", 
+            msg: "Se você estiver passando por lá qualquer dia e conseguir encontrar a pipa, traga ela para mim, por favor? Se você fizesse isso, eu ficaria muito grato!", 
             is_question: false, 
             number: 1, 
             is_end: true,
@@ -501,7 +501,7 @@ global.dialog_influencer_completou = [{
     },
     {
         name: "Influencer",
-        msg: "Pode deixar comigo. E toma uns trocados aqui para comprar uma balinha que hoje eu tô me sentindo caridoso!",
+        msg: "Pode deixar comigo. E toma uns trocados aqui para comprar uma balinha, pois hoje eu estou caridoso!",
         is_question: false,
         number: 0,
         is_end: true,
@@ -549,7 +549,7 @@ global.dialog_influencer = [
       },
       {
         name: "Influencer",
-        msg: "...........",
+        msg: "............",
         is_question: false,
         number: 2,
         is_end: false
@@ -563,7 +563,7 @@ global.dialog_influencer = [
       },
       {
         name: "Influencer",
-        msg: "Não? Então vai ver se eu tô la na esquina vai!!------Naa verdadee! Já que você não tá fazendo nada aí parado...",
+        msg: "Não? Então vai ver se eu tô la na esquina vai!! Na verdade! Já que você não tá fazendo nada aí parado...",
         is_question: false,
         number: 2,
         is_end: false
@@ -584,7 +584,7 @@ global.dialog_influencer = [
       },
     {
         name: "Influencer",
-        msg: "Eu preciso desse headset para gravar meu próximo vídeo. Se você pegar pra mim, talvez eu até marque você no próximo story.",
+        msg: "Eu preciso desse headset para gravar meu próximo vídeo. Se você pegar pra mim, talvez eu até marque você no próximo vídeo.",
         is_question: false,
         number: 2,
         is_end: true,
@@ -745,7 +745,7 @@ global.dialog_lucas = [
 
             { 
                 name: "Lucas", 
-                msg: "Tranquilo, sem grilo. Vou ver se o pessoal do outro nono ano tem interesse. Falou!", 
+                msg: "Tranquilo, sem grilo. Vou ver se o outro pessoal têm interesse. Falou!", 
                 is_question: false, 
                 number: 3, 
                 is_end: true 
@@ -846,7 +846,7 @@ global.dialog_donagraca = [
 
             { 
                 name: "Dona Graça", 
-                msg: "Tudo bem, meu anjo. Passa aqui depois pra me dar um oi, mesmo se não for comprar nada! Vai com Deus.", 
+                msg: "Tudo bem, meu anjo. Passa aqui depois pra me dar um 'oi', mesmo se não for comprar nada! Vai com Deus.", 
                 is_question: false, 
                 number: 3, 
                 is_end: true 
@@ -1040,7 +1040,7 @@ global.dialog_luna = [
             },
             { 
                 name: "Luna", 
-                msg: "Mas gora vou focar nas minhas energias interiores buscando inspiração para a próxima pintura.", 
+                msg: "Mas agora vou focar nas minhas energias interiores buscando inspiração para a próxima pintura.", 
                 is_question: false, 
                 number: -1, 
                 is_end: false 
